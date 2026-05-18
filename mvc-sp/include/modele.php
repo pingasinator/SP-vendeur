@@ -12,7 +12,7 @@ abstract class Modele {
 	
 	/**
 	 * 
-	 * @param chaine de caractères $sql Contient la requête à exécuter
+	 * @param string $sql Contient la requête à exécuter
 	 * @param array $parametre paramètre optionnel
 	 * @return object $resultat Identifiant de requête
 	 */

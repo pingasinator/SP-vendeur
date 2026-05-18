@@ -134,7 +134,7 @@
                                             <form action="index.php" method="post">
                                                 <input type="hidden" name="gestion" value="produit">
                                                 <input type="hidden" name="action" value="form_consulter">
-                                                <input type="hidden" name="codec" value="{$produit->getReference()}">
+                                                <input type="hidden" name="reference" value="{$produit->getReference()}">
                                                 <input
                                                         type="image"
                                                         id="pImage"
@@ -147,7 +147,7 @@
                                             <form action="index.php" method="post">
                                                 <input type="hidden" name="gestion" value="client">
                                                 <input type="hidden" name="action" value="form_modifier">
-                                                <input type="hidden" name="codec" value="{$produit->getReference()}">
+                                                <input type="hidden" name="reference" value="{$produit->getReference()}">
                                                 <input
                                                         type="image"
                                                         id="mImage"
@@ -161,7 +161,7 @@
                                             <form action="index.php" method="post">
                                                 <input type="hidden" name="gestion" value="client">
                                                 <input type="hidden" name="action" value="form_supprimer">
-                                                <input type="hidden" name="codec" value="{$produit->getReference()}">
+                                                <input type="hidden" name="reference" value="{$produit->getReference()}">
                                                 <input
                                                         type="image"
                                                         id="sImage"

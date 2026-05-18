@@ -47,10 +47,9 @@ class ProduitModele extends Modele
         $idRequete = $this->executeRequete($sql, [$this->parametre['reference']]);
 
         // Retourner le produit ... Un objet de type ProduitTable
-//        $produitTableauAssociatif = $idRequete->fetch(PDO::FETCH_ASSOC);
-//        $produitObjet = new ProduitTable($produitTableauAssociatif);
-//        return $produitObjet;
-
+        // $produitTableauAssociatif = $idRequete->fetch(PDO::FETCH_ASSOC);
+        // $produitObjet = new ProduitTable($produitTableauAssociatif);
+        // return $produitObjet;
         // Manière plus synthétique
         return new ProduitTable($idRequete->fetch(PDO::FETCH_ASSOC));
     }

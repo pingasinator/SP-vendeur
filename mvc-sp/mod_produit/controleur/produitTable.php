@@ -113,7 +113,4 @@ class ProduitTable
     {
         $this->stock = $stock;
     }
-
-
-
 }

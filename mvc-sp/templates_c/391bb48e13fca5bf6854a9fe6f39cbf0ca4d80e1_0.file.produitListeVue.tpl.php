@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-05-18 13:47:56
+/* Smarty version 4.5.5, created on 2026-05-18 14:58:10
   from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_produit\vue\produitListeVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a0b188c642cf5_61776807',
+  'unifunc' => 'content_6a0b2902dbff26_80952208',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '391bb48e13fca5bf6854a9fe6f39cbf0ca4d80e1' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_produit\\vue\\produitListeVue.tpl',
-      1 => 1779112068,
+      1 => 1779116204,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6a0b188c642cf5_61776807 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a0b2902dbff26_80952208 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -178,7 +178,7 @@ $_smarty_tpl->tpl_vars['produit']->do_else = false;
                                             <form action="index.php" method="post">
                                                 <input type="hidden" name="gestion" value="produit">
                                                 <input type="hidden" name="action" value="form_consulter">
-                                                <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['produit']->value->getReference();?>
+                                                <input type="hidden" name="reference" value="<?php echo $_smarty_tpl->tpl_vars['produit']->value->getReference();?>
 ">
                                                 <input
                                                         type="image"
@@ -192,7 +192,7 @@ $_smarty_tpl->tpl_vars['produit']->do_else = false;
                                             <form action="index.php" method="post">
                                                 <input type="hidden" name="gestion" value="client">
                                                 <input type="hidden" name="action" value="form_modifier">
-                                                <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['produit']->value->getReference();?>
+                                                <input type="hidden" name="reference" value="<?php echo $_smarty_tpl->tpl_vars['produit']->value->getReference();?>
 ">
                                                 <input
                                                         type="image"
@@ -207,7 +207,7 @@ $_smarty_tpl->tpl_vars['produit']->do_else = false;
                                             <form action="index.php" method="post">
                                                 <input type="hidden" name="gestion" value="client">
                                                 <input type="hidden" name="action" value="form_supprimer">
-                                                <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['produit']->value->getReference();?>
+                                                <input type="hidden" name="reference" value="<?php echo $_smarty_tpl->tpl_vars['produit']->value->getReference();?>
 ">
                                                 <input
                                                         type="image"

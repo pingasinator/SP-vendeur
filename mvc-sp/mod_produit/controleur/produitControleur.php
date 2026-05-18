@@ -30,7 +30,7 @@ class ProduitControleur{
 
     public function form_consulter(){
 
-        $produits = $this->oModele->getUnProduits();
+        $produits = $this->oModele->getUnProduit();
 
         $this->oVue->genererAffichageFiche($produits);
     }
