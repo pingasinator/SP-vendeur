@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-05-18 12:09:33
+/* Smarty version 4.5.5, created on 2026-05-18 13:24:25
   from 'C:\laragon\www\SP-vendeur\mvc-sp\public\left.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a0b017d80d331_91538967',
+  'unifunc' => 'content_6a0b1309173617_56290407',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd8ab14ffb22e4a6a757d1e8d89e01918db242bc3' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\public\\left.tpl',
-      1 => 1779106136,
+      1 => 1779110664,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6a0b017d80d331_91538967 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a0b1309173617_56290407 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Left Panel -->
 
     <aside id="left-panel" class="left-panel">
@@ -51,7 +51,7 @@ function content_6a0b017d80d331_91538967 (Smarty_Internal_Template $_smarty_tpl)
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Produits</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="#A VOUS D'ECRIRE LE LIEN">Liste</a></li>
+                            <li><i class="fa fa-table"></i><a href="index.php?gestion=produit">Liste</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">

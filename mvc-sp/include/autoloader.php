@@ -24,6 +24,10 @@ class Autoloader {
             'mod_client/controleur/',
             'mod_client/modele/',
             'mod_client/vue/',
+            'mod_produit/',
+            'mod_produit/controleur/',
+            'mod_produit/modele/',
+            'mod_produit/vue/',
         ];
 
         foreach ($repertoires as $repertoire) {

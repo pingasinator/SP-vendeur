@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-03-30 13:51:05
-  from 'C:\laragon\www\mvc-sp\mvc-sp-04\mod_client\vue\produitListeVue.tpl' */
+/* Smarty version 4.5.5, created on 2026-05-18 13:47:56
+  from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_produit\vue\produitListeVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_69ca7fc9c00a62_02872803',
+  'unifunc' => 'content_6a0b188c642cf5_61776807',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '3dd38596389e33df12a42099456b97da12a48264' => 
+    '391bb48e13fca5bf6854a9fe6f39cbf0ca4d80e1' => 
     array (
-      0 => 'C:\\laragon\\www\\mvc-sp\\mvc-sp-04\\mod_client\\vue\\produitListeVue.tpl',
-      1 => 1774878638,
+      0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_produit\\vue\\produitListeVue.tpl',
+      1 => 1779112068,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_69ca7fc9c00a62_02872803 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a0b188c642cf5_61776807 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -99,7 +99,7 @@ function content_69ca7fc9c00a62_02872803 (Smarty_Internal_Template $_smarty_tpl)
                     <ol class="breadcrumb text-right">
                         <!-- PLACER LE FIL D'ARIANE -->
                         <li><a href="index.php">Accueil</a></li>
-                        <li><a href="index.php?gestion=client">Clients</a></li>
+                        <li><a href="index.php?gestion=produit">Produits</a></li>
                         <li class="active"><?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
 </li>
                     </ol>
@@ -140,10 +140,13 @@ function content_69ca7fc9c00a62_02872803 (Smarty_Internal_Template $_smarty_tpl)
                                 <!-- PLACER LA LISTE DES CLIENTS -->
                                 <thead>
                                 <tr>
-                                    <th>Code Client</th>
-                                    <th>Nom et prénom</th>
-                                    <th>Ville</th>
-                                    <th>Téléphone</th>
+                                    <th>Référence</th>
+                                    <th>Désignation</th>
+                                    <th>Poid pièce</th>
+                                    <th>Prix unitaire (HT)</th>
+                                    <th>Quantité</th>
+                                    <th>Descriptif</th>
+                                    <th>Stock</th>
                                     <th class="pos-actions">Consulter</th>
                                     <th class="pos-actions">Modifier</th>
                                     <th class="pos-actions">Supprimer</th>
@@ -151,25 +154,31 @@ function content_69ca7fc9c00a62_02872803 (Smarty_Internal_Template $_smarty_tpl)
                                 </thead>
                                 <tbody>
                                 <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['listeClients']->value, 'client');
-$_smarty_tpl->tpl_vars['client']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['client']->value) {
-$_smarty_tpl->tpl_vars['client']->do_else = false;
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['listeProduits']->value, 'produit');
+$_smarty_tpl->tpl_vars['produit']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['produit']->value) {
+$_smarty_tpl->tpl_vars['produit']->do_else = false;
 ?>
                                     <tr>
-                                        <td><?php echo $_smarty_tpl->tpl_vars['client']->value->getCodec();?>
+                                        <td><?php echo $_smarty_tpl->tpl_vars['produit']->value->getReference();?>
 </td>
-                                        <td><?php echo $_smarty_tpl->tpl_vars['client']->value->getNom();?>
+                                        <td><?php echo $_smarty_tpl->tpl_vars['produit']->value->getDesignation();?>
 </td>
-                                        <td><?php echo $_smarty_tpl->tpl_vars['client']->value->getVille();?>
+                                        <td><?php echo $_smarty_tpl->tpl_vars['produit']->value->getPoid_Piece();?>
 </td>
-                                        <td><?php echo $_smarty_tpl->tpl_vars['client']->value->getTelephone();?>
+                                        <td><?php echo $_smarty_tpl->tpl_vars['produit']->value->getPrix_Unitaire_HT();?>
+</td>
+                                        <td><?php echo $_smarty_tpl->tpl_vars['produit']->value->getQuantite();?>
+</td>
+                                        <td><?php echo $_smarty_tpl->tpl_vars['produit']->value->getDescriptif();?>
+</td>
+                                        <td><?php echo $_smarty_tpl->tpl_vars['produit']->value->getStock();?>
 </td>
                                         <td class="pos-actions">
                                             <form action="index.php" method="post">
-                                                <input type="hidden" name="gestion" value="client">
+                                                <input type="hidden" name="gestion" value="produit">
                                                 <input type="hidden" name="action" value="form_consulter">
-                                                <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['client']->value->getCodec();?>
+                                                <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['produit']->value->getReference();?>
 ">
                                                 <input
                                                         type="image"
@@ -183,7 +192,7 @@ $_smarty_tpl->tpl_vars['client']->do_else = false;
                                             <form action="index.php" method="post">
                                                 <input type="hidden" name="gestion" value="client">
                                                 <input type="hidden" name="action" value="form_modifier">
-                                                <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['client']->value->getCodec();?>
+                                                <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['produit']->value->getReference();?>
 ">
                                                 <input
                                                         type="image"
@@ -198,7 +207,7 @@ $_smarty_tpl->tpl_vars['client']->do_else = false;
                                             <form action="index.php" method="post">
                                                 <input type="hidden" name="gestion" value="client">
                                                 <input type="hidden" name="action" value="form_supprimer">
-                                                <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['client']->value->getCodec();?>
+                                                <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['produit']->value->getReference();?>
 ">
                                                 <input
                                                         type="image"
@@ -211,7 +220,7 @@ $_smarty_tpl->tpl_vars['client']->do_else = false;
                                     </tr>
                                     <?php
 }
-if ($_smarty_tpl->tpl_vars['client']->do_else) {
+if ($_smarty_tpl->tpl_vars['produit']->do_else) {
 ?>
                                     <tr>
                                         <td colspan="7">

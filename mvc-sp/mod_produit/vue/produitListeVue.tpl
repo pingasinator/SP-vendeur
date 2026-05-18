@@ -1,29 +1,4 @@
-<?php
-/* Smarty version 4.5.5, created on 2026-03-30 13:51:05
-  from 'C:\laragon\www\mvc-sp\mvc-sp-04\mod_client\vue\produitListeVue.tpl' */
-
-/* @var Smarty_Internal_Template $_smarty_tpl */
-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '4.5.5',
-  'unifunc' => 'content_69ca7fc9c00a62_02872803',
-  'has_nocache_code' => false,
-  'file_dependency' => 
-  array (
-    '3dd38596389e33df12a42099456b97da12a48264' => 
-    array (
-      0 => 'C:\\laragon\\www\\mvc-sp\\mvc-sp-04\\mod_client\\vue\\produitListeVue.tpl',
-      1 => 1774878638,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-    'file:public/left.tpl' => 1,
-    'file:public/header.tpl' => 1,
-  ),
-),false)) {
-function content_69ca7fc9c00a62_02872803 (Smarty_Internal_Template $_smarty_tpl) {
-?><!doctype html>
+<!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>
@@ -35,8 +10,7 @@ function content_69ca7fc9c00a62_02872803 (Smarty_Internal_Template $_smarty_tpl)
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Séraphin PARYS - <?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
-</title>
+    <title>Séraphin PARYS - {$titrePage}</title>
     <meta name="description" content="<!-- PLACER LE TITRE-->">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -56,9 +30,7 @@ function content_69ca7fc9c00a62_02872803 (Smarty_Internal_Template $_smarty_tpl)
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
-    <!-- <?php echo '<script'; ?>
- type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"><?php echo '</script'; ?>
-> -->
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 
 </head>
 <body>
@@ -67,8 +39,7 @@ function content_69ca7fc9c00a62_02872803 (Smarty_Internal_Template $_smarty_tpl)
 <!-- Left Panel -->
 
 
-<?php $_smarty_tpl->_subTemplateRender('file:public/left.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-?>
+{include file='public/left.tpl'}
 
 <!-- FIN : Left Panel -->
 
@@ -79,8 +50,7 @@ function content_69ca7fc9c00a62_02872803 (Smarty_Internal_Template $_smarty_tpl)
 
     <!--Header -->
 
-    <?php $_smarty_tpl->_subTemplateRender('file:public/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-?>
+    {include file='public/header.tpl'}
 
     <!-- FIN : header -->
 
@@ -99,9 +69,8 @@ function content_69ca7fc9c00a62_02872803 (Smarty_Internal_Template $_smarty_tpl)
                     <ol class="breadcrumb text-right">
                         <!-- PLACER LE FIL D'ARIANE -->
                         <li><a href="index.php">Accueil</a></li>
-                        <li><a href="index.php?gestion=client">Clients</a></li>
-                        <li class="active"><?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
-</li>
+                        <li><a href="index.php?gestion=produit">Produits</a></li>
+                        <li class="active">{$titrePage}</li>
                     </ol>
                 </div>
             </div>
@@ -117,8 +86,7 @@ function content_69ca7fc9c00a62_02872803 (Smarty_Internal_Template $_smarty_tpl)
 
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title"><?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
-
+                            <strong class="card-title">{$titrePage}
 
                                 <!-- PLACER LE FORMULAIRE D'AJOUT-->
                                 <form action="index.php" method="post" class="pos-ajout">
@@ -140,37 +108,33 @@ function content_69ca7fc9c00a62_02872803 (Smarty_Internal_Template $_smarty_tpl)
                                 <!-- PLACER LA LISTE DES CLIENTS -->
                                 <thead>
                                 <tr>
-                                    <th>Code Client</th>
-                                    <th>Nom et prénom</th>
-                                    <th>Ville</th>
-                                    <th>Téléphone</th>
+                                    <th>Référence</th>
+                                    <th>Désignation</th>
+                                    <th>Poid pièce</th>
+                                    <th>Prix unitaire (HT)</th>
+                                    <th>Quantité</th>
+                                    <th>Descriptif</th>
+                                    <th>Stock</th>
                                     <th class="pos-actions">Consulter</th>
                                     <th class="pos-actions">Modifier</th>
                                     <th class="pos-actions">Supprimer</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['listeClients']->value, 'client');
-$_smarty_tpl->tpl_vars['client']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['client']->value) {
-$_smarty_tpl->tpl_vars['client']->do_else = false;
-?>
+                                {foreach from=$listeProduits item=produit}
                                     <tr>
-                                        <td><?php echo $_smarty_tpl->tpl_vars['client']->value->getCodec();?>
-</td>
-                                        <td><?php echo $_smarty_tpl->tpl_vars['client']->value->getNom();?>
-</td>
-                                        <td><?php echo $_smarty_tpl->tpl_vars['client']->value->getVille();?>
-</td>
-                                        <td><?php echo $_smarty_tpl->tpl_vars['client']->value->getTelephone();?>
-</td>
+                                        <td>{$produit->getReference()}</td>
+                                        <td>{$produit->getDesignation()}</td>
+                                        <td>{$produit->getPoid_Piece()}</td>
+                                        <td>{$produit->getPrix_Unitaire_HT()}</td>
+                                        <td>{$produit->getQuantite()}</td>
+                                        <td>{$produit->getDescriptif()}</td>
+                                        <td>{$produit->getStock()}</td>
                                         <td class="pos-actions">
                                             <form action="index.php" method="post">
-                                                <input type="hidden" name="gestion" value="client">
+                                                <input type="hidden" name="gestion" value="produit">
                                                 <input type="hidden" name="action" value="form_consulter">
-                                                <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['client']->value->getCodec();?>
-">
+                                                <input type="hidden" name="codec" value="{$produit->getReference()}">
                                                 <input
                                                         type="image"
                                                         id="pImage"
@@ -183,8 +147,7 @@ $_smarty_tpl->tpl_vars['client']->do_else = false;
                                             <form action="index.php" method="post">
                                                 <input type="hidden" name="gestion" value="client">
                                                 <input type="hidden" name="action" value="form_modifier">
-                                                <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['client']->value->getCodec();?>
-">
+                                                <input type="hidden" name="codec" value="{$produit->getReference()}">
                                                 <input
                                                         type="image"
                                                         id="mImage"
@@ -198,8 +161,7 @@ $_smarty_tpl->tpl_vars['client']->do_else = false;
                                             <form action="index.php" method="post">
                                                 <input type="hidden" name="gestion" value="client">
                                                 <input type="hidden" name="action" value="form_supprimer">
-                                                <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['client']->value->getCodec();?>
-">
+                                                <input type="hidden" name="codec" value="{$produit->getReference()}">
                                                 <input
                                                         type="image"
                                                         id="sImage"
@@ -209,18 +171,13 @@ $_smarty_tpl->tpl_vars['client']->do_else = false;
                                             </form>
                                         </td>
                                     </tr>
-                                    <?php
-}
-if ($_smarty_tpl->tpl_vars['client']->do_else) {
-?>
+                                    {foreachelse}
                                     <tr>
                                         <td colspan="7">
                                             Aucun client trouvé
                                         </td>
                                     </tr>
-                                <?php
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                                {/foreach}
 
                                 </tbody>
 
@@ -237,64 +194,30 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     </div><!-- /#right-panel -->
 
     <!-- Right Panel -->
-    <?php echo '<script'; ?>
- src="public/assets/js/vendor/jquery-2.1.4.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="public/assets/js/plugins.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="public/assets/js/main.js"><?php echo '</script'; ?>
->
+    <script src="public/assets/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script src="public/assets/js/plugins.js"></script>
+    <script src="public/assets/js/main.js"></script>
 
 
-    <?php echo '<script'; ?>
- src="public/assets/js/lib/data-table/datatables.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="public/assets/js/lib/data-table/dataTables.bootstrap.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="public/assets/js/lib/data-table/dataTables.buttons.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="public/assets/js/lib/data-table/buttons.bootstrap.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="public/assets/js/lib/data-table/jszip.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="public/assets/js/lib/data-table/pdfmake.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="public/assets/js/lib/data-table/vfs_fonts.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="public/assets/js/lib/data-table/buttons.html5.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="public/assets/js/lib/data-table/buttons.print.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="public/assets/js/lib/data-table/buttons.colVis.min.js"><?php echo '</script'; ?>
->
-    <?php echo '<script'; ?>
- src="public/assets/js/lib/data-table/datatables-init.js"><?php echo '</script'; ?>
->
+    <script src="public/assets/js/lib/data-table/datatables.min.js"></script>
+    <script src="public/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
+    <script src="public/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
+    <script src="public/assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
+    <script src="public/assets/js/lib/data-table/jszip.min.js"></script>
+    <script src="public/assets/js/lib/data-table/pdfmake.min.js"></script>
+    <script src="public/assets/js/lib/data-table/vfs_fonts.js"></script>
+    <script src="public/assets/js/lib/data-table/buttons.html5.min.js"></script>
+    <script src="public/assets/js/lib/data-table/buttons.print.min.js"></script>
+    <script src="public/assets/js/lib/data-table/buttons.colVis.min.js"></script>
+    <script src="public/assets/js/lib/data-table/datatables-init.js"></script>
 
 
-    <?php echo '<script'; ?>
- type="text/javascript">
+    <script type="text/javascript">
         $(document).ready(function () {
             $('#bootstrap-data-table-export').DataTable();
         });
-    <?php echo '</script'; ?>
->
+    </script>
 
 </body>
 </html>
-<?php }
-}
