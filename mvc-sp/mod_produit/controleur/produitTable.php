@@ -5,7 +5,7 @@ class ProduitTable
 
     private $descriptif = '';
     private $designation = '';
-    private $poid_piece = '';
+    private $poids_piece = '';
     private $prix_unitaire_HT = '';
     private $quantite = '';
     private $reference = '';
@@ -49,9 +49,9 @@ class ProduitTable
         return $this->designation;
     }
 
-    public function getPoid_Piece(): string
+    public function getPoids_Piece(): string
     {
-        return $this->poid_piece;
+        return $this->poids_piece;
     }
 
     public function getPrix_Unitaire_HT(): string
@@ -89,9 +89,9 @@ class ProduitTable
         $this->designation = $designation;
     }
 
-    public function setPoid_Piece(string $poid_piece): void
+    public function setPoids_Piece(string $poids_piece): void
     {
-        $this->poid_piece = $poid_piece;
+        $this->poids_piece = $poids_piece;
     }
 
     public function setPrix_Unitaire_HT(string $prix_unitaire_HT): void

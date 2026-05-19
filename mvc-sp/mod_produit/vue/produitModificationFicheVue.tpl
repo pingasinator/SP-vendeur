@@ -108,19 +108,17 @@
                                             id="designation"
                                             name="designation"
                                             class="form-control"
-                                            readonly="readonly"
                                             value="{$unProduit->getDesignation()}">
 
                                 </div>
                                 <div class="form-group">
-                                    <label for="poid_piece" class="">Poid pièce :</label>
+                                    <label for="poids_piece" class="">Poids pièce :</label>
                                     <input
                                             type="text"
-                                            id="poid_piece"
-                                            name="poid_piece"
+                                            id="poids_piece"
+                                            name="poids_piece"
                                             class="form-control"
-                                            readonly="readonly"
-                                            value="{$unProduit->getPoid_Piece()}">
+                                            value="{$unProduit->getPoids_Piece()}">
 
                                 </div>
                                 <div class="form-group">
@@ -130,7 +128,6 @@
                                             id="prix_unitaire_ht"
                                             name="prix_unitaire_ht"
                                             class="form-control"
-                                            readonly="readonly"
                                             value="{$unProduit->getPrix_Unitaire_HT()}">
 
                                 </div>
@@ -141,7 +138,6 @@
                                             id="quantite"
                                             name="quantite"
                                             class="form-control"
-                                            readonly="readonly"
                                             value="{$unProduit->getQuantite()}">
 
                                 </div>
@@ -152,8 +148,17 @@
                                             id="descriptif"
                                             name="descriptif"
                                             class="form-control"
-                                            readonly="readonly"
                                             value="{$unProduit->getDescriptif()}">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="quantite" class="">Stock : </label>
+                                    <input
+                                            type="text"
+                                            id="stock"
+                                            name="stock"
+                                            class="form-control"
+                                            value="{$unProduit->getStock()}">
 
                                 </div>
                             </div>
@@ -167,9 +172,9 @@
                                 </div>
                                 <div class="col-md-6">
                                     <input type="hidden" name="gestion" value="produit">
-                                    <input type="hidden" name="action" value="form_modifier">
+                                    <input type="hidden" name="action" value="form_valider_mofication">
                                     <input type="hidden" name="codec" value="{$unProduit->getReference()}">
-                                    <input type="submit" class="btn btn-submit" value="Modifier">
+                                    <input type="submit" class="btn btn-submit" value="Valider">
                                 </div>
                                 <br>
                             </div>

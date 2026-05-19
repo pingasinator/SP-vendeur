@@ -113,14 +113,14 @@
 
                                 </div>
                                 <div class="form-group">
-                                    <label for="poid_piece" class="">Poid pièce :</label>
+                                    <label for="poids_piece" class="">Poids pièce :</label>
                                     <input
                                             type="text"
-                                            id="poid_piece"
-                                            name="poid_piece"
+                                            id="poids_piece"
+                                            name="poids_piece"
                                             class="form-control"
                                             readonly="readonly"
-                                            value="{$unProduit->getPoid_Piece()}">
+                                            value="{$unProduit->getPoids_Piece()}">
 
                                 </div>
                                 <div class="form-group">
@@ -156,8 +156,18 @@
                                             value="{$unProduit->getDescriptif()}">
 
                                 </div>
+                                <div class="form-group">
+                                    <label for="quantite" class="">Stock : </label>
+                                    <input
+                                            type="text"
+                                            id="stock"
+                                            name="stock"
+                                            class="form-control"
+                                            readonly="readonly"
+                                            value="{$unProduit->getStock()}">
+
+                                </div>
                             </div>
-                            <div>{$action}</div>
 
                             <div class="card-body">
                                 <div class="col-md-6">
@@ -167,12 +177,10 @@
                                            onclick="location.href='index.php?gestion=produit'">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="button"
-                                           class="btn btn-submit"
-                                           value="Modifier"
-                                           onclick="location.href='index.php?gestion=produit&action=form_modifier'">
-                                    {* ICI le BOUTON VALIDER / MODIFIER*}
-                                    ICI le BOUTON VALIDER / MODIFIER
+                                    <input type="hidden" name="gestion" value="produit">
+                                    <input type="hidden" name="action" value="form_modifier">
+                                    <input type="hidden" name="reference" value="{$unProduit->getReference()}">
+                                    <input type="submit" class="btn btn-submit" value="Modifier">
                                 </div>
                                 <br>
                             </div>

@@ -34,4 +34,14 @@ class ProduitControleur{
 
         $this->oVue->genererAffichageFiche($produits);
     }
+
+    public function form_modifier(){
+        $produits = $this->oModele->getUnProduit();
+
+        $this->oVue->genererAffichageModificationFiche($produits);
+    }
+
+    public function form_valider_modification(){
+        $this->oModele->modifierUnProduit();
+    }
 }

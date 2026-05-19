@@ -90,9 +90,9 @@
 
                                 <!-- PLACER LE FORMULAIRE D'AJOUT-->
                                 <form action="index.php" method="post" class="pos-ajout">
-                                    <input type="hidden" name="gestion" value="client">
+                                    <input type="hidden" name="gestion" value="produit">
                                     <input type="hidden" name="action" value="form_ajouter">
-                                    <label>Ajouter un client :
+                                    <label>Ajouter un produit :
                                         <input
                                                 type="image"
                                                 id="aImage"
@@ -105,12 +105,12 @@
                         </div>
                         <div class="card-body">
                             <table id="bootstrap-data-table" class="table table-striped table-bordered">
-                                <!-- PLACER LA LISTE DES CLIENTS -->
+                                <!-- PLACER LA LISTE DES PRODUITS -->
                                 <thead>
                                 <tr>
                                     <th>Référence</th>
                                     <th>Désignation</th>
-                                    <th>Poid pièce</th>
+                                    <th>Poids pièce</th>
                                     <th>Prix unitaire (HT)</th>
                                     <th>Quantité</th>
                                     <th>Descriptif</th>
@@ -125,7 +125,7 @@
                                     <tr>
                                         <td>{$produit->getReference()}</td>
                                         <td>{$produit->getDesignation()}</td>
-                                        <td>{$produit->getPoid_Piece()}</td>
+                                        <td>{$produit->getPoids_Piece()}</td>
                                         <td>{$produit->getPrix_Unitaire_HT()}</td>
                                         <td>{$produit->getQuantite()}</td>
                                         <td>{$produit->getDescriptif()}</td>
@@ -145,7 +145,7 @@
                                         </td>
                                         <td class="pos-actions">
                                             <form action="index.php" method="post">
-                                                <input type="hidden" name="gestion" value="client">
+                                                <input type="hidden" name="gestion" value="produit">
                                                 <input type="hidden" name="action" value="form_modifier">
                                                 <input type="hidden" name="reference" value="{$produit->getReference()}">
                                                 <input
@@ -159,7 +159,7 @@
                                         </td>
                                         <td class="pos-actions">
                                             <form action="index.php" method="post">
-                                                <input type="hidden" name="gestion" value="client">
+                                                <input type="hidden" name="gestion" value="produit">
                                                 <input type="hidden" name="action" value="form_supprimer">
                                                 <input type="hidden" name="reference" value="{$produit->getReference()}">
                                                 <input
@@ -174,7 +174,7 @@
                                     {foreachelse}
                                     <tr>
                                         <td colspan="7">
-                                            Aucun client trouvé
+                                            Aucun produit trouvé
                                         </td>
                                     </tr>
                                 {/foreach}

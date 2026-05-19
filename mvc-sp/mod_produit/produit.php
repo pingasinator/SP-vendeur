@@ -32,7 +32,15 @@ class Produit
                     $this->oControleur->form_consulter();
                     break;
 
+                case 'form_modifier':
+                    // Direction vers un formulaire en modification
+                    $this->oControleur->form_modifier();
+                    break;
 
+                    case 'form_valider_mofication':
+                        $this->oControleur->form_valider_modification();
+                        $this->oControleur->form_consulter();
+                        break;
             }
 
         } else {

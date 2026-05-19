@@ -46,13 +46,17 @@ class ProduitVue
 
         $this->tpl->assign('unProduit', $produit);
 
-        $this->tpl->assign('action', 'E');
-
-
         $this->tpl->display('mod_produit/vue/produitFicheVue.tpl');
-
 
     }
 
+    public function genererAffichageModificationFiche($produit){
+        $this->chargementValeurs();
 
+        $this->tpl->assign('titrePage', 'Fiche produit : Modification');
+
+        $this->tpl->assign('unProduit', $produit);
+
+        $this->tpl->display('mod_produit/vue/produitModificationFicheVue.tpl');
+    }
 }

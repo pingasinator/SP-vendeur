@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-05-19 08:07:42
+/* Smarty version 4.5.5, created on 2026-05-19 14:00:47
   from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_client\vue\clientFicheVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a0c1a4e68f247_69175022',
+  'unifunc' => 'content_6a0c6d0f4312e2_14087445',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c9a523c45a80d1099973bee4bc8e6b59946f7f7a' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_client\\vue\\clientFicheVue.tpl',
-      1 => 1779178060,
+      1 => 1779196649,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6a0c1a4e68f247_69175022 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a0c6d0f4312e2_14087445 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -197,8 +197,6 @@ function content_6a0c1a4e68f247_69175022 (Smarty_Internal_Template $_smarty_tpl)
                                 </div>
 
                             </div>
-
-
                             <div class="card-body">
                                 <div class="col-md-6">
                                     <input type="button"

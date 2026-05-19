@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-05-19 14:01:00
-  from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_produit\vue\produitFicheVue.tpl' */
+/* Smarty version 4.5.5, created on 2026-05-19 14:03:08
+  from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_produit\vue\produitModificationFicheVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a0c6d1c359ee3_38141369',
+  'unifunc' => 'content_6a0c6d9c035618_75552955',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '4fea3b72f74735fb25de2582430b317b19423b9a' => 
+    '15d80c1874594d64efb298789ee1a3b05d8b8f1e' => 
     array (
-      0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_produit\\vue\\produitFicheVue.tpl',
-      1 => 1779199178,
+      0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_produit\\vue\\produitModificationFicheVue.tpl',
+      1 => 1779199385,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6a0c6d1c359ee3_38141369 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a0c6d9c035618_75552955 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -142,7 +142,6 @@ function content_6a0c6d1c359ee3_38141369 (Smarty_Internal_Template $_smarty_tpl)
                                             id="designation"
                                             name="designation"
                                             class="form-control"
-                                            readonly="readonly"
                                             value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getDesignation();?>
 ">
 
@@ -154,7 +153,6 @@ function content_6a0c6d1c359ee3_38141369 (Smarty_Internal_Template $_smarty_tpl)
                                             id="poids_piece"
                                             name="poids_piece"
                                             class="form-control"
-                                            readonly="readonly"
                                             value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getPoids_Piece();?>
 ">
 
@@ -166,7 +164,6 @@ function content_6a0c6d1c359ee3_38141369 (Smarty_Internal_Template $_smarty_tpl)
                                             id="prix_unitaire_ht"
                                             name="prix_unitaire_ht"
                                             class="form-control"
-                                            readonly="readonly"
                                             value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getPrix_Unitaire_HT();?>
 ">
 
@@ -178,7 +175,6 @@ function content_6a0c6d1c359ee3_38141369 (Smarty_Internal_Template $_smarty_tpl)
                                             id="quantite"
                                             name="quantite"
                                             class="form-control"
-                                            readonly="readonly"
                                             value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getQuantite();?>
 ">
 
@@ -190,7 +186,6 @@ function content_6a0c6d1c359ee3_38141369 (Smarty_Internal_Template $_smarty_tpl)
                                             id="descriptif"
                                             name="descriptif"
                                             class="form-control"
-                                            readonly="readonly"
                                             value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getDescriptif();?>
 ">
 
@@ -202,7 +197,6 @@ function content_6a0c6d1c359ee3_38141369 (Smarty_Internal_Template $_smarty_tpl)
                                             id="stock"
                                             name="stock"
                                             class="form-control"
-                                            readonly="readonly"
                                             value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getStock();?>
 ">
 
@@ -218,10 +212,10 @@ function content_6a0c6d1c359ee3_38141369 (Smarty_Internal_Template $_smarty_tpl)
                                 </div>
                                 <div class="col-md-6">
                                     <input type="hidden" name="gestion" value="produit">
-                                    <input type="hidden" name="action" value="form_modifier">
-                                    <input type="hidden" name="reference" value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getReference();?>
+                                    <input type="hidden" name="action" value="form_valider_mofication">
+                                    <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getReference();?>
 ">
-                                    <input type="submit" class="btn btn-submit" value="Modifier">
+                                    <input type="submit" class="btn btn-submit" value="Valider">
                                 </div>
                                 <br>
                             </div>
