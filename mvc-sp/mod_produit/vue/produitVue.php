@@ -59,4 +59,23 @@ class ProduitVue
 
         $this->tpl->display('mod_produit/vue/produitModificationFicheVue.tpl');
     }
+
+    public function genererAffichageSuppressionFiche($produit)
+    {
+        $this->chargementValeurs();
+
+        $this->tpl->assign('titrePage', 'Fiche produit : Suppression');
+
+        $this->tpl->assign('unProduit', $produit);
+
+        $this->tpl->display('mod_produit/vue/produitSuppressionFicheVue.tpl');
+    }
+
+    public function genererAffichageAjoutFiche(){
+        $this->chargementValeurs();
+
+        $this->tpl->assign('titrePage', 'Fiche produit : Ajouter');
+
+        $this->tpl->display('mod_produit/vue/produitAjoutFicheVue.tpl');
+    }
 }

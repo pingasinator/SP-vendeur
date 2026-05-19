@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-05-19 14:46:28
-  from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_produit\vue\produitModificationFicheVue.tpl' */
+/* Smarty version 4.5.5, created on 2026-05-19 14:33:58
+  from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_produit\vue\produitAjoutFicheVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a0c77c4670f94_83187525',
+  'unifunc' => 'content_6a0c74d652c979_27690114',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '15d80c1874594d64efb298789ee1a3b05d8b8f1e' => 
+    '4c8c8af7fcc1c8828c8355a74978629069cd7754' => 
     array (
-      0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_produit\\vue\\produitModificationFicheVue.tpl',
-      1 => 1779201190,
+      0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_produit\\vue\\produitAjoutFicheVue.tpl',
+      1 => 1779201236,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6a0c77c4670f94_83187525 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a0c74d652c979_27690114 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -124,26 +124,12 @@ function content_6a0c77c4670f94_83187525 (Smarty_Internal_Template $_smarty_tpl)
 
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="reference" class="">Référence :</label>
-                                    <input
-                                            type="text"
-                                            id="reference"
-                                            name="reference"
-                                            class="form-control"
-                                            readonly="readonly"
-                                            value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getReference();?>
-">
-
-                                </div>
-                                <div class="form-group">
                                     <label for="designation" class="">Désignation :</label>
                                     <input
                                             type="text"
                                             id="designation"
                                             name="designation"
-                                            class="form-control"
-                                            value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getDesignation();?>
-">
+                                            class="form-control">
 
                                 </div>
                                 <div class="form-group">
@@ -152,9 +138,7 @@ function content_6a0c77c4670f94_83187525 (Smarty_Internal_Template $_smarty_tpl)
                                             type="text"
                                             id="poids_piece"
                                             name="poids_piece"
-                                            class="form-control"
-                                            value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getPoids_Piece();?>
-">
+                                            class="form-control">
 
                                 </div>
                                 <div class="form-group">
@@ -163,9 +147,7 @@ function content_6a0c77c4670f94_83187525 (Smarty_Internal_Template $_smarty_tpl)
                                             type="text"
                                             id="prix_unitaire_ht"
                                             name="prix_unitaire_ht"
-                                            class="form-control"
-                                            value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getPrix_Unitaire_HT();?>
-">
+                                            class="form-control">
 
                                 </div>
                                 <div class="form-group">
@@ -174,9 +156,7 @@ function content_6a0c77c4670f94_83187525 (Smarty_Internal_Template $_smarty_tpl)
                                             type="text"
                                             id="quantite"
                                             name="quantite"
-                                            class="form-control"
-                                            value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getQuantite();?>
-">
+                                            class="form-control">
 
                                 </div>
                                 <div class="form-group">
@@ -185,9 +165,7 @@ function content_6a0c77c4670f94_83187525 (Smarty_Internal_Template $_smarty_tpl)
                                             type="text"
                                             id="descriptif"
                                             name="descriptif"
-                                            class="form-control"
-                                            value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getDescriptif();?>
-">
+                                            class="form-control">
 
                                 </div>
                                 <div class="form-group">
@@ -196,9 +174,7 @@ function content_6a0c77c4670f94_83187525 (Smarty_Internal_Template $_smarty_tpl)
                                             type="text"
                                             id="stock"
                                             name="stock"
-                                            class="form-control"
-                                            value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getStock();?>
-">
+                                            class="form-control">
 
                                 </div>
                             </div>
@@ -212,9 +188,7 @@ function content_6a0c77c4670f94_83187525 (Smarty_Internal_Template $_smarty_tpl)
                                 </div>
                                 <div class="col-md-6">
                                     <input type="hidden" name="gestion" value="produit">
-                                    <input type="hidden" name="action" value="form_valider_mofication">
-                                    <input type="hidden" name="reference" value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getReference();?>
-">
+                                    <input type="hidden" name="action" value="form_valider_ajout">
                                     <input type="submit" class="btn btn-submit" value="Valider">
                                 </div>
                                 <br>

@@ -56,23 +56,22 @@ class ClientModele extends Modele
     }
 
     public function ajouterUnClient(){
-
         $newClient = new ClientTable($_POST);
         $sql = "INSERT INTO client (nom,adresse,cp,ville,telephone) VALUES (?,?,?,?,?)";
-        $idRequete = $this->executeRequete($sql, [$newClient->getNom(),$newClient->getAdresse(),$newClient->getCp(),$newClient->getVille(),$newClient->getTelephone()]);
+        $this->executeRequete($sql, [$newClient->getNom(),$newClient->getAdresse(),$newClient->getCp(),$newClient->getVille(),$newClient->getTelephone()]);
     }
 
     public function modifierUnClient(){
 
         $newClient = new ClientTable($_POST);
         $sql = "UPDATE client SET nom = ?, adresse = ?, cp = ?, ville = ?, telephone = ? WHERE codec = ?";
-        $idRequete = $this->executeRequete($sql, [$newClient->getNom(),$newClient->getAdresse(),$newClient->getCp(),$newClient->getVille(),$newClient->getTelephone(), $newClient->getCodec()]);
+        $this->executeRequete($sql, [$newClient->getNom(),$newClient->getAdresse(),$newClient->getCp(),$newClient->getVille(),$newClient->getTelephone(), $newClient->getCodec()]);
     }
 
     public function supprimerUnClient(){
 
         $newClient = new ClientTable($_POST);
         $sql = "DELETE FROM client WHERE codec = ?";
-        $idRequete = $this->executeRequete($sql, [$newClient->getCodec()]);
+        $this->executeRequete($sql, [$newClient->getCodec()]);
     }
 }

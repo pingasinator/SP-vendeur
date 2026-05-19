@@ -173,7 +173,7 @@
                                 <div class="col-md-6">
                                     <input type="hidden" name="gestion" value="produit">
                                     <input type="hidden" name="action" value="form_valider_mofication">
-                                    <input type="hidden" name="codec" value="{$unProduit->getReference()}">
+                                    <input type="hidden" name="reference" value="{$unProduit->getReference()}">
                                     <input type="submit" class="btn btn-submit" value="Valider">
                                 </div>
                                 <br>

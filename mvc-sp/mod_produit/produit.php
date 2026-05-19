@@ -27,6 +27,11 @@ class Produit
             switch ($this->parametre['action']) {
                 // ICI à venir une structure alternative de type switch()
                 // traitant les différentes actions possibles
+                case 'form_ajouter' :
+                    // Direction vers un formulaire en consultation
+                    $this->oControleur->form_ajouter();
+                    break;
+
                 case 'form_consulter' :
                     // Direction vers un formulaire en consultation
                     $this->oControleur->form_consulter();
@@ -37,10 +42,26 @@ class Produit
                     $this->oControleur->form_modifier();
                     break;
 
-                    case 'form_valider_mofication':
+                case 'form_supprimer':
+                    // Direction vers un formulaire en Suppression
+                    $this->oControleur->form_supprimer();
+                    break;
+
+
+                case 'form_valider_mofication':
                         $this->oControleur->form_valider_modification();
                         $this->oControleur->form_consulter();
                         break;
+
+                case 'form_valider_ajout':
+                    $this->oControleur->form_valider_ajout();
+                    $this->oControleur->lister();
+                    break;
+
+                case 'form_valider_suppression':
+                    $this->oControleur->form_valider_suppression();
+                    $this->oControleur->lister();
+                    break;
             }
 
         } else {
