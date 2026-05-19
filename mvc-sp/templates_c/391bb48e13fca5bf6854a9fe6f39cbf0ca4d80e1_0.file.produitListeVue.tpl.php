@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-05-18 14:58:10
+/* Smarty version 4.5.5, created on 2026-05-19 12:26:01
   from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_produit\vue\produitListeVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a0b2902dbff26_80952208',
+  'unifunc' => 'content_6a0c56d982ed47_94355618',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '391bb48e13fca5bf6854a9fe6f39cbf0ca4d80e1' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_produit\\vue\\produitListeVue.tpl',
-      1 => 1779116204,
+      1 => 1779116353,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6a0b2902dbff26_80952208 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a0c56d982ed47_94355618 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->

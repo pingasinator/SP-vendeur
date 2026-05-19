@@ -46,6 +46,9 @@ class ProduitVue
 
         $this->tpl->assign('unProduit', $produit);
 
+        $this->tpl->assign('action', 'E');
+
+
         $this->tpl->display('mod_produit/vue/produitFicheVue.tpl');
 
 

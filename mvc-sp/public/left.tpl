@@ -21,7 +21,13 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Clients</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-puzzle-piece"></i><a href="index.php?gestion=client">Liste</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="#A VOUS D'ECRIRE LE LIEN">Nouveau</a></li>
+                            <li><i class="fa fa-id-badge"></i>
+                                <form action="index.php" method="post">
+                                    <input type="hidden" name="gestion" value="client">
+                                    <input type="hidden" name="action" value="form_ajouter">
+                                    <input type="submit" value="Nouveau" class="fa fa-id-badge">
+                                </form>
+                            </li>
                             
                         </ul>
                     </li>

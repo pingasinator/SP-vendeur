@@ -85,22 +85,12 @@
 
                     <div class="card">
                         <div class="card-header"><strong>{$titrePage}</strong></div>
-                        <form action="index.php" method="post">
+                        <form action="index.php" method="POST">
 
                             <input type="hidden" name="gestion" value="client">
+                            <input type="hidden" name="action" value="form_valider">
 
                             <div class="card-body">
-                                <div class="form-group">
-                                    <label for="codec" class="">Code Client :</label>
-                                    <input
-                                            type="text"
-                                            id="codec"
-                                            name="codec"
-                                            class="form-control"
-                                            readonly="readonly"
-                                            value="{$unClient->getCodec()}">
-
-                                </div>
                                 <div class="form-group">
                                     <label for="nom" class="">Nom et Prénom :</label>
                                     <input
@@ -108,9 +98,7 @@
                                             id="nom"
                                             name="nom"
                                             class="form-control"
-                                            readonly="readonly"
-                                            value="{$unClient->getNom()}">
-
+                                            value="">
                                 </div>
                                 <div class="form-group">
                                     <label for="adresse" class="">Adresse : </label>
@@ -119,9 +107,7 @@
                                             id="adresse"
                                             name="adresse"
                                             class="form-control"
-                                            readonly="readonly"
-                                            value="{$unClient->getAdresse()}">
-
+                                            value="">
                                 </div>
                                 <div class="form-group">
                                     <label for="cp" class="">Code Postal : </label>
@@ -130,9 +116,7 @@
                                             id="cp"
                                             name="cp"
                                             class="form-control"
-                                            readonly="readonly"
-                                            value="{$unClient->getCp()}">
-
+                                            value="">
                                 </div>
                                 <div class="form-group">
                                     <label for="ville" class="">Ville : </label>
@@ -141,9 +125,7 @@
                                             id="ville"
                                             name="ville"
                                             class="form-control"
-                                            readonly="readonly"
-                                            value="{$unClient->getVille()}">
-
+                                            value="">
                                 </div>
                                 <div class="form-group">
                                     <label for="telephone" class="">Téléphone : </label>
@@ -152,9 +134,7 @@
                                             id="telephone"
                                             name="telephone"
                                             class="form-control"
-                                            readonly="readonly"
-                                            value="{$unClient->getTelephone()}">
-
+                                            value="">
                                 </div>
 
                             </div>
@@ -168,10 +148,10 @@
                                            onclick="location.href='index.php?gestion=client'">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="hidden" name="gestion" value="client">
-                                    <input type="hidden" name="action" value="form_modifier">
-                                    <input type="hidden" name="codec" value="{$unClient->getCodec()}">
-                                    <input type="submit" class="btn btn-submit" value="Modifier">
+                                    {* ICI le BOUTON VALIDER / MODIFIER*}
+                                    <div class="col-md-6">
+                                        <input type="submit" class="btn btn-submit" value="Valider">
+                                    </div>
                                 </div>
                                 <br>
                             </div>

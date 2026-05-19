@@ -156,9 +156,8 @@
                                             value="{$unProduit->getDescriptif()}">
 
                                 </div>
-
                             </div>
-
+                            <div>{$action}</div>
 
                             <div class="card-body">
                                 <div class="col-md-6">
@@ -168,6 +167,10 @@
                                            onclick="location.href='index.php?gestion=produit'">
                                 </div>
                                 <div class="col-md-6">
+                                    <input type="button"
+                                           class="btn btn-submit"
+                                           value="Modifier"
+                                           onclick="location.href='index.php?gestion=produit&action=form_modifier'">
                                     {* ICI le BOUTON VALIDER / MODIFIER*}
                                     ICI le BOUTON VALIDER / MODIFIER
                                 </div>

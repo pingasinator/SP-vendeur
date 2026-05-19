@@ -169,9 +169,9 @@
                                 </div>
                                 <div class="col-md-6">
                                     <input type="hidden" name="gestion" value="client">
-                                    <input type="hidden" name="action" value="form_modifier">
+                                    <input type="hidden" name="action" value="form_valider_suppression">
                                     <input type="hidden" name="codec" value="{$unClient->getCodec()}">
-                                    <input type="submit" class="btn btn-submit" value="Modifier">
+                                    <input type="submit" class="btn btn-submit" value="Supprimer">
                                 </div>
                                 <br>
                             </div>

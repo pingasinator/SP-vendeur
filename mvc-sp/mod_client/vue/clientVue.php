@@ -48,8 +48,33 @@ class ClientVue
 
         $this->tpl->display('mod_client/vue/clientFicheVue.tpl');
 
+    }
+
+    public function genererAffichageModificationFiche($client){
+
+        $this->chargementValeurs();
+
+        $this->tpl->assign('titrePage', 'Fiche client : Modification');
+
+        $this->tpl->assign('unClient', $client);
+
+        $this->tpl->display('mod_client/vue/clientModificationFicheVue.tpl');
 
     }
 
+    public function genererAffichageAjoutFiche(){
+        $this->chargementValeurs();
+        $this->tpl->assign('titrePage', 'Fiche client : Ajouter');
+        $this->tpl->display('mod_client/vue/clientAjouterVue.tpl');
+    }
 
+    public function genererAffichageSuppressionFiche($client){
+        $this->chargementValeurs();
+
+        $this->tpl->assign('titrePage', 'Fiche client : Suppression');
+
+        $this->tpl->assign('unClient', $client);
+
+        $this->tpl->display('mod_client/vue/clientSupprimerVue.tpl');
+    }
 }
