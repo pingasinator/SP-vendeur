@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-05-19 08:31:41
+/* Smarty version 4.5.5, created on 2026-05-20 07:09:36
   from 'C:\laragon\www\SP-vendeur\mvc-sp\public\left.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a0c1fedac9a65_93410814',
+  'unifunc' => 'content_6a0d5e30d14ba2_02969199',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd8ab14ffb22e4a6a757d1e8d89e01918db242bc3' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\public\\left.tpl',
-      1 => 1779179499,
+      1 => 1779260971,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6a0c1fedac9a65_93410814 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a0d5e30d14ba2_02969199 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Left Panel -->
 
     <aside id="left-panel" class="left-panel">
@@ -61,7 +61,7 @@ function content_6a0c1fedac9a65_93410814 (Smarty_Internal_Template $_smarty_tpl)
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#A VOUS D'ECRIRE LE LIEN" > <i class="menu-icon fa fa-th"></i>Mon profil</a>
+                        <a href="index.php?gestion=profil" > <i class="menu-icon fa fa-th"></i>Mon profil</a>
                         
                     </li>
 
