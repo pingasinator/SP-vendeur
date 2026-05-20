@@ -78,11 +78,8 @@
 
     <div class="content mt-3">
         <div class="animated fadeIn">
-
             <div class="row">
-
                 <div class="col-md-6">
-
                     <div class="card">
                         <div class="card-header"><strong>{$titrePage}</strong></div>
                         <form action="index.php" method="POST">
@@ -171,6 +168,53 @@
                                     <input type="hidden" name="gestion" value="profil">
                                     <input type="hidden" name="action" value="form_valider_mofication">
                                     <input type="hidden" name="reference" value="{$unProfil->getCodev()}">
+                                    <input type="submit" class="btn btn-submit" value="Valider">
+                                </div>
+                                <br>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><strong>{$titrePage}</strong></div>
+                        <form action="index.php" method="POST">
+
+                            <input type="hidden" name="gestion" value="profil">
+
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="password" class="">Mot de passe :</label>
+                                    <input type="password" id="password" name="password" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="newPassword" class="">Nouveau mot de passe :</label>
+                                    <input
+                                            type="password"
+                                            id="newPassword"
+                                            name="newPassword"
+                                            class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmNewPassword" class="">Confirmation du nouveau mot de passe :</label>
+                                    <input
+                                            type="password"
+                                            id="confirmNewPassword"
+                                            name="confirmNewPassword"
+                                            class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="col-md-6">
+                                    <input type="button"
+                                           class="btn btn-submit"
+                                           value="Retour"
+                                           onclick="location.href='index.php?gestion=profil'">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="hidden" name="gestion" value="profil">
+                                    <input type="hidden" name="action" value="form_valider_modifier_mot_de_passe">
+                                    <input type="hidden" name="codev" value="{$unProfil->getCodev()}">
                                     <input type="submit" class="btn btn-submit" value="Valider">
                                 </div>
                                 <br>

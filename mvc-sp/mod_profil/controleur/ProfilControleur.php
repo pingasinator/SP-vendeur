@@ -27,6 +27,8 @@ class ProfilControleur
     public function form_valider_modification()
     {
         $this->oModele->modifierUnProfil();
+        $profil = $this->oModele->getUnProfil();
+        $this->oVue->genererAffichageModificationFiche($profil);
     }
 
     public function form_authentification(){
@@ -43,6 +45,18 @@ class ProfilControleur
                 header('Location: index.php');
                 die();
             }
+        }
+    }
+
+    public function form_valider_modier_mot_de_passe(){
+
+        if($_POST['newPassword'] === $_POST['confirmNewPassword'])
+        {
+            $this->oModele->modifierMotDePasse();
+            header('Location: index.php');
+            die();
+        }else{
+            $this->form_modifier();
         }
     }
 }

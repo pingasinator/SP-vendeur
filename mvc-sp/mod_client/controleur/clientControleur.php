@@ -38,6 +38,7 @@ class ClientControleur{
     }
 
     public function form_valider_ajout(){
+        echo 'E';
         $this->oModele->ajouterUnClient();
     }
 

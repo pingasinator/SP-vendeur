@@ -88,7 +88,7 @@
                         <form action="index.php" method="POST">
 
                             <input type="hidden" name="gestion" value="client">
-                            <input type="hidden" name="action" value="form_valider">
+                            <input type="hidden" name="action" value="form_valider_ajout">
 
                             <div class="card-body">
                                 <div class="form-group">

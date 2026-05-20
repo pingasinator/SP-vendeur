@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-05-19 10:03:29
+/* Smarty version 4.5.5, created on 2026-05-20 13:39:03
   from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_client\vue\clientAjouterVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a0c35716837b2_32346449',
+  'unifunc' => 'content_6a0db9776bd966_16539276',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f3e831d29f16bdbbdaf5eabd01cf17c2d7abfc7b' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_client\\vue\\clientAjouterVue.tpl',
-      1 => 1779185007,
+      1 => 1779284324,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6a0c35716837b2_32346449 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a0db9776bd966_16539276 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -121,7 +121,7 @@ function content_6a0c35716837b2_32346449 (Smarty_Internal_Template $_smarty_tpl)
                         <form action="index.php" method="POST">
 
                             <input type="hidden" name="gestion" value="client">
-                            <input type="hidden" name="action" value="form_valider">
+                            <input type="hidden" name="action" value="form_valider_ajout">
 
                             <div class="card-body">
                                 <div class="form-group">

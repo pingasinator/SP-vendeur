@@ -43,6 +43,10 @@ class Profil
                         $this->oControleur->form_authentification();
                     }
                     break;
+
+                    case 'form_valider_modifier_mot_de_passe':
+                        $this->oControleur->form_valider_modier_mot_de_passe();
+                        break;
             }
         }else{
             $this->oControleur->form_authentification();

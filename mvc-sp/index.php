@@ -11,6 +11,7 @@ if (!isset($_REQUEST['gestion'])) {
 
 }
 
+// Vérification de l'utilisateur
 if(!isset($_COOKIE['login'])){
     $_REQUEST['gestion'] = 'profil';
     if(isset($_POST['action']))
@@ -19,6 +20,7 @@ if(!isset($_COOKIE['login'])){
     }
 }
 
+// Déconnexion de l'utilisateur
 if(isset($_GET['deconnexion'])){
     setcookie('login', '', time() - 3600);
     header('Location: index.php');

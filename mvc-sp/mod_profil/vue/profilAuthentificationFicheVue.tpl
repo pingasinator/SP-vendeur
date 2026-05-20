@@ -98,7 +98,6 @@
                                     <label for="" class="">Mot de passe :</label>
                                     <input type="password" id="password" name="password" class="form-control">
                                 </div>
-
                             </div>
 
                             <div class="card-body">

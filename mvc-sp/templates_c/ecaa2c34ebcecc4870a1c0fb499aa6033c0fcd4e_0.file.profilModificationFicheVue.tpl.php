@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-05-20 08:11:31
+/* Smarty version 4.5.5, created on 2026-05-20 13:42:47
   from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_profil\vue\profilModificationFicheVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a0d6cb3850ca0_34482460',
+  'unifunc' => 'content_6a0dba579093c5_19873424',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ecaa2c34ebcecc4870a1c0fb499aa6033c0fcd4e' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_profil\\vue\\profilModificationFicheVue.tpl',
-      1 => 1779264652,
+      1 => 1779283211,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6a0d6cb3850ca0_34482460 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a0dba579093c5_19873424 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -110,11 +110,8 @@ function content_6a0d6cb3850ca0_34482460 (Smarty_Internal_Template $_smarty_tpl)
 
     <div class="content mt-3">
         <div class="animated fadeIn">
-
             <div class="row">
-
                 <div class="col-md-6">
-
                     <div class="card">
                         <div class="card-header"><strong><?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
 </strong></div>
@@ -211,6 +208,55 @@ function content_6a0d6cb3850ca0_34482460 (Smarty_Internal_Template $_smarty_tpl)
                                     <input type="hidden" name="gestion" value="profil">
                                     <input type="hidden" name="action" value="form_valider_mofication">
                                     <input type="hidden" name="reference" value="<?php echo $_smarty_tpl->tpl_vars['unProfil']->value->getCodev();?>
+">
+                                    <input type="submit" class="btn btn-submit" value="Valider">
+                                </div>
+                                <br>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><strong><?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
+</strong></div>
+                        <form action="index.php" method="POST">
+
+                            <input type="hidden" name="gestion" value="profil">
+
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="password" class="">Mot de passe :</label>
+                                    <input type="password" id="password" name="password" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="newPassword" class="">Nouveau mot de passe :</label>
+                                    <input
+                                            type="password"
+                                            id="newPassword"
+                                            name="newPassword"
+                                            class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmNewPassword" class="">Confirmation du nouveau mot de passe :</label>
+                                    <input
+                                            type="password"
+                                            id="confirmNewPassword"
+                                            name="confirmNewPassword"
+                                            class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="col-md-6">
+                                    <input type="button"
+                                           class="btn btn-submit"
+                                           value="Retour"
+                                           onclick="location.href='index.php?gestion=profil'">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="hidden" name="gestion" value="profil">
+                                    <input type="hidden" name="action" value="form_valider_modifier_mot_de_passe">
+                                    <input type="hidden" name="codev" value="<?php echo $_smarty_tpl->tpl_vars['unProfil']->value->getCodev();?>
 ">
                                     <input type="submit" class="btn btn-submit" value="Valider">
                                 </div>

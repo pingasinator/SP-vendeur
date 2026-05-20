@@ -39,4 +39,10 @@ class ProfilModele extends Modele
         $sql = "UPDATE vendeur SET nom = ?, prenom = ?, telephone = ?, adresse = ?, ville = ?, cp = ? WHERE codev = ?";
         $this->executeRequete($sql, [$newProfil->getNom(),$newProfil->getPrenom(),$newProfil->getTelephone(),$newProfil->getAdresse(),$newProfil->getVille(),$newProfil->getCP(),$newProfil->getCodev()]);
     }
+
+    public function modifierMotDePasse(){
+        echo $_POST['newPassword'];
+        $sql = "UPDATE vendeur SET motdepasse = ? WHERE codev = ?";
+        $this->executeRequete($sql, [$_POST['newPassword'],$_POST['codev']]);
+    }
 }
