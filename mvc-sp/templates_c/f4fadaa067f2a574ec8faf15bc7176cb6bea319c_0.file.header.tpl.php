@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-05-18 12:09:33
+/* Smarty version 4.5.5, created on 2026-05-20 12:26:52
   from 'C:\laragon\www\SP-vendeur\mvc-sp\public\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a0b017d9e60b7_52123855',
+  'unifunc' => 'content_6a0da88c87c3b4_86646903',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f4fadaa067f2a574ec8faf15bc7176cb6bea319c' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\public\\header.tpl',
-      1 => 1779106136,
+      1 => 1779280010,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6a0b017d9e60b7_52123855 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a0da88c87c3b4_86646903 (Smarty_Internal_Template $_smarty_tpl) {
 ?>       <!-- Header-->
         <header id="header" class="header">
 
@@ -48,7 +48,7 @@ function content_6a0b017d9e60b7_52123855 (Smarty_Internal_Template $_smarty_tpl)
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="#A VOUS D'ECRIRE LE LIEN"><i class="fa fa-power -off"></i>Déconnexion</a>
+                                <a class="nav-link" href="index.php?deconnexion=true"><i class="fa fa-power -off"></i>Déconnexion</a>
                         </div>
                     </div>
                         <div class="user-area">

@@ -28,4 +28,21 @@ class ProfilControleur
     {
         $this->oModele->modifierUnProfil();
     }
+
+    public function form_authentification(){
+        $this->oVue->genererAffichageAuthentificationFiche();
+    }
+
+    public function form_valider_authentification(){
+        $profil = $this->oModele->getLoginProfil();
+        if(!$profil){
+            $this->oVue->genererAffichageAuthentificationFiche();
+        }else{
+            if($profil['motdepasse'] === $_POST['password']){
+                setcookie('login', $profil['login'], time() + 3600);
+                header('Location: index.php');
+                die();
+            }
+        }
+    }
 }

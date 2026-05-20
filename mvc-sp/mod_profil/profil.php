@@ -23,11 +23,30 @@ class Profil
     {
 
         // Méthode par défaut si aucune action n'est spécifiée
-        if(isset($_POST['action']) && $_POST['action'] == 'form_valider_mofication'){
-            $this->oControleur->form_valider_modification();
-        }
+        if(isset($_POST['action']))
+        {
+            switch($_POST['action'])
+            {
+                case 'form_valider_mofication':
+                    $this->oControleur->form_valider_modification();
+                    break;
 
-        $this->oControleur->form_modifier();
+                case 'form_modifier':
+                    $this->oControleur->form_modifier();
+                    break;
+
+                case 'form_valider_login':
+                    if($_POST['login'] !== '' && $_POST['password'] !== '')
+                    {
+                        $this->oControleur->form_valider_authentification();
+                    }else{
+                        $this->oControleur->form_authentification();
+                    }
+                    break;
+            }
+        }else{
+            $this->oControleur->form_authentification();
+        }
     }
 
 

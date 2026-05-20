@@ -37,4 +37,13 @@ class ProfilVue
 
         $this->tpl->display('mod_profil/vue/profilModificationFicheVue.tpl');
     }
+
+    public function genererAffichageAuthentificationFiche()
+    {
+        $this->chargementValeurs();
+
+        $this->tpl->assign('titrePage', 'Fiche profil : Authentification');
+
+        $this->tpl->display('mod_profil/vue/profilAuthentificationFicheVue.tpl');
+    }
 }

@@ -25,7 +25,7 @@
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                                <a class="nav-link" href="#A VOUS D'ECRIRE LE LIEN"><i class="fa fa-power -off"></i>Déconnexion</a>
+                                <a class="nav-link" href="index.php?deconnexion=true"><i class="fa fa-power -off"></i>Déconnexion</a>
                         </div>
                     </div>
                         <div class="user-area">

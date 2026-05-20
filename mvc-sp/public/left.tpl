@@ -38,7 +38,11 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="index.php?gestion=profil" > <i class="menu-icon fa fa-th"></i>Mon profil</a>
+                        <form action="index.php" method="post" class="">
+                            <input type="hidden" name="gestion" value="profil">
+                            <input type="hidden" name="action" value="form_modifier">
+                            <input type="submit" value="Mon profil" class="fa fa-id-badge menu-icon fa-th">
+                        </form>
                         
                     </li>
 
