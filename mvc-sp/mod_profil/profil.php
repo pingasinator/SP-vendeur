@@ -23,9 +23,9 @@ class Profil
     {
 
         // Méthode par défaut si aucune action n'est spécifiée
-        if(isset($_POST['action']))
+        if(isset($this->parametre['action']))
         {
-            switch($_POST['action'])
+            switch($this->parametre['action'])
             {
                 case 'form_valider_mofication':
                     $this->oControleur->form_valider_modification();

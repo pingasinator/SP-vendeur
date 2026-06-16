@@ -77,6 +77,8 @@
     </div>
 
     <div class="content mt-3">
+        <div class="alert-danger">{$messageErreur}</div>
+        <div class="alert-success">{$messageErreur}</div>
         <div class="animated fadeIn">
 
             <div class="row">
@@ -89,16 +91,26 @@
 
                             <input type="hidden" name="gestion" value="client">
 
+                            {if $action eq 'form_ajouter'}
+                                <input type="hidden" name="action" value="form_valider_ajout">
+                            {elseif $action eq 'form_modifier'}
+                                <input type="hidden" name="action" value="form_valider_modification">
+                            {/if}
+
+
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="codec" class="">Code Client :</label>
-                                    <input
-                                            type="text"
-                                            id="codec"
-                                            name="codec"
-                                            class="form-control"
-                                            readonly="readonly"
-                                            value="{$unClient->getCodec()}">
+                                    {if $action == 'form_consulter' || $action == 'form_modifier'}
+                                        <label for="codec" class="">Code Client :</label>
+                                        <input
+                                                type="text"
+                                                id="codec"
+                                                name="codec"
+                                                class="form-control"
+                                                {$codecReadonly}
+                                                value="{$unClient->getCodec()}">
+                                    {/if}
+
 
                                 </div>
                                 <div class="form-group">
@@ -108,7 +120,7 @@
                                             id="nom"
                                             name="nom"
                                             class="form-control"
-                                            readonly="readonly"
+                                            {$readonly}
                                             value="{$unClient->getNom()}">
 
                                 </div>
@@ -119,7 +131,7 @@
                                             id="adresse"
                                             name="adresse"
                                             class="form-control"
-                                            readonly="readonly"
+                                            {$readonly}
                                             value="{$unClient->getAdresse()}">
 
                                 </div>
@@ -130,7 +142,7 @@
                                             id="cp"
                                             name="cp"
                                             class="form-control"
-                                            readonly="readonly"
+                                            {$readonly}
                                             value="{$unClient->getCp()}">
 
                                 </div>
@@ -141,7 +153,7 @@
                                             id="ville"
                                             name="ville"
                                             class="form-control"
-                                            readonly="readonly"
+                                            {$readonly}
                                             value="{$unClient->getVille()}">
 
                                 </div>
@@ -152,7 +164,7 @@
                                             id="telephone"
                                             name="telephone"
                                             class="form-control"
-                                            readonly="readonly"
+                                            {$readonly}
                                             value="{$unClient->getTelephone()}">
 
                                 </div>
@@ -166,10 +178,21 @@
                                            onclick="location.href='index.php?gestion=client'">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="hidden" name="gestion" value="client">
-                                    <input type="hidden" name="action" value="form_modifier">
-                                    <input type="hidden" name="codec" value="{$unClient->getCodec()}">
-                                    <input type="submit" class="btn btn-submit" value="Modifier">
+                                    {if $action eq 'form_ajouter' || $action eq 'form_modifier'}
+                                        <input type="submit" class="btn btn-submit" value="Valider">
+
+                                    {else}
+                                        <input type="hidden" name="gestion" value="client">
+                                        <input type="hidden" name="codec" value="{$unClient->getCodec()}">
+                                        {if $action eq 'form_supprimer'}
+                                            <input type="hidden" name="action" value="form_valider_suppression">
+                                            <input type="submit" class="btn btn-submit" value="Supprimer">
+                                        {else}
+                                            <input type="hidden" name="action" value="form_modifier">
+                                            <input type="submit" class="btn btn-submit" value="Modifier">
+                                        {/if}
+                                    {/if}
+
                                 </div>
                                 <br>
                             </div>

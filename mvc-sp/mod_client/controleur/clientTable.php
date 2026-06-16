@@ -10,6 +10,8 @@ class ClientTable
     private $ville = '';
     private $telephone = '';
 
+    private static $messageErreur = "";
+    private static $messageSuccess= "";
 
     public function hydrater(array $data)
     {
@@ -68,7 +70,9 @@ class ClientTable
         return $this->telephone;
     }
 
-
+    public static function getMessageErreur(): string{
+        return self::$messageErreur;
+    }
 
 
     /***************
@@ -82,6 +86,9 @@ class ClientTable
 
     public function setNom(string $nom): void
     {
+        if(empty($nom) || ctype_space($nom)){
+            self::addMessageErreur('Le nom du client est obligatoire. <br>');
+        }
         $this->nom = $nom;
     }
 
@@ -93,11 +100,18 @@ class ClientTable
     public function setCp(string $cp): void
     {
         $this->cp = $cp;
+        if(empty($cp) || ctype_space($cp)){
+            self::addMessageErreur('Le code postal est obligatoire. <br>');
+        }
     }
 
     public function setVille(string $ville): void
     {
         $this->ville = $ville;
+
+        if(empty($ville) || ctype_space($ville)){
+            self::addMessageErreur('Le nom de la ville est obligatoire. <br>');
+        }
     }
 
     public function setTelephone(string $telephone): void
@@ -105,6 +119,13 @@ class ClientTable
         $this->telephone = $telephone;
     }
 
+    public static function setMessageErreur(string $messageErreur): void{
+        self::$messageErreur = $messageErreur;
+    }
 
+
+    public static function addMessageErreur(string $messageErreur): void{
+        self::$messageErreur .= $messageErreur;
+    }
 
 }

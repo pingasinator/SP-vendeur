@@ -57,8 +57,10 @@ class ClientModele extends Modele
 
     public function ajouterUnClient(){
         $newClient = new ClientTable($_POST);
-        $sql = "INSERT INTO client (nom,adresse,cp,ville,telephone) VALUES (?,?,?,?,?)";
-        $this->executeRequete($sql, [$newClient->getNom(),$newClient->getAdresse(),$newClient->getCp(),$newClient->getVille(),$newClient->getTelephone()]);
+        if(empty(ClientTable::getMessageErreur())){
+            $sql = "INSERT INTO client (nom,adresse,cp,ville,telephone) VALUES (?,?,?,?,?)";
+            $this->executeRequete($sql, [$newClient->getNom(),$newClient->getAdresse(),$newClient->getCp(),$newClient->getVille(),$newClient->getTelephone()]);
+        }
     }
 
     public function modifierUnClient(){
@@ -71,7 +73,21 @@ class ClientModele extends Modele
     public function supprimerUnClient(){
 
         $newClient = new ClientTable($_POST);
-        $sql = "DELETE FROM client WHERE codec = ?";
-        $this->executeRequete($sql, [$newClient->getCodec()]);
+        if($this->canDeleteClient()){
+            $sql = "DELETE FROM client WHERE codec = ?";
+            $this->executeRequete($sql, [$newClient->getCodec()]);
+        }else{
+            ClientTable::setMessageErreur('Error, le client "'. $newClient->getNom() . '"a des commandes');
+        }
+
+    }
+
+    public function canDeleteClient(){
+        $newClient = new ClientTable($_POST);
+        $sql = "SELECT count(numero) FROM commande WHERE codec = ?";
+        $idRequete = $this->executeRequete($sql, [$newClient->getCodec()]);
+
+        return $idRequete->fetchColumn() <= 0;
+
     }
 }

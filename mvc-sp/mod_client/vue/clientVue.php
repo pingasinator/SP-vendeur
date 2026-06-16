@@ -33,6 +33,8 @@ class ClientVue
 
         $this->tpl->assign('listeClients', $clients);
 
+        $this->tpl->assign('messageErreur', ClientTable::getMessageErreur());
+
         $this->tpl->display('mod_client/vue/clientListeVue.tpl');
 
     }
@@ -42,39 +44,62 @@ class ClientVue
 
         $this->chargementValeurs();
 
-        $this->tpl->assign('titrePage', 'Fiche client : Consultation');
+        switch($this->parametre['action']){
+            case 'form_consulter':
+            case 'form_valider_modification':
 
-        $this->tpl->assign('unClient', $client);
+            $this->parametre['action'] = 'form_consulter';
+
+                $this->tpl->assign('titrePage', 'Fiche client : Consulter');
+
+                $this->tpl->assign('unClient', $client);
+
+                $this->tpl->assign('readonly', 'readonly');
+
+                $this->tpl->assign('codecReadonly', 'readonly');
+
+                break;
+
+            case 'form_ajouter':
+            case 'form_valider_ajout':
+
+                    $this->parametre['action'] = 'form_ajouter';
+                    $this->tpl->assign('titrePage', 'Fiche client : Créer');
+
+                    $this->tpl->assign('unClient', $client);
+
+                    $this->tpl->assign('readonly', '');
+
+                    $this->tpl->assign('codecReadonly', 'readonly');
+
+                    break;
+
+            case 'form_modifier':
+                $this->tpl->assign('titrePage', 'Fiche client : Modifier');
+
+                $this->tpl->assign('unClient', $client);
+
+                $this->tpl->assign('readonly', '');
+
+                $this->tpl->assign('codecReadonly', 'readonly');
+
+                break;
+
+            case 'form_supprimer':
+                $this->tpl->assign('titrePage', 'Fiche client : Suppression');
+
+                $this->tpl->assign('unClient', $client);
+
+                $this->tpl->assign('readonly', 'readonly');
+
+                $this->tpl->assign('codecReadonly', 'readonly');
+                break;
+        }
+
+        $this->tpl->assign('messageErreur', $client->getMessageErreur());
+
+        $this->tpl->assign('action', $this->parametre['action']);
 
         $this->tpl->display('mod_client/vue/clientFicheVue.tpl');
-
-    }
-
-    public function genererAffichageModificationFiche($client){
-
-        $this->chargementValeurs();
-
-        $this->tpl->assign('titrePage', 'Fiche client : Modification');
-
-        $this->tpl->assign('unClient', $client);
-
-        $this->tpl->display('mod_client/vue/clientModificationFicheVue.tpl');
-
-    }
-
-    public function genererAffichageAjoutFiche(){
-        $this->chargementValeurs();
-        $this->tpl->assign('titrePage', 'Fiche client : Ajouter');
-        $this->tpl->display('mod_client/vue/clientAjouterVue.tpl');
-    }
-
-    public function genererAffichageSuppressionFiche($client){
-        $this->chargementValeurs();
-
-        $this->tpl->assign('titrePage', 'Fiche client : Suppression');
-
-        $this->tpl->assign('unClient', $client);
-
-        $this->tpl->display('mod_client/vue/clientSupprimerVue.tpl');
     }
 }

@@ -34,11 +34,12 @@ class ClientControleur{
 
     public function form_ajouter(){
 
-        $this->oVue->genererAffichageAjoutFiche();
+        $client = new ClientTable();
+
+        $this->oVue->genererAffichageFiche($client);
     }
 
     public function form_valider_ajout(){
-        echo 'E';
         $this->oModele->ajouterUnClient();
     }
 
@@ -49,17 +50,16 @@ class ClientControleur{
     public function form_modifier(){
 
         $client = $this->oModele->getUnClient();
-        $this->oVue->genererAffichageModificationFiche($client);
+        $this->oVue->genererAffichageFiche($client);
     }
 
-    public function form_valider_suppression()
-    {
+    public function form_valider_suppression(){
         $this->oModele->supprimerUnClient();
     }
 
     public function form_supprimer(){
         $client = $this->oModele->getUnClient();
 
-        $this->oVue->genererAffichageSuppressionFiche($client);
+        $this->oVue->genererAffichageFiche($client);
     }
 }

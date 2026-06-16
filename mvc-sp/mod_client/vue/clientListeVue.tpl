@@ -78,6 +78,7 @@
     </div>
 
     <div class="content mt-3">
+        <div class="alert-danger">{$messageErreur}</div>
         <div class="animated fadeIn">
 
             <div class="row">

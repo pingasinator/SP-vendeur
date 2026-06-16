@@ -48,10 +48,15 @@ class Client
 
                 case 'form_valider_ajout':
                     $this->oControleur->form_valider_ajout();
-                    $this->oControleur->lister();
+                    if(!empty(ClientTable::getMessageErreur())){
+                        $this->oControleur->form_ajouter();
+                    }else{
+                        $this->oControleur->lister();
+                    }
+
                     break;
 
-                case 'form_valider_mofication':
+                case 'form_valider_modification':
                     $this->oControleur->form_valider_modification();
                     $this->oControleur->form_consulter();
                     break;
@@ -61,6 +66,8 @@ class Client
                     $this->oControleur->lister();
                     break;
             }
+
+            ClientTable::setMessageErreur('');
 
         } else {
 

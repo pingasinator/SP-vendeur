@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-05-20 11:55:20
+/* Smarty version 4.5.5, created on 2026-06-16 08:57:19
   from 'C:\laragon\www\SP-vendeur\mvc-sp\public\left.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a0da1284e6023_18574787',
+  'unifunc' => 'content_6a310fef7a7bd2_49423991',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd8ab14ffb22e4a6a757d1e8d89e01918db242bc3' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\public\\left.tpl',
-      1 => 1779278119,
+      1 => 1781600237,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6a0da1284e6023_18574787 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a310fef7a7bd2_49423991 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Left Panel -->
 
     <aside id="left-panel" class="left-panel">
@@ -44,13 +44,7 @@ function content_6a0da1284e6023_18574787 (Smarty_Internal_Template $_smarty_tpl)
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Clients</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-puzzle-piece"></i><a href="index.php?gestion=client">Liste</a></li>
-                            <li><i class="fa fa-id-badge"></i>
-                                <form action="index.php" method="post">
-                                    <input type="hidden" name="gestion" value="client">
-                                    <input type="hidden" name="action" value="form_ajouter">
-                                    <input type="submit" value="Nouveau" class="fa fa-id-badge">
-                                </form>
-                            </li>
+                            <li><i class="fa fa-id-badge"></i><a href="index.php?gestion=client&action=form_ajouter">Ajouter</a></li>
                             
                         </ul>
                     </li>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-05-19 14:00:47
+/* Smarty version 4.5.5, created on 2026-06-16 13:05:42
   from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_client\vue\clientFicheVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a0c6d0f4312e2_14087445',
+  'unifunc' => 'content_6a314a269387d4_49689365',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c9a523c45a80d1099973bee4bc8e6b59946f7f7a' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_client\\vue\\clientFicheVue.tpl',
-      1 => 1779196649,
+      1 => 1781615139,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6a0c6d0f4312e2_14087445 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a314a269387d4_49689365 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -109,6 +109,10 @@ function content_6a0c6d0f4312e2_14087445 (Smarty_Internal_Template $_smarty_tpl)
     </div>
 
     <div class="content mt-3">
+        <div class="alert-danger"><?php echo $_smarty_tpl->tpl_vars['messageErreur']->value;?>
+</div>
+        <div class="alert-success"><?php echo $_smarty_tpl->tpl_vars['messageErreur']->value;?>
+</div>
         <div class="animated fadeIn">
 
             <div class="row">
@@ -122,17 +126,28 @@ function content_6a0c6d0f4312e2_14087445 (Smarty_Internal_Template $_smarty_tpl)
 
                             <input type="hidden" name="gestion" value="client">
 
+                            <?php if ($_smarty_tpl->tpl_vars['action']->value == 'form_ajouter') {?>
+                                <input type="hidden" name="action" value="form_valider_ajout">
+                            <?php } elseif ($_smarty_tpl->tpl_vars['action']->value == 'form_modifier') {?>
+                                <input type="hidden" name="action" value="form_valider_modification">
+                            <?php }?>
+
+
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="codec" class="">Code Client :</label>
-                                    <input
-                                            type="text"
-                                            id="codec"
-                                            name="codec"
-                                            class="form-control"
-                                            readonly="readonly"
-                                            value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getCodec();?>
+                                    <?php if ($_smarty_tpl->tpl_vars['action']->value == 'form_consulter' || $_smarty_tpl->tpl_vars['action']->value == 'form_modifier') {?>
+                                        <label for="codec" class="">Code Client :</label>
+                                        <input
+                                                type="text"
+                                                id="codec"
+                                                name="codec"
+                                                class="form-control"
+                                                <?php echo $_smarty_tpl->tpl_vars['codecReadonly']->value;?>
+
+                                                value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getCodec();?>
 ">
+                                    <?php }?>
+
 
                                 </div>
                                 <div class="form-group">
@@ -142,7 +157,8 @@ function content_6a0c6d0f4312e2_14087445 (Smarty_Internal_Template $_smarty_tpl)
                                             id="nom"
                                             name="nom"
                                             class="form-control"
-                                            readonly="readonly"
+                                            <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
+
                                             value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getNom();?>
 ">
 
@@ -154,7 +170,8 @@ function content_6a0c6d0f4312e2_14087445 (Smarty_Internal_Template $_smarty_tpl)
                                             id="adresse"
                                             name="adresse"
                                             class="form-control"
-                                            readonly="readonly"
+                                            <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
+
                                             value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getAdresse();?>
 ">
 
@@ -166,7 +183,8 @@ function content_6a0c6d0f4312e2_14087445 (Smarty_Internal_Template $_smarty_tpl)
                                             id="cp"
                                             name="cp"
                                             class="form-control"
-                                            readonly="readonly"
+                                            <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
+
                                             value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getCp();?>
 ">
 
@@ -178,7 +196,8 @@ function content_6a0c6d0f4312e2_14087445 (Smarty_Internal_Template $_smarty_tpl)
                                             id="ville"
                                             name="ville"
                                             class="form-control"
-                                            readonly="readonly"
+                                            <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
+
                                             value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getVille();?>
 ">
 
@@ -190,7 +209,8 @@ function content_6a0c6d0f4312e2_14087445 (Smarty_Internal_Template $_smarty_tpl)
                                             id="telephone"
                                             name="telephone"
                                             class="form-control"
-                                            readonly="readonly"
+                                            <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
+
                                             value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getTelephone();?>
 ">
 
@@ -205,11 +225,22 @@ function content_6a0c6d0f4312e2_14087445 (Smarty_Internal_Template $_smarty_tpl)
                                            onclick="location.href='index.php?gestion=client'">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="hidden" name="gestion" value="client">
-                                    <input type="hidden" name="action" value="form_modifier">
-                                    <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getCodec();?>
+                                    <?php if ($_smarty_tpl->tpl_vars['action']->value == 'form_ajouter' || $_smarty_tpl->tpl_vars['action']->value == 'form_modifier') {?>
+                                        <input type="submit" class="btn btn-submit" value="Valider">
+
+                                    <?php } else { ?>
+                                        <input type="hidden" name="gestion" value="client">
+                                        <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getCodec();?>
 ">
-                                    <input type="submit" class="btn btn-submit" value="Modifier">
+                                        <?php if ($_smarty_tpl->tpl_vars['action']->value == 'form_supprimer') {?>
+                                            <input type="hidden" name="action" value="form_valider_suppression">
+                                            <input type="submit" class="btn btn-submit" value="Supprimer">
+                                        <?php } else { ?>
+                                            <input type="hidden" name="action" value="form_modifier">
+                                            <input type="submit" class="btn btn-submit" value="Modifier">
+                                        <?php }?>
+                                    <?php }?>
+
                                 </div>
                                 <br>
                             </div>
