@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>A COMPLETER</title>
+    <title>Seraphin Parys</title>
     <meta name="description" content="A COMPLETER">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -39,7 +39,7 @@
         <div class="login-content">
             <div class="login-logo">
 
-                <h3 class="titre-pLogin">A COMPLETER</h3>
+                <h3 class="titre-pLogin">Seraphin Parys</h3>
 
             </div>
             <div>
@@ -49,15 +49,16 @@
 
             <div class="login-form">
                 <!--MESSAGE ERREUR ICI-->
+                <div class="alert alert-danger" role="alert">{$errorMessage}</div>
                 <form method="POST" action="index.php">
-                    <input type="hidden" class="form-control" name="gestion" value="A COMPLETER">
-                    <input type="hidden" class="form-control" name="action" value="A COMPLETER">
+                    <input type="hidden" class="form-control" name="gestion" value="authentification">
+                    <input type="hidden" class="form-control" name="action" value="validation_authentification">
                     <div class="form-group">
                         <label><br></label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-user"></i></div>
                             <input type="text" class="form-control" placeholder="Identifiant" name="login"
-                                   value="A COMPLETER">
+                                   value="">
                         </div>
                     </div>
                     <div class="form-group">
@@ -66,7 +67,7 @@
                             <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
 
 
-                            <input type="password" class="form-control" placeholder="Mot de passe" name="motdepasse"
+                            <input type="password" class="form-control" placeholder="Mot de passe" name="password"
                                    value="">
                         </div>
                         <label><br></label>

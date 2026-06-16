@@ -27,12 +27,7 @@ class ProfilModele extends Modele
         return new ProfilTable($idRequete->fetch(PDO::FETCH_ASSOC));
     }
 
-    public function getLoginProfil(){
-        $sql = "SELECT login, motdepasse FROM vendeur WHERE login = ?";
-        $idRequete = $this->executeRequete($sql, [$_POST['login']]);
 
-        return $idRequete->fetch(PDO::FETCH_ASSOC);
-    }
 
     public function modifierUnProfil(){
         $newProfil = new ProfilTable($_POST);

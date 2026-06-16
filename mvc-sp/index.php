@@ -13,12 +13,13 @@ if (!isset($_REQUEST['gestion'])) {
 
 // Vérification de l'utilisateur
 if(!isset($_COOKIE['login'])){
-    $_REQUEST['gestion'] = 'profil';
-    if(isset($_POST['action']))
-    {
-        $_POST['action'] = ($_POST['action'] == 'form_valider_login' ? $_POST['action'] : null);
+    $_REQUEST['gestion'] = 'authentification';
+    if(!isset($_POST['action'])){
+        $_POST['action'] = 'authentifier';
     }
 }
+
+
 
 // Déconnexion de l'utilisateur
 if(isset($_GET['deconnexion'])){

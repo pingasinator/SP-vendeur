@@ -35,15 +35,6 @@ class Profil
                     $this->oControleur->form_modifier();
                     break;
 
-                case 'form_valider_login':
-                    if($_POST['login'] !== '' && $_POST['password'] !== '')
-                    {
-                        $this->oControleur->form_valider_authentification();
-                    }else{
-                        $this->oControleur->form_authentification();
-                    }
-                    break;
-
                     case 'form_valider_modifier_mot_de_passe':
                         $this->oControleur->form_valider_modier_mot_de_passe();
                         break;
