@@ -38,7 +38,7 @@
                     <h3 class="menu-title">COMMANDES</h3><!-- /.menu-title -->
 
                     <li class="dropdown">
-                        <a href="#A VOUS D'ECRIRE LE LIEN"> <i class="menu-icon fa fa-tasks"></i>Historique</a>
+                        <a href="index.php?gestion=commande"> <i class="menu-icon fa fa-tasks"></i>Historique</a>
                          
                         
                     </li>

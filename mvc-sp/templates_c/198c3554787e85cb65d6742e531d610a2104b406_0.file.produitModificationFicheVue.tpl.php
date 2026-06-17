@@ -1,6 +1,6 @@
 <?php
 /* Smarty version 4.5.5, created on 2026-05-20 07:58:28
-  from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_profil\vue\profilModificationFicheVue.tpl' */
+  from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_profil\vue\commandeModificationFicheVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
@@ -11,7 +11,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
     '198c3554787e85cb65d6742e531d610a2104b406' => 
     array (
-      0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_profil\\vue\\profilModificationFicheVue.tpl',
+      0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_profil\\vue\\commandeModificationFicheVue.tpl',
       1 => 1779263889,
       2 => 'file',
     ),
