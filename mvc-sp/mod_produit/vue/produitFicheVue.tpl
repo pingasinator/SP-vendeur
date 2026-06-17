@@ -181,7 +181,22 @@
                         </form>
                     </div>
                 </div>
-
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header"><strong>Statistiques</strong></div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="reference" class="">Prix au KG :</label>
+                                <input
+                                        type="text"
+                                        id="reference"
+                                        name="reference"
+                                        class="form-control"
+                                        readonly="readonly"
+                                        value="{$unProduit->getPrix_KG()}">
+                        </div>
+                    </div>
+                </div>
             </div><!-- .animated -->
         </div><!-- .content -->
 

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-06-17 10:18:11
+/* Smarty version 4.5.5, created on 2026-06-17 12:45:04
   from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_produit\vue\produitFicheVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a327463d40817_83375003',
+  'unifunc' => 'content_6a3296d0b23351_87130436',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4fea3b72f74735fb25de2582430b317b19423b9a' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_produit\\vue\\produitFicheVue.tpl',
-      1 => 1781689668,
+      1 => 1781700302,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6a327463d40817_83375003 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a3296d0b23351_87130436 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -221,7 +221,23 @@ function content_6a327463d40817_83375003 (Smarty_Internal_Template $_smarty_tpl)
                         </form>
                     </div>
                 </div>
-
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header"><strong>Statistiques</strong></div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="reference" class="">Prix au KG :</label>
+                                <input
+                                        type="text"
+                                        id="reference"
+                                        name="reference"
+                                        class="form-control"
+                                        readonly="readonly"
+                                        value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getPrix_KG();?>
+">
+                        </div>
+                    </div>
+                </div>
             </div><!-- .animated -->
         </div><!-- .content -->
 

@@ -42,7 +42,7 @@ class ProduitModele extends Modele
      */
     public function getUnProduit(){
 
-        $sql = "SELECT * FROM produit WHERE reference = ?";
+        $sql = "SELECT *, (1000  * prix_unitaire_HT / (quantite * (descriptif = 'G') + poids_piece * (descriptif = 'P') )/ (quantite * (descriptif = 'P') + (descriptif = 'G'))) as prix_KG FROM produit WHERE reference = ?";
 
         $idRequete = $this->executeRequete($sql, [$this->parametre['reference']]);
 

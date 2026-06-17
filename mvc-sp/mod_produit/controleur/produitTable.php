@@ -11,6 +11,7 @@ class ProduitTable
     private $reference = '';
     private $stock = '';
 
+    private $prix_KG = 0;
 
     public function hydrater(array $data)
     {
@@ -74,6 +75,10 @@ class ProduitTable
         return $this->stock;
     }
 
+    public function getPrix_KG(): string{
+        return $this->prix_KG;
+    }
+
 
     /***************
      * LES SETTERS
@@ -112,5 +117,9 @@ class ProduitTable
     public function setStock(string $stock): void
     {
         $this->stock = $stock;
+    }
+
+    public function setPrix_KG(int $prix_KG): void{
+        $this->prix_KG = $prix_KG;
     }
 }
