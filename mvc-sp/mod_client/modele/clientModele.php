@@ -60,6 +60,7 @@ class ClientModele extends Modele
         if(empty(ClientTable::getMessageErreur())){
             $sql = "INSERT INTO client (nom,adresse,cp,ville,telephone) VALUES (?,?,?,?,?)";
             $this->executeRequete($sql, [$newClient->getNom(),$newClient->getAdresse(),$newClient->getCp(),$newClient->getVille(),$newClient->getTelephone()]);
+            ClientTable::setMessageSuccess("Client ajouté avec succes");
         }
     }
 
@@ -68,6 +69,7 @@ class ClientModele extends Modele
         $newClient = new ClientTable($_POST);
         $sql = "UPDATE client SET nom = ?, adresse = ?, cp = ?, ville = ?, telephone = ? WHERE codec = ?";
         $this->executeRequete($sql, [$newClient->getNom(),$newClient->getAdresse(),$newClient->getCp(),$newClient->getVille(),$newClient->getTelephone(), $newClient->getCodec()]);
+        ClientTable::setMessageSuccess("Client modifié avec succes");
     }
 
     public function supprimerUnClient(){
@@ -76,6 +78,7 @@ class ClientModele extends Modele
         if($this->canDeleteClient()){
             $sql = "DELETE FROM client WHERE codec = ?";
             $this->executeRequete($sql, [$newClient->getCodec()]);
+            ClientTable::setMessageSuccess("Client supprimé avec succes");
         }else{
             ClientTable::setMessageErreur('Error, le client "'. $newClient->getNom() . '"a des commandes');
         }
@@ -88,6 +91,37 @@ class ClientModele extends Modele
         $idRequete = $this->executeRequete($sql, [$newClient->getCodec()]);
 
         return $idRequete->fetchColumn() <= 0;
+
+    }
+
+    public function stat01(ClientTable $client){
+        $sql = "SELECT SUM(total_ht) as st01 FROM commande WHERE codec = ?";
+        $idRequete = $this->executeRequete($sql, [$client->getCodec()]);
+
+        $ligne = $idRequete->fetch(PDO::FETCH_ASSOC);
+
+        if ($ligne['st01'] != null) {
+            $client->setStat01($ligne['st01']);
+        }else{
+            $client->setStat01(0);
+        }
+    }
+
+    public function stat02(ClientTable $client){
+        $sql = "SELECT sum(total_ht) as st02 FROM commande WHERE codec = ?";
+        $idRequete = $this->executeRequete($sql, [$client->getCodec()]);
+        $val1 = $idRequete->fetch(PDO::FETCH_ASSOC);
+
+        $sql = "SELECT sum(total_ht) as allcommands FROM commande";
+        $idRequete = $this->executeRequete($sql);
+        $val2 = $idRequete->fetch(PDO::FETCH_ASSOC);
+
+        if ($val1['st02'] != null && $val2['allcommands'] != null) {
+            $client->setStat02($val1['st02'] / $val2['allcommands'] * 100);
+        }
+
+
+
 
     }
 }

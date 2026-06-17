@@ -15,16 +15,20 @@ class ProfilModele extends Modele
      */
     public function getUnProfil(){
 
-        $sql = "SELECT * FROM vendeur WHERE login = ?";
+        $sql = "SELECT vendeur.*, cast(sum(commande.total_ht) as DECIMAL(10,2)) as ventes FROM vendeur left join commande on commande.codev = vendeur.codev WHERE login = ?";
 
         $idRequete = $this->executeRequete($sql, [$_COOKIE['login']]);
+
+        $data = $idRequete->fetch(PDO::FETCH_ASSOC);
+
+
 
         // Retourner le profil ... Un objet de type ProfilTable
         // $profilTableauAssociatif = $idRequete->fetch(PDO::FETCH_ASSOC);
         // $profilObjet = new ProfilTable($profilTableauAssociatif);
         // return $profilObjet;
         // Manière plus synthétique
-        return new ProfilTable($idRequete->fetch(PDO::FETCH_ASSOC));
+        return new ProfilTable($data);
     }
 
 
@@ -35,9 +39,32 @@ class ProfilModele extends Modele
         $this->executeRequete($sql, [$newProfil->getNom(),$newProfil->getPrenom(),$newProfil->getTelephone(),$newProfil->getAdresse(),$newProfil->getVille(),$newProfil->getCP(),$newProfil->getCodev()]);
     }
 
+    public function checkPassword(){
+        $sql = "SELECT motdepasse FROM vendeur WHERE login = ?";
+        $idRequete = $this->executeRequete($sql, [$_COOKIE['login']]);
+        $res = $idRequete->fetch(PDO::FETCH_ASSOC);
+
+        return $res['motdepasse'] === $this->hashPassword($_POST['password']);
+    }
+
     public function modifierMotDePasse(){
-        echo $_POST['newPassword'];
+
+
+        $passwd = $this->hashPassword($_POST['newPassword']);
+
         $sql = "UPDATE vendeur SET motdepasse = ? WHERE codev = ?";
-        $this->executeRequete($sql, [$_POST['newPassword'],$_POST['codev']]);
+        $this->executeRequete($sql, [$passwd,$_POST['codev']]);
+    }
+
+    public function hashPassword($password){
+        $gauche = "ar30&y%";
+        $droite = "tk!@";
+        $hasedpasswd = hash('ripemd128', "$gauche$password$droite" );
+        return $hasedpasswd;
+    }
+
+    public function getVentes()
+    {
+        $sql = "SELECT * FROM vendeur";
     }
 }

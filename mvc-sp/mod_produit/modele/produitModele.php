@@ -53,23 +53,4 @@ class ProduitModele extends Modele
         // Manière plus synthétique
         return new ProduitTable($idRequete->fetch(PDO::FETCH_ASSOC));
     }
-
-    public function modifierUnProduit(){
-        $newProduit = new ProduitTable($_POST);
-        $sql = "UPDATE produit SET descriptif = ?, designation = ?, poids_piece = ?, prix_unitaire_HT = ?, quantite = ?, stock = ? WHERE reference = ?";
-        $this->executeRequete($sql, [$newProduit->getDescriptif(),$newProduit->getDesignation(),$newProduit->getPoids_Piece(),$newProduit->getPrix_Unitaire_HT(),$newProduit->getQuantite(),$newProduit->getStock(),$newProduit->getReference()]);
-    }
-
-    public function supprimerUnProduit(){
-
-        $newProduit = new ProduitTable($_POST);
-        $sql = "DELETE FROM produit WHERE reference = ?";
-        $this->executeRequete($sql, [$newProduit->getReference()]);
-    }
-
-    public function ajouterUnProduit(){
-        $newProduit = new ProduitTable($_POST);
-        $sql = "INSERT INTO produit (descriptif,designation,poids_piece,prix_unitaire_HT,quantite,stock) VALUES (?,?,?,?,?,?)";
-        $this->executeRequete($sql, [$newProduit->getDescriptif(),$newProduit->getDesignation(),$newProduit->getPoids_Piece(),$newProduit->getPrix_Unitaire_HT(),$newProduit->getQuantite(),$newProduit->getStock()]);
-    }
 }

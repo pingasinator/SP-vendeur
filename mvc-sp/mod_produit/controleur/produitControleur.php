@@ -25,11 +25,6 @@ class ProduitControleur{
 
     }
 
-
-
-    public function form_ajouter(){
-        $this->oVue->genererAffichageAjoutFiche();
-    }
     public function form_consulter(){
 
         $produits = $this->oModele->getUnProduit();
@@ -37,27 +32,4 @@ class ProduitControleur{
         $this->oVue->genererAffichageFiche($produits);
     }
 
-    public function form_modifier(){
-        $produits = $this->oModele->getUnProduit();
-
-        $this->oVue->genererAffichageModificationFiche($produits);
-    }
-
-    public function form_supprimer(){
-        $produits = $this->oModele->getUnProduit();
-
-        $this->oVue->genererAffichageSuppressionFiche($produits);
-    }
-
-    public function form_valider_modification(){
-        $this->oModele->modifierUnProduit();
-    }
-
-    public function form_valider_ajout(){
-        $this->oModele->ajouterUnProduit();
-    }
-
-    public function form_valider_suppression(){
-        $this->oModele->supprimerUnProduit();
-    }
 }

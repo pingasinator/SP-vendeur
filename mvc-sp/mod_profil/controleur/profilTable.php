@@ -11,6 +11,8 @@ class ProfilTable
     private $ville = '';
     private $cp = '';
 
+    private $ventes = 0.0;
+
     public function hydrater(array $data)
     {
         foreach ($data as $key => $value) {
@@ -73,6 +75,9 @@ class ProfilTable
         return $this->cp;
     }
 
+    public function getVentes(): float{
+        return $this->ventes;
+    }
 
     /***************
      * LES SETTERS
@@ -109,5 +114,9 @@ class ProfilTable
     public function setCP(string $cp): void
     {
         $this->cp = $cp;
+    }
+
+    public function setVentes(string $ventes): void{
+        $this->ventes = $ventes;
     }
 }

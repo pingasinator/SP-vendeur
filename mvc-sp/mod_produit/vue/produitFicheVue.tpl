@@ -176,13 +176,6 @@
                                            value="Retour"
                                            onclick="location.href='index.php?gestion=produit'">
                                 </div>
-                                <div class="col-md-6">
-                                    <input type="hidden" name="gestion" value="produit">
-                                    <input type="hidden" name="action" value="form_modifier">
-                                    <input type="hidden" name="reference" value="{$unProduit->getReference()}">
-                                    <input type="submit" class="btn btn-submit" value="Modifier">
-                                </div>
-                                <br>
                             </div>
 
                         </form>

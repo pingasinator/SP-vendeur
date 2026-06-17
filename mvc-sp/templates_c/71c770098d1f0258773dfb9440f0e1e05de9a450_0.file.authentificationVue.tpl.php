@@ -1,4 +1,27 @@
-<!doctype html>
+<?php
+/* Smarty version 4.5.5, created on 2026-06-17 07:07:08
+  from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_authentification\vue\authentificationVue.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.5.5',
+  'unifunc' => 'content_6a32479c96f874_31535236',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '71c770098d1f0258773dfb9440f0e1e05de9a450' => 
+    array (
+      0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_authentification\\vue\\authentificationVue.tpl',
+      1 => 1781680024,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_6a32479c96f874_31535236 (Smarty_Internal_Template $_smarty_tpl) {
+?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>
@@ -10,7 +33,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>A COMPLETER</title>
+    <title>Seraphin Parys</title>
     <meta name="description" content="A COMPLETER">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,7 +51,9 @@
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+    <!-- <?php echo '<script'; ?>
+ type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"><?php echo '</script'; ?>
+> -->
 
 </head>
 <body class="bg-dark">
@@ -39,7 +64,7 @@
         <div class="login-content">
             <div class="login-logo">
 
-                <h3 class="titre-pLogin">A COMPLETER</h3>
+                <h3 class="titre-pLogin">Seraphin Parys</h3>
 
             </div>
             <div>
@@ -49,15 +74,20 @@
 
             <div class="login-form">
                 <!--MESSAGE ERREUR ICI-->
+                <?php if ($_smarty_tpl->tpl_vars['errorMessage']->value != '') {?>
+                    <div class="alert alert-danger" role="alert"><?php echo $_smarty_tpl->tpl_vars['errorMessage']->value;?>
+</div>
+                <?php }?>
+
                 <form method="POST" action="index.php">
-                    <input type="hidden" class="form-control" name="gestion" value="A COMPLETER">
-                    <input type="hidden" class="form-control" name="action" value="A COMPLETER">
+                    <input type="hidden" class="form-control" name="gestion" value="authentification">
+                    <input type="hidden" class="form-control" name="action" value="validation_authentification">
                     <div class="form-group">
                         <label><br></label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-user"></i></div>
                             <input type="text" class="form-control" placeholder="Identifiant" name="login"
-                                   value="A COMPLETER">
+                                   value="">
                         </div>
                     </div>
                     <div class="form-group">
@@ -66,7 +96,7 @@
                             <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
 
 
-                            <input type="password" class="form-control" placeholder="Mot de passe" name="motdepasse"
+                            <input type="password" class="form-control" placeholder="Mot de passe" name="password"
                                    value="">
                         </div>
                         <label><br></label>
@@ -79,11 +109,21 @@
 </div>
 
 
-<script src="public/assets/js/vendor/jquery-2.1.4.min.js"></script>
-<script src="public/assets/js/popper.min.js"></script>
-<script src="public/assets/js/plugins.js"></script>
-<script src="public/assets/js/main.js"></script>
+<?php echo '<script'; ?>
+ src="public/assets/js/vendor/jquery-2.1.4.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/popper.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/plugins.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ src="public/assets/js/main.js"><?php echo '</script'; ?>
+>
 
 
 </body>
 </html>
+<?php }
+}

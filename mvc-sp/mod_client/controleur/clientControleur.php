@@ -29,6 +29,9 @@ class ClientControleur{
 
         $client = $this->oModele->getUnClient();
 
+        $this->oModele->stat01($client);
+        $this->oModele->stat02($client);
+
         $this->oVue->genererAffichageFiche($client);
     }
 

@@ -33,13 +33,23 @@ class ProfilControleur
 
     public function form_valider_modier_mot_de_passe(){
 
-        if($_POST['newPassword'] === $_POST['confirmNewPassword'])
-        {
-            $this->oModele->modifierMotDePasse();
-            header('Location: index.php');
-            die();
+        if($this->oModele->checkPassword()){
+            if(empty($_POST['newPassword']) || empty($_POST['confirmNewPassword'])){
+                Profil::setErrorMessage("Veuillez remplir tous les champs");
+            }else{
+                if($_POST['newPassword'] === $_POST['confirmNewPassword'] )
+                {
+                    $this->oModele->modifierMotDePasse();
+                    header('Location: index.php');
+                    die();
+                }else{
+                    Profil::setErrorMessage("Les mots de passe ne correspondent pas");
+                }
+            }
+
         }else{
-            $this->form_modifier();
+            Profil::setErrorMessage("Mot de passe incorrect");
         }
+        $this->form_modifier();
     }
 }

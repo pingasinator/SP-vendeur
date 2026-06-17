@@ -35,6 +35,8 @@ class ClientVue
 
         $this->tpl->assign('messageErreur', ClientTable::getMessageErreur());
 
+        $this->tpl->assign('messageSuccess', ClientTable::getMessageSuccess());
+
         $this->tpl->display('mod_client/vue/clientListeVue.tpl');
 
     }
@@ -97,6 +99,7 @@ class ClientVue
         }
 
         $this->tpl->assign('messageErreur', $client->getMessageErreur());
+        $this->tpl->assign('messageSuccess', $client->getMessageSuccess());
 
         $this->tpl->assign('action', $this->parametre['action']);
 

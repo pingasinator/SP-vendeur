@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-06-16 12:58:50
+/* Smarty version 4.5.5, created on 2026-06-17 11:55:06
   from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_client\vue\clientListeVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a31488a8649d0_46005324',
+  'unifunc' => 'content_6a328b1a8a3951_74876709',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '68af008a7ebf1f1cb8077d9ed3554a92f1d8f0e9' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_client\\vue\\clientListeVue.tpl',
-      1 => 1781614728,
+      1 => 1781697304,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6a31488a8649d0_46005324 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a328b1a8a3951_74876709 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -109,8 +109,15 @@ function content_6a31488a8649d0_46005324 (Smarty_Internal_Template $_smarty_tpl)
     </div>
 
     <div class="content mt-3">
-        <div class="alert-danger"><?php echo $_smarty_tpl->tpl_vars['messageErreur']->value;?>
+        <?php if ($_smarty_tpl->tpl_vars['messageErreur']->value != '') {?>
+            <div class="alert alert-danger"><?php echo $_smarty_tpl->tpl_vars['messageErreur']->value;?>
 </div>
+        <?php }?>
+        <?php if ($_smarty_tpl->tpl_vars['messageSuccess']->value != '') {?>
+            <div class="alert alert-success"><?php echo $_smarty_tpl->tpl_vars['messageSuccess']->value;?>
+</div>
+        <?php }?>
+
         <div class="animated fadeIn">
 
             <div class="row">

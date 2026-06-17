@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-05-20 13:42:47
+/* Smarty version 4.5.5, created on 2026-06-17 10:14:54
   from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_profil\vue\profilModificationFicheVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a0dba579093c5_19873424',
+  'unifunc' => 'content_6a32739e1bbf75_66435382',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ecaa2c34ebcecc4870a1c0fb499aa6033c0fcd4e' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_profil\\vue\\profilModificationFicheVue.tpl',
-      1 => 1779283211,
+      1 => 1781691291,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6a0dba579093c5_19873424 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a32739e1bbf75_66435382 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -127,7 +127,7 @@ function content_6a0dba579093c5_19873424 (Smarty_Internal_Template $_smarty_tpl)
                                             id="codev"
                                             name="codev"
                                             class="form-control"
-                                            readonly="readonly"
+                                            readonly
                                             value="<?php echo $_smarty_tpl->tpl_vars['unProfil']->value->getCodev();?>
 ">
                                 </div>
@@ -138,6 +138,7 @@ function content_6a0dba579093c5_19873424 (Smarty_Internal_Template $_smarty_tpl)
                                             id="nom"
                                             name="nom"
                                             class="form-control"
+                                            readonly
                                             value="<?php echo $_smarty_tpl->tpl_vars['unProfil']->value->getNom();?>
 ">
                                 </div>
@@ -148,6 +149,7 @@ function content_6a0dba579093c5_19873424 (Smarty_Internal_Template $_smarty_tpl)
                                             id="prenom"
                                             name="prenom"
                                             class="form-control"
+                                            readonly
                                             value="<?php echo $_smarty_tpl->tpl_vars['unProfil']->value->getPrenom();?>
 ">
                                 </div>
@@ -216,14 +218,21 @@ function content_6a0dba579093c5_19873424 (Smarty_Internal_Template $_smarty_tpl)
 
                         </form>
                     </div>
+
+                </div>
+                <div class="col-md-6">
                     <div class="card">
-                        <div class="card-header"><strong><?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
-</strong></div>
+                        <div class="card-header"><strong>Mot de passe :</strong></div>
                         <form action="index.php" method="POST">
 
                             <input type="hidden" name="gestion" value="profil">
 
                             <div class="card-body">
+                                <?php if ($_smarty_tpl->tpl_vars['errorMessage']->value != '') {?>
+                                    <div class="alert alert-danger"><?php echo $_smarty_tpl->tpl_vars['errorMessage']->value;?>
+</div>
+                                <?php }?>
+
                                 <div class="form-group">
                                     <label for="password" class="">Mot de passe :</label>
                                     <input type="password" id="password" name="password" class="form-control">
@@ -264,6 +273,22 @@ function content_6a0dba579093c5_19873424 (Smarty_Internal_Template $_smarty_tpl)
                             </div>
 
                         </form>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><strong>Statistiques :</strong></div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="codev" class="">Montant total de mes ventes :</label>
+                                <input
+                                        type="text"
+                                        id="codev"
+                                        name="codev"
+                                        class="form-control"
+                                        readonly
+                                        value="<?php echo $_smarty_tpl->tpl_vars['unProfil']->value->getVentes();?>
+€">
+                            </div>
+                        </div>
                     </div>
                 </div>
 

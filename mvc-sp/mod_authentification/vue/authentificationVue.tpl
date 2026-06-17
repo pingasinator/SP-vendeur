@@ -49,7 +49,10 @@
 
             <div class="login-form">
                 <!--MESSAGE ERREUR ICI-->
-                <div class="alert alert-danger" role="alert">{$errorMessage}</div>
+                {if $errorMessage neq ''}
+                    <div class="alert alert-danger" role="alert">{$errorMessage}</div>
+                {/if}
+
                 <form method="POST" action="index.php">
                     <input type="hidden" class="form-control" name="gestion" value="authentification">
                     <input type="hidden" class="form-control" name="action" value="validation_authentification">

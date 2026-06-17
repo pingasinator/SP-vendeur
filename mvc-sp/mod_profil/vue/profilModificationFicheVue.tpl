@@ -94,7 +94,7 @@
                                             id="codev"
                                             name="codev"
                                             class="form-control"
-                                            readonly="readonly"
+                                            readonly
                                             value="{$unProfil->getCodev()}">
                                 </div>
                                 <div class="form-group">
@@ -104,6 +104,7 @@
                                             id="nom"
                                             name="nom"
                                             class="form-control"
+                                            readonly
                                             value="{$unProfil->getNom()}">
                                 </div>
                                 <div class="form-group">
@@ -113,6 +114,7 @@
                                             id="prenom"
                                             name="prenom"
                                             class="form-control"
+                                            readonly
                                             value="{$unProfil->getPrenom()}">
                                 </div>
                                 <div class="form-group">
@@ -175,13 +177,20 @@
 
                         </form>
                     </div>
+
+                </div>
+                <div class="col-md-6">
                     <div class="card">
-                        <div class="card-header"><strong>{$titrePage}</strong></div>
+                        <div class="card-header"><strong>Mot de passe :</strong></div>
                         <form action="index.php" method="POST">
 
                             <input type="hidden" name="gestion" value="profil">
 
                             <div class="card-body">
+                                {if $errorMessage neq ''}
+                                    <div class="alert alert-danger">{$errorMessage}</div>
+                                {/if}
+
                                 <div class="form-group">
                                     <label for="password" class="">Mot de passe :</label>
                                     <input type="password" id="password" name="password" class="form-control">
@@ -221,6 +230,21 @@
                             </div>
 
                         </form>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><strong>Statistiques :</strong></div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="codev" class="">Montant total de mes ventes :</label>
+                                <input
+                                        type="text"
+                                        id="codev"
+                                        name="codev"
+                                        class="form-control"
+                                        readonly
+                                        value="{$unProfil->getVentes()}€">
+                            </div>
+                        </div>
                     </div>
                 </div>
 

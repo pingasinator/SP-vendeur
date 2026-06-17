@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-06-16 13:05:42
+/* Smarty version 4.5.5, created on 2026-06-17 10:29:22
   from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_client\vue\clientFicheVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a314a269387d4_49689365',
+  'unifunc' => 'content_6a3277024754c6_53376742',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c9a523c45a80d1099973bee4bc8e6b59946f7f7a' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_client\\vue\\clientFicheVue.tpl',
-      1 => 1781615139,
+      1 => 1781692124,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6a314a269387d4_49689365 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a3277024754c6_53376742 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -109,16 +109,19 @@ function content_6a314a269387d4_49689365 (Smarty_Internal_Template $_smarty_tpl)
     </div>
 
     <div class="content mt-3">
-        <div class="alert-danger"><?php echo $_smarty_tpl->tpl_vars['messageErreur']->value;?>
+        <?php if ($_smarty_tpl->tpl_vars['messageErreur']->value != '') {?>
+            <div class="alert alert-danger"><?php echo $_smarty_tpl->tpl_vars['messageErreur']->value;?>
 </div>
-        <div class="alert-success"><?php echo $_smarty_tpl->tpl_vars['messageErreur']->value;?>
+        <?php }?>
+        <?php if ($_smarty_tpl->tpl_vars['messageSuccess']->value != '') {?>
+            <div class="alert alert-success"><?php echo $_smarty_tpl->tpl_vars['messageSuccess']->value;?>
 </div>
+        <?php }?>
         <div class="animated fadeIn">
 
             <div class="row">
 
                 <div class="col-md-6">
-
                     <div class="card">
                         <div class="card-header"><strong><?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
 </strong></div>
@@ -249,6 +252,19 @@ function content_6a314a269387d4_49689365 (Smarty_Internal_Template $_smarty_tpl)
                     </div>
                 </div>
 
+                <div class="col-md-6">
+                    <div class="card">
+
+                        <div class="card-header"><strong>Statistiques</strong></div>
+                        <div class="card-body">
+                            <div class="form-group"><strong>CA réalisé : <?php echo $_smarty_tpl->tpl_vars['unClient']->value->getStat01();?>
+€ </strong></div>
+                            <div class="form-group"><strong>Pourcentage du CA réalisé : <?php echo $_smarty_tpl->tpl_vars['unClient']->value->getStat02();?>
+%</strong></div>
+                            <div class="form-group"><strong>Ses meilleurs achats  : </strong></div>
+                        </div>
+                    </div>
+                </div>
             </div><!-- .animated -->
         </div><!-- .content -->
 

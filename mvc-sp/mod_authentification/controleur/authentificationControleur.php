@@ -31,8 +31,12 @@ class AuthentificationControleur{
 
         $hasedpasswd = hash('ripemd128', "$gauche$passwd$droite" );
 
+
+
         if(!$profil){
+            Authentification::setErrorMessage("Login incorrecte");
             $this->oVue->genererAffichageAuthentification();
+
         }else{
             if($hasedpasswd ===  $profil['motdepasse']){
                 setcookie('login', $profil['login'], time() + 3600);

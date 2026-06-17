@@ -88,19 +88,6 @@
                         <div class="card-header">
                             <strong class="card-title">{$titrePage}
 
-                                <!-- PLACER LE FORMULAIRE D'AJOUT-->
-                                <form action="index.php" method="post" class="pos-ajout">
-                                    <input type="hidden" name="gestion" value="produit">
-                                    <input type="hidden" name="action" value="form_ajouter">
-                                    <label>Ajouter un produit :
-                                        <input
-                                                type="image"
-                                                id="aImage"
-                                                name="btn_ajouter"
-                                                src="public/images/icones/a16.png">
-                                    </label>
-                                </form>
-
                             </strong>
                         </div>
                         <div class="card-body">
@@ -116,8 +103,6 @@
                                     <th>Descriptif</th>
                                     <th>Stock</th>
                                     <th class="pos-actions">Consulter</th>
-                                    <th class="pos-actions">Modifier</th>
-                                    <th class="pos-actions">Supprimer</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -140,33 +125,6 @@
                                                         id="pImage"
                                                         name="btn_consulter"
                                                         src="public/images/icones/p16.png">
-
-                                            </form>
-                                        </td>
-                                        <td class="pos-actions">
-                                            <form action="index.php" method="post">
-                                                <input type="hidden" name="gestion" value="produit">
-                                                <input type="hidden" name="action" value="form_modifier">
-                                                <input type="hidden" name="reference" value="{$produit->getReference()}">
-                                                <input
-                                                        type="image"
-                                                        id="mImage"
-                                                        name="btn_modifier"
-                                                        src="public/images/icones/m16.png">
-
-                                            </form>
-
-                                        </td>
-                                        <td class="pos-actions">
-                                            <form action="index.php" method="post">
-                                                <input type="hidden" name="gestion" value="produit">
-                                                <input type="hidden" name="action" value="form_supprimer">
-                                                <input type="hidden" name="reference" value="{$produit->getReference()}">
-                                                <input
-                                                        type="image"
-                                                        id="sImage"
-                                                        name="btn_supprimer"
-                                                        src="public/images/icones/s16.png">
 
                                             </form>
                                         </td>

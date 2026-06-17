@@ -20,8 +20,7 @@ class ProfilVue
     private function chargementValeurs()
     {
 
-
-        $this->tpl->assign('login', 'Ici le nom de la personne authentifiée');
+        $this->tpl->assign('login', $_COOKIE['login']);
 
         $this->tpl->assign('tabBord', 'ICI MON TABLEAU DE BORD CF. Olivier LASSERRE');
 
@@ -35,15 +34,10 @@ class ProfilVue
 
         $this->tpl->assign('unProfil', $profil);
 
+        $this->tpl->assign('errorMessage', Profil::getErrorMessage());
+
         $this->tpl->display('mod_profil/vue/profilModificationFicheVue.tpl');
-    }
 
-    public function genererAffichageAuthentificationFiche()
-    {
-        $this->chargementValeurs();
-
-        $this->tpl->assign('titrePage', 'Fiche profil : Authentification');
-
-        $this->tpl->display('mod_profil/vue/profilAuthentificationFicheVue.tpl');
+        echo Profil::getErrorMessage();
     }
 }

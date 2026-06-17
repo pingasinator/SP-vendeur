@@ -13,6 +13,9 @@ class ClientTable
     private static $messageErreur = "";
     private static $messageSuccess= "";
 
+    private $stat01 = 0;
+    private $stat02 = 0.0;
+
     public function hydrater(array $data)
     {
         foreach ($data as $key => $value) {
@@ -74,6 +77,17 @@ class ClientTable
         return self::$messageErreur;
     }
 
+    public static function getMessageSuccess(): string{
+        return self::$messageSuccess;
+    }
+
+    public function getStat01(): int{
+        return $this->stat01;
+    }
+
+    public function getStat02(): float{
+        return $this->stat02;
+    }
 
     /***************
      * LES SETTERS
@@ -126,6 +140,18 @@ class ClientTable
 
     public static function addMessageErreur(string $messageErreur): void{
         self::$messageErreur .= $messageErreur;
+    }
+
+    public static function setMessageSuccess(string $messageSuccess): void{
+        self::$messageSuccess = $messageSuccess;
+    }
+
+    public function setStat01(int $stat01): void{
+        $this->stat01 = $stat01;
+    }
+
+    public function setStat02(float $stat02): void{
+        $this->stat02 = $stat02;
     }
 
 }

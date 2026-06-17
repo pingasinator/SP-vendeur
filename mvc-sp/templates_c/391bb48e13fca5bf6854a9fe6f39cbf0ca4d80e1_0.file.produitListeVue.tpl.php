@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-05-19 14:02:29
+/* Smarty version 4.5.5, created on 2026-06-17 09:36:35
   from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_produit\vue\produitListeVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a0c6d756d1c95_68627790',
+  'unifunc' => 'content_6a326aa3ae4907_13378716',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '391bb48e13fca5bf6854a9fe6f39cbf0ca4d80e1' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_produit\\vue\\produitListeVue.tpl',
-      1 => 1779199340,
+      1 => 1781680726,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6a0c6d756d1c95_68627790 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a326aa3ae4907_13378716 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -120,19 +120,6 @@ function content_6a0c6d756d1c95_68627790 (Smarty_Internal_Template $_smarty_tpl)
                             <strong class="card-title"><?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
 
 
-                                <!-- PLACER LE FORMULAIRE D'AJOUT-->
-                                <form action="index.php" method="post" class="pos-ajout">
-                                    <input type="hidden" name="gestion" value="produit">
-                                    <input type="hidden" name="action" value="form_ajouter">
-                                    <label>Ajouter un produit :
-                                        <input
-                                                type="image"
-                                                id="aImage"
-                                                name="btn_ajouter"
-                                                src="public/images/icones/a16.png">
-                                    </label>
-                                </form>
-
                             </strong>
                         </div>
                         <div class="card-body">
@@ -148,8 +135,6 @@ function content_6a0c6d756d1c95_68627790 (Smarty_Internal_Template $_smarty_tpl)
                                     <th>Descriptif</th>
                                     <th>Stock</th>
                                     <th class="pos-actions">Consulter</th>
-                                    <th class="pos-actions">Modifier</th>
-                                    <th class="pos-actions">Supprimer</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -185,35 +170,6 @@ $_smarty_tpl->tpl_vars['produit']->do_else = false;
                                                         id="pImage"
                                                         name="btn_consulter"
                                                         src="public/images/icones/p16.png">
-
-                                            </form>
-                                        </td>
-                                        <td class="pos-actions">
-                                            <form action="index.php" method="post">
-                                                <input type="hidden" name="gestion" value="produit">
-                                                <input type="hidden" name="action" value="form_modifier">
-                                                <input type="hidden" name="reference" value="<?php echo $_smarty_tpl->tpl_vars['produit']->value->getReference();?>
-">
-                                                <input
-                                                        type="image"
-                                                        id="mImage"
-                                                        name="btn_modifier"
-                                                        src="public/images/icones/m16.png">
-
-                                            </form>
-
-                                        </td>
-                                        <td class="pos-actions">
-                                            <form action="index.php" method="post">
-                                                <input type="hidden" name="gestion" value="produit">
-                                                <input type="hidden" name="action" value="form_supprimer">
-                                                <input type="hidden" name="reference" value="<?php echo $_smarty_tpl->tpl_vars['produit']->value->getReference();?>
-">
-                                                <input
-                                                        type="image"
-                                                        id="sImage"
-                                                        name="btn_supprimer"
-                                                        src="public/images/icones/s16.png">
 
                                             </form>
                                         </td>

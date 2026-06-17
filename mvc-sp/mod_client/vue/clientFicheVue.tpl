@@ -77,14 +77,17 @@
     </div>
 
     <div class="content mt-3">
-        <div class="alert alert-danger">{$messageErreur}</div>
-        <div class="alert alert-success">{$messageErreur}</div>
+        {if $messageErreur neq ''}
+            <div class="alert alert-danger">{$messageErreur}</div>
+        {/if}
+        {if $messageSuccess neq ''}
+            <div class="alert alert-success">{$messageSuccess}</div>
+        {/if}
         <div class="animated fadeIn">
 
             <div class="row">
 
                 <div class="col-md-6">
-
                     <div class="card">
                         <div class="card-header"><strong>{$titrePage}</strong></div>
                         <form action="index.php" method="post">
@@ -201,6 +204,17 @@
                     </div>
                 </div>
 
+                <div class="col-md-6">
+                    <div class="card">
+
+                        <div class="card-header"><strong>Statistiques</strong></div>
+                        <div class="card-body">
+                            <div class="form-group"><strong>CA réalisé : {$unClient->getStat01()}€ </strong></div>
+                            <div class="form-group"><strong>Pourcentage du CA réalisé : {$unClient->getStat02()}%</strong></div>
+                            <div class="form-group"><strong>Ses meilleurs achats {* (les 5 articles les plus achetés) *} : </strong></div>
+                        </div>
+                    </div>
+                </div>
             </div><!-- .animated -->
         </div><!-- .content -->
 
