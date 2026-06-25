@@ -2,7 +2,7 @@
 try {
 
     // Interface de connexion entre windev et MySQL de sp-vendeur
-    if(isset($_GET['wDemande']) && $_GET['wDemande'] != "azerty2QWERTY"){
+    if(isset($_GET['wDemande']) && $_GET['wDemande'] == "azerty2QWERTY"){
 
         // Définition des constantes pour connexion à MySQL via PDO
         define('SERVER','localhost');
