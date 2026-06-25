@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="public/assets/css/flag-icon.min.css">
     <link rel="stylesheet" href="public/assets/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="public/assets/css/lib/datatable/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="public/assets/css/commande.css">
     <!-- <link rel="stylesheet" href="template/assets/css/bootstrap-select.less"> -->
     <link rel="stylesheet" href="public/assets/scss/style.css">
     <link href="public/assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
@@ -73,6 +74,37 @@
                         <li class="active">{$titrePage}</li>
                     </ol>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hidden" id="client-background">
+        <div class="card" id="card-client">
+            <div class="card-header"><strong>Client : E</strong></div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="nomPrenom">Nom et Prénom :</label>
+                    <input id="nomPrenom" class="form-control" name="nomPrenom" readonly value="">
+                </div>
+                <div class="form-group">
+                    <label for="adresse">Adresse :</label>
+                    <input id="adresse" class="form-control" name="adresse" readonly value="">
+                </div>
+                <div class="form-group">
+                    <label for="cp">Code Postal :</label>
+                    <input id="cp" class="form-control" name="cp" readonly value="">
+                </div>
+                <div class="form-group">
+                    <label for="ville">Ville :</label>
+                    <input id="ville" class="form-control" name="ville" readonly value="">
+                </div>
+                <div class="form-group">
+                    <label for="telephone">Téléphone :</label>
+                    <input id="telephone" class="form-control" name="telephone" readonly value="">
+                </div>
+
+                <label></label>
+                <button onclick="removeCardClient()">Retour</button>
             </div>
         </div>
     </div>
@@ -129,7 +161,7 @@
                                         <td>{$commande->getNumero()}</td>
                                         <td>{$commande->getVendeur()}</td>
                                         <td>
-                                            <a href="index.php?gestion=client&action=form_consulter&codec={$commande->getCodec()}">{$commande->getCodec()} - {$commande->getClient()}</a>
+                                            <button onclick="displayClient({$commande->getCodec()})" class="button-client">{$commande->getCodec()} - {$commande->getClient()}</button>
                                         </td>
                                         <td>{$commande->getTotal_HT()}</td>
                                         <td class="pos-actions">
@@ -200,6 +232,8 @@
     <script src="public/assets/js/lib/data-table/buttons.print.min.js"></script>
     <script src="public/assets/js/lib/data-table/buttons.colVis.min.js"></script>
     <script src="public/assets/js/lib/data-table/datatables-init.js"></script>
+
+    <script src="public/assets/js/commande.js"></script>
 
 
     <script type="text/javascript">

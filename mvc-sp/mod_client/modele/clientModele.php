@@ -119,9 +119,5 @@ class ClientModele extends Modele
         if ($val1['st02'] != null && $val2['allcommands'] != null) {
             $client->setStat02($val1['st02'] / $val2['allcommands'] * 100);
         }
-
-
-
-
     }
 }

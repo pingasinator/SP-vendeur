@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-06-17 14:52:01
+/* Smarty version 4.5.5, created on 2026-06-23 08:37:28
   from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_commande\vue\commandeListeVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a32b49163b320_54929907',
+  'unifunc' => 'content_6a3a45c85d6c54_90542186',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '83f9481e570560e46d85181622bf38503931b218' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_commande\\vue\\commandeListeVue.tpl',
-      1 => 1781707920,
+      1 => 1782203841,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6a32b49163b320_54929907 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a3a45c85d6c54_90542186 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -50,6 +50,7 @@ function content_6a32b49163b320_54929907 (Smarty_Internal_Template $_smarty_tpl)
     <link rel="stylesheet" href="public/assets/css/flag-icon.min.css">
     <link rel="stylesheet" href="public/assets/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="public/assets/css/lib/datatable/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="public/assets/css/commande.css">
     <!-- <link rel="stylesheet" href="template/assets/css/bootstrap-select.less"> -->
     <link rel="stylesheet" href="public/assets/scss/style.css">
     <link href="public/assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
@@ -104,6 +105,37 @@ function content_6a32b49163b320_54929907 (Smarty_Internal_Template $_smarty_tpl)
 </li>
                     </ol>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hidden" id="client-background">
+        <div class="card" id="card-client">
+            <div class="card-header"><strong>Client : E</strong></div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="nomPrenom">Nom et Prénom :</label>
+                    <input id="nomPrenom" class="form-control" name="nomPrenom" readonly value="">
+                </div>
+                <div class="form-group">
+                    <label for="adresse">Adresse :</label>
+                    <input id="adresse" class="form-control" name="adresse" readonly value="">
+                </div>
+                <div class="form-group">
+                    <label for="cp">Code Postal :</label>
+                    <input id="cp" class="form-control" name="cp" readonly value="">
+                </div>
+                <div class="form-group">
+                    <label for="ville">Ville :</label>
+                    <input id="ville" class="form-control" name="ville" readonly value="">
+                </div>
+                <div class="form-group">
+                    <label for="telephone">Téléphone :</label>
+                    <input id="telephone" class="form-control" name="telephone" readonly value="">
+                </div>
+
+                <label></label>
+                <button onclick="removeCardClient()">Retour</button>
             </div>
         </div>
     </div>
@@ -170,10 +202,10 @@ $_smarty_tpl->tpl_vars['commande']->do_else = false;
                                         <td><?php echo $_smarty_tpl->tpl_vars['commande']->value->getVendeur();?>
 </td>
                                         <td>
-                                            <a href="index.php?gestion=client&action=form_consulter&codec=<?php echo $_smarty_tpl->tpl_vars['commande']->value->getCodec();?>
-"><?php echo $_smarty_tpl->tpl_vars['commande']->value->getCodec();?>
+                                            <button onclick="displayClient(<?php echo $_smarty_tpl->tpl_vars['commande']->value->getCodec();?>
+)" class="button-client"><?php echo $_smarty_tpl->tpl_vars['commande']->value->getCodec();?>
  - <?php echo $_smarty_tpl->tpl_vars['commande']->value->getClient();?>
-</a>
+</button>
                                         </td>
                                         <td><?php echo $_smarty_tpl->tpl_vars['commande']->value->getTotal_HT();?>
 </td>
@@ -281,6 +313,10 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 >
     <?php echo '<script'; ?>
  src="public/assets/js/lib/data-table/datatables-init.js"><?php echo '</script'; ?>
+>
+
+    <?php echo '<script'; ?>
+ src="public/assets/js/commande.js"><?php echo '</script'; ?>
 >
 
 
