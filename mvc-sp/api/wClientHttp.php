@@ -23,7 +23,7 @@ try {
         while ($donnees = $idRequete->fetch()){
             // SEP = séparateur de ligne et le ; sera le séparateur de données
 
-            echo $donnees['code_c'] . " ; " . $donnees['nom'] . " ; " . $donnees['cp'] . " ; " . $donnees['ville'];
+            echo $donnees['code_c'] . " ; " . $donnees['nom'] . " ; " . $donnees['cp'] . " ; " . $donnees['ville'] . " sep ";
         }
     }else{
         echo "ACCESS INTERDIT";
