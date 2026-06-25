@@ -17,7 +17,7 @@ try {
         $ville = $_POST['ville'];
         $telephone = $_POST['telephone'];
 
-        $sql = "INSERT INTO windev (nom, adresse, cp, ville, telephone) VALUES ('$nom', '$adresse', '$cp', '$ville', '$telephone')";
+        $sql = "INSERT INTO client (nom, adresse, cp, ville, telephone) VALUES ('$nom', '$adresse', '$cp', '$ville', '$telephone')";
 
         $idRequete = $cnx->query($sql);
 
