@@ -18,7 +18,7 @@ class ProduitVue
     private function chargementValeurs(){
 
 
-        $this->tpl->assign('login', 'Ici le nom de la personne authentifiée');
+        $this->tpl->assign('login', $_COOKIE['login']);
 
         $this->tpl->assign('tabBord', 'ICI MON TABLEAU DE BORD CF. Olivier LASSERRE');
 

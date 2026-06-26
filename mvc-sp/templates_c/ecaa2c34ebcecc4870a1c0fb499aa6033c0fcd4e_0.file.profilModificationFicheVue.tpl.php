@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-06-17 14:07:31
+/* Smarty version 4.5.5, created on 2026-06-26 12:53:24
   from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_profil\vue\profilModificationFicheVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a32aa232f7a08_76081326',
+  'unifunc' => 'content_6a3e7644c29088_67619181',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ecaa2c34ebcecc4870a1c0fb499aa6033c0fcd4e' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_profil\\vue\\profilModificationFicheVue.tpl',
-      1 => 1781691291,
+      1 => 1782478400,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6a32aa232f7a08_76081326 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a3e7644c29088_67619181 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -204,7 +204,7 @@ function content_6a32aa232f7a08_76081326 (Smarty_Internal_Template $_smarty_tpl)
                                     <input type="button"
                                            class="btn btn-submit"
                                            value="Retour"
-                                           onclick="location.href='index.php?gestion=profil'">
+                                           onclick="location.href='index.php'">
                                 </div>
                                 <div class="col-md-6">
                                     <input type="hidden" name="gestion" value="profil">
@@ -260,7 +260,7 @@ function content_6a32aa232f7a08_76081326 (Smarty_Internal_Template $_smarty_tpl)
                                     <input type="button"
                                            class="btn btn-submit"
                                            value="Retour"
-                                           onclick="location.href='index.php?gestion=profil'">
+                                           onclick="location.href='index.php'">
                                 </div>
                                 <div class="col-md-6">
                                     <input type="hidden" name="gestion" value="profil">

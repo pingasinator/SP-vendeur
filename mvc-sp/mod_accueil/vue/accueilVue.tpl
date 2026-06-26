@@ -69,26 +69,42 @@
         </div>
     </div>
     -->
-    <div class="content mt-3">
-
-        <br>
-
-        <div class="animated fadeIn">
-            <div class="row">
-
-
-                <!-- PLACER LE TABLEAU DE BORD-->
-                {$tabBord}
-
-
-                <!-- /# column -->
+    <div class="content ">
+        <div class="mt-2">
+            <div class="col-sm-6 col-lg-5">
+                <div class="card text-white">
+                    <div class="card-body">
+                        <canvas id="camois"></canvas>
+                        <div id="camois_total" class="text-dark">Montant Total : </div>
+                    </div>
+                </div>
             </div>
 
+            <div class=" col-lg-5">
+                <div class="card text-white">
+                    <div class="card-body">
+                        <canvas id="mventes"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        </div> <!-- .content -->
-    </div>
+        </div>
+
+    <div class="content mt-2">
+        <div class="">
+            <div class="card text-white">
+                <div class="card-body">
+                    <canvas id="ctotal"></canvas>
+                    <div class="text-dark" id="ctotal_t">Montant Total : </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .content -->
+
+
+
 </div><!-- /#right-panel -->
-
 
 <script src="public/assets/js/vendor/jquery-2.1.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
@@ -96,31 +112,13 @@
 <script src="public/assets/js/main.js"></script>
 
 
-<script src="public/assets/js/lib/chart-js/Chart.bundle.js"></script>
-<script src="public/assets/js/dashboard.js"></script>
-<script src="public/assets/js/widgets.js"></script>
-<script src="public/assets/js/lib/vector-map/jquery.vmap.js"></script>
-<script src="public/assets/js/lib/vector-map/jquery.vmap.min.js"></script>
-<script src="public/assets/js/lib/vector-map/jquery.vmap.sampledata.js"></script>
-<script src="public/assets/js/lib/vector-map/country/jquery.vmap.world.js"></script>
-<script>
-    ( function ( $ ) {
-        "use strict";
+<script src="https://code.jquery.com/jquery-3.6.3.js"  integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 
-        jQuery( '#vmap' ).vectorMap( {
-            map: 'world_en',
-            backgroundColor: null,
-            color: '#ffffff',
-            hoverOpacity: 0.7,
-            selectedColor: '#1de9b6',
-            enableZoom: true,
-            showTooltip: true,
-            values: sample_data,
-            scaleColors: [ '#1de9b6', '#03a9f5' ],
-            normalizeFunction: 'polynomial'
-        } );
-    } )( jQuery );
-</script>
+
+
+<script src="public/assets/js/scripts_charts.js"></script>
+<script src="public/assets/js/chartjs.min.js"></script>
+
 
 </body>
 </html>

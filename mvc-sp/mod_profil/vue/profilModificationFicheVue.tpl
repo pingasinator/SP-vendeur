@@ -164,7 +164,7 @@
                                     <input type="button"
                                            class="btn btn-submit"
                                            value="Retour"
-                                           onclick="location.href='index.php?gestion=profil'">
+                                           onclick="location.href='index.php'">
                                 </div>
                                 <div class="col-md-6">
                                     <input type="hidden" name="gestion" value="profil">
@@ -218,7 +218,7 @@
                                     <input type="button"
                                            class="btn btn-submit"
                                            value="Retour"
-                                           onclick="location.href='index.php?gestion=profil'">
+                                           onclick="location.href='index.php'">
                                 </div>
                                 <div class="col-md-6">
                                     <input type="hidden" name="gestion" value="profil">

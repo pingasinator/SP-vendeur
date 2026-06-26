@@ -24,9 +24,27 @@ class Accueil{
 
         // ICI à venir une structure alternative de type switch()
         // traitant les différentes actions possibles
+        if(isset($this->parametre["action"])){
 
-        // Méthode par défaut si aucune action n'est spécifiée
-        $this->oControleur->lister();
+            switch($this->parametre["action"]){
+                case "generer_stats":
+                    $this->oControleur->genererChiffreAffaire();
+                    break;
+
+                case "generer_meilleursVentes":
+                    $this->oControleur->genererMeilleurVentes();
+                    break;
+
+                case "generer_chiffreAffaireTotal":
+                    $this->oControleur->genererChiffreAffaireTotal();
+                    break;
+            }
+
+
+        }else{
+            // Méthode par défaut si aucune action n'est spécifiée
+            $this->oControleur->lister();
+        }
     }
 
 }

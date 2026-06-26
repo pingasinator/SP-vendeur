@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-06-17 13:36:21
+/* Smarty version 4.5.5, created on 2026-06-26 13:14:48
   from 'C:\laragon\www\SP-vendeur\mvc-sp\public\left.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a32a2d533ec26_50058683',
+  'unifunc' => 'content_6a3e7b48b39ee7_03959044',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd8ab14ffb22e4a6a757d1e8d89e01918db242bc3' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\public\\left.tpl',
-      1 => 1781703353,
+      1 => 1782479683,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6a32a2d533ec26_50058683 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a3e7b48b39ee7_03959044 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Left Panel -->
 
     <aside id="left-panel" class="left-panel">
@@ -30,7 +30,7 @@ function content_6a32a2d533ec26_50058683 (Smarty_Internal_Template $_smarty_tpl)
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#A VOUS D'ECRIRE LE LIEN">Séraphin PARYS</a>
+                <a class="navbar-brand" href="index.php">Séraphin PARYS</a>
                 <a class="navbar-brand hidden" href="#A VOUS D'ECRIRE LE LIEN">G</a>
             </div>
 
