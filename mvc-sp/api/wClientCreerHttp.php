@@ -1,15 +1,13 @@
 <?php
 
+require_once '../include/parametre.php';
+
 try {
     if(isset($_POST['windev']) && $_POST['windev'] == "ajouter"){
 
         // Définition des constantes pour connexion à MySQL via PDO
-        define('SERVER','localhost');
-        define('USER','root');
-        define('PASS','');
-        define('BASE','spvendeurs');
 
-        $cnx = new PDO('mysql:host='.SERVER.';dbname='.BASE,USER,PASS,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8", PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        $cnx = new PDO('mysql:host='.SERVEUR.';dbname='.BASE,NOM,PASSE,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8", PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
         $nom = $_POST['nom'];
         $adresse = $_POST['adresse'];

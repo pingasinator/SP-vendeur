@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-06-04 13:10:03
+/* Smarty version 4.5.5, created on 2026-06-29 09:17:13
   from '/opt/lampp/htdocs/SP-vendeur/mvc-sp/public/left.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a215d0b6de181_48390678',
+  'unifunc' => 'content_6a421bf97768d4_33845802',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4733354a7c847d4c9f22e52cbd1f28855e912279' => 
     array (
       0 => '/opt/lampp/htdocs/SP-vendeur/mvc-sp/public/left.tpl',
-      1 => 1780558050,
+      1 => 1782717278,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6a215d0b6de181_48390678 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a421bf97768d4_33845802 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Left Panel -->
 
     <aside id="left-panel" class="left-panel">
@@ -30,7 +30,7 @@ function content_6a215d0b6de181_48390678 (Smarty_Internal_Template $_smarty_tpl)
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#A VOUS D'ECRIRE LE LIEN">Séraphin PARYS</a>
+                <a class="navbar-brand" href="index.php">Séraphin PARYS</a>
                 <a class="navbar-brand hidden" href="#A VOUS D'ECRIRE LE LIEN">G</a>
             </div>
 
@@ -44,13 +44,7 @@ function content_6a215d0b6de181_48390678 (Smarty_Internal_Template $_smarty_tpl)
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Clients</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-puzzle-piece"></i><a href="index.php?gestion=client">Liste</a></li>
-                            <li><i class="fa fa-id-badge"></i>
-                                <form action="index.php" method="post">
-                                    <input type="hidden" name="gestion" value="client">
-                                    <input type="hidden" name="action" value="form_ajouter">
-                                    <input type="submit" value="Nouveau" class="fa fa-id-badge">
-                                </form>
-                            </li>
+                            <li><i class="fa fa-id-badge"></i><a href="index.php?gestion=client&action=form_ajouter">Ajouter</a></li>
                             
                         </ul>
                     </li>
@@ -61,18 +55,13 @@ function content_6a215d0b6de181_48390678 (Smarty_Internal_Template $_smarty_tpl)
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <form action="index.php" method="post" class="">
-                            <input type="hidden" name="gestion" value="profil">
-                            <input type="hidden" name="action" value="form_modifier">
-                            <input type="submit" value="Mon profil" class="fa fa-id-badge menu-icon fa-th">
-                        </form>
-                        
+                        <a href="index.php?gestion=profil&action=form_modifier"><i  class="fa fa-id-badge menu-icon fa-th"></i>Mon Profil </a>
                     </li>
 
                     <h3 class="menu-title">COMMANDES</h3><!-- /.menu-title -->
 
                     <li class="dropdown">
-                        <a href="#A VOUS D'ECRIRE LE LIEN"> <i class="menu-icon fa fa-tasks"></i>Historique</a>
+                        <a href="index.php?gestion=commande"> <i class="menu-icon fa fa-tasks"></i>Historique</a>
                          
                         
                     </li>

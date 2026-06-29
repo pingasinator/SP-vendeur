@@ -80,7 +80,7 @@
 
     <div class="hidden" id="client-background">
         <div class="card" id="card-client">
-            <div class="card-header"><strong>Client : E</strong></div>
+            <div class="card-header" id="codec"><strong>Client : E</strong></div>
             <div class="card-body">
                 <div class="form-group">
                     <label for="nomPrenom">Nom et Prénom :</label>

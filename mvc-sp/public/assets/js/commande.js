@@ -7,11 +7,24 @@ function displayClient(codec){
     background_client_element.classList.add("client-background-show");
 
     $.ajax({
-        url:'mod_client/ajax/clientAjax.php',
+        url:'api/getClient.php',
         method:'POST',
         data:{codec:codec},
         success:function(data){
-            console.log(data.json());
+            let client = JSON.parse(data);
+            const form_codec_element = document.getElementById('codec');
+            const form_nom_element = document.getElementById('nomPrenom');
+            const form_adresse_element = document.getElementById('adresse');
+            const form_cp_element = document.getElementById("cp");
+            const form_ville_element = document.getElementById("ville");
+            const form_telephone_element = document.getElementById("telephone");
+
+            form_codec_element.innerText = "Client : " + client.codec;
+            form_nom_element.value =  client.nom;
+            form_adresse_element.value = client.adresse;
+            form_cp_element.value = client.cp;
+            form_ville_element.value = client.ville
+            form_telephone_element.value = client.telephone;
         }
     })
 }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-06-04 13:10:03
+/* Smarty version 4.5.5, created on 2026-06-29 09:17:13
   from '/opt/lampp/htdocs/SP-vendeur/mvc-sp/mod_accueil/vue/accueilVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a215d0b6d8ed3_32249463',
+  'unifunc' => 'content_6a421bf9773aa9_44208483',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '13226ea9120c9d2c55379dca47e4b8f612c93378' => 
     array (
       0 => '/opt/lampp/htdocs/SP-vendeur/mvc-sp/mod_accueil/vue/accueilVue.tpl',
-      1 => 1780558050,
+      1 => 1782717278,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6a215d0b6d8ed3_32249463 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a421bf9773aa9_44208483 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -98,27 +98,42 @@ function content_6a215d0b6d8ed3_32249463 (Smarty_Internal_Template $_smarty_tpl)
         </div>
     </div>
     -->
-    <div class="content mt-3">
-
-        <br>
-
-        <div class="animated fadeIn">
-            <div class="row">
-
-
-                <!-- PLACER LE TABLEAU DE BORD-->
-                <?php echo $_smarty_tpl->tpl_vars['tabBord']->value;?>
-
-
-
-                <!-- /# column -->
+    <div class="content ">
+        <div class="mt-2">
+            <div class="col-sm-6 col-lg-5">
+                <div class="card text-white">
+                    <div class="card-body">
+                        <canvas id="camois"></canvas>
+                        <div id="camois_total" class="text-dark">Montant Total : </div>
+                    </div>
+                </div>
             </div>
 
+            <div class=" col-lg-5">
+                <div class="card text-white">
+                    <div class="card-body">
+                        <canvas id="mventes"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        </div> <!-- .content -->
-    </div>
+        </div>
+
+    <div class="content mt-2">
+        <div class="">
+            <div class="card text-white">
+                <div class="card-body">
+                    <canvas id="ctotal"></canvas>
+                    <div class="text-dark" id="ctotal_t">Montant Total : </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .content -->
+
+
+
 </div><!-- /#right-panel -->
-
 
 <?php echo '<script'; ?>
  src="public/assets/js/vendor/jquery-2.1.4.min.js"><?php echo '</script'; ?>
@@ -135,46 +150,18 @@ function content_6a215d0b6d8ed3_32249463 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <?php echo '<script'; ?>
- src="public/assets/js/lib/chart-js/Chart.bundle.js"><?php echo '</script'; ?>
+ src="https://code.jquery.com/jquery-3.6.3.js"  integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"><?php echo '</script'; ?>
 >
-<?php echo '<script'; ?>
- src="public/assets/js/dashboard.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="public/assets/js/widgets.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="public/assets/js/lib/vector-map/jquery.vmap.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="public/assets/js/lib/vector-map/jquery.vmap.min.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="public/assets/js/lib/vector-map/jquery.vmap.sampledata.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- src="public/assets/js/lib/vector-map/country/jquery.vmap.world.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
->
-    ( function ( $ ) {
-        "use strict";
 
-        jQuery( '#vmap' ).vectorMap( {
-            map: 'world_en',
-            backgroundColor: null,
-            color: '#ffffff',
-            hoverOpacity: 0.7,
-            selectedColor: '#1de9b6',
-            enableZoom: true,
-            showTooltip: true,
-            values: sample_data,
-            scaleColors: [ '#1de9b6', '#03a9f5' ],
-            normalizeFunction: 'polynomial'
-        } );
-    } )( jQuery );
-<?php echo '</script'; ?>
+
+
+<?php echo '<script'; ?>
+ src="public/assets/js/scripts_charts.js"><?php echo '</script'; ?>
 >
+<?php echo '<script'; ?>
+ src="public/assets/js/chartjs.min.js"><?php echo '</script'; ?>
+>
+
 
 </body>
 </html>
