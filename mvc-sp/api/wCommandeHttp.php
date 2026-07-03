@@ -11,7 +11,7 @@ try {
 
         $cnx = new PDO('mysql:host='.SERVEUR.';dbname='.BASE,NOM,PASSE,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8", PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
-        $sql ="SELECT * FROM produit WHERE quantite < 50";
+        $sql ="SELECT designation, reference, quantite, 120 - quantite as acommander FROM produit WHERE quantite < 50";
 
         $idRequete = $cnx->query($sql);
 
@@ -22,7 +22,7 @@ try {
         while ($donnees = $idRequete->fetch()){
             // SEP = séparateur de ligne et le ; sera le séparateur de données
 
-            echo $donnees['code_c'] . " ; " . $donnees['nom'] . " ; " . $donnees['cp'] . " ; " . $donnees['ville'] . " sep ";
+            echo $donnees['designation'] . " ; " . $donnees['reference'] . " ; " . $donnees['quantite'] . " ; " . $donnees['acommander'] . " sep ";
         }
     }else{
         echo "ACCESS INTERDIT";
