@@ -169,11 +169,7 @@
                                                 <input type="hidden" name="gestion" value="commande">
                                                 <input type="hidden" name="action" value="form_consulter">
                                                 <input type="hidden" name="codec" value="{$commande->getCodec()}">
-                                                <input
-                                                        type="image"
-                                                        id="pImage"
-                                                        name="btn_consulter"
-                                                        src="public/images/icones/p16.png">
+                                                <input type="image"  id="pImage"  name="btn_consulter" src="public/images/icones/p16.png">
 
                                             </form>
                                         </td>
@@ -182,11 +178,7 @@
                                                 <input type="hidden" name="gestion" value="commande">
                                                 <input type="hidden" name="action" value="form_modifier">
                                                 <input type="hidden" name="codec" value="{$commande->getCodec()}">
-                                                <input
-                                                        type="image"
-                                                        id="mImage"
-                                                        name="btn_modifier"
-                                                        src="public/images/icones/m16.png">
+                                                <input type="image" id="mImage" name="btn_modifier" src="public/images/icones/m16.png">
 
                                             </form>
 

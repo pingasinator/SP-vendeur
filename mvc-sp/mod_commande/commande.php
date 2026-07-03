@@ -9,6 +9,7 @@ class Commande
     private $oControleur; // Object
 
     private static $ErrorMessage;
+    private static $SuccessMessage;
 
     public function __construct($parametre)
     {
@@ -27,7 +28,9 @@ class Commande
         // Méthode par défaut si aucune action n'est spécifiée
         if(isset($this->parametre['action'])) {
             switch ($this->parametre['action']) {
-
+                case 'form_modifier':
+                    $this->oControleur->form_modifier();
+                    break;
             }
         }else{
             $this->oControleur->Lister();
@@ -38,7 +41,15 @@ class Commande
         return self::$ErrorMessage;
     }
 
+    public static function getSuccessMessage(){
+        return self::$SuccessMessage;
+    }
+
     public static function setErrorMessage($ErrorMessage){
         self::$ErrorMessage = $ErrorMessage;
+    }
+
+    public static function setSuccessMessage($SuccessMessage){
+        self::$SuccessMessage = $SuccessMessage;
     }
 }

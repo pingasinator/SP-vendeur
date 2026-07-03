@@ -13,11 +13,11 @@ class CommandeModele extends Modele
     /**
      * @return ProfilTable
      */
-    public function getUnProfil(){
+    public function getUneCommande($commande){
 
         $sql = "SELECT vendeur.*, cast(sum(commande.total_ht) as DECIMAL(10,2)) as ventes FROM vendeur left join commande on commande.codev = vendeur.codev WHERE login = ?";
 
-        $idRequete = $this->executeRequete($sql, [$_COOKIE['login']]);
+        $idRequete = $this->executeRequete($sql, [$commande]);
 
         $data = $idRequete->fetch(PDO::FETCH_ASSOC);
 

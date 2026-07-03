@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-05-20 07:58:28
-  from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_profil\vue\commandeFicheVue.tpl' */
+/* Smarty version 4.5.5, created on 2026-07-01 16:51:59
+  from '/opt/lampp/htdocs/SP-vendeur/mvc-sp/mod_client/vue/clientFicheVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a0d69a4690c26_99182659',
+  'unifunc' => 'content_6a45298f6d2e42_17391444',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '198c3554787e85cb65d6742e531d610a2104b406' => 
+    '25c6cd3679c288eb2fce44d413013308fa0220f4' => 
     array (
-      0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_profil\\vue\\commandeFicheVue.tpl',
-      1 => 1779263889,
+      0 => '/opt/lampp/htdocs/SP-vendeur/mvc-sp/mod_client/vue/clientFicheVue.tpl',
+      1 => 1782717278,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6a0d69a4690c26_99182659 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a45298f6d2e42_17391444 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -99,7 +99,7 @@ function content_6a0d69a4690c26_99182659 (Smarty_Internal_Template $_smarty_tpl)
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
                         <li><a href="index.php">Accueil</a></li>
-                        <li><a href="index.php?gestion=produit">Produits</a></li>
+                        <li><a href="index.php?gestion=client">Clients</a></li>
                         <li class="active"><?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
 </li>
                     </ol>
@@ -109,112 +109,141 @@ function content_6a0d69a4690c26_99182659 (Smarty_Internal_Template $_smarty_tpl)
     </div>
 
     <div class="content mt-3">
+        <?php if ($_smarty_tpl->tpl_vars['messageErreur']->value != '') {?>
+            <div class="alert alert-danger"><?php echo $_smarty_tpl->tpl_vars['messageErreur']->value;?>
+</div>
+        <?php }?>
+        <?php if ($_smarty_tpl->tpl_vars['messageSuccess']->value != '') {?>
+            <div class="alert alert-success"><?php echo $_smarty_tpl->tpl_vars['messageSuccess']->value;?>
+</div>
+        <?php }?>
         <div class="animated fadeIn">
 
             <div class="row">
 
                 <div class="col-md-6">
-
                     <div class="card">
                         <div class="card-header"><strong><?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
 </strong></div>
-                        <form action="index.php" method="POST">
+                        <form action="index.php" method="post">
 
-                            <input type="hidden" name="gestion" value="produit">
+                            <input type="hidden" name="gestion" value="client">
+
+                            <?php if ($_smarty_tpl->tpl_vars['action']->value == 'form_ajouter') {?>
+                                <input type="hidden" name="action" value="form_valider_ajout">
+                            <?php } elseif ($_smarty_tpl->tpl_vars['action']->value == 'form_modifier') {?>
+                                <input type="hidden" name="action" value="form_valider_modification">
+                            <?php }?>
+
 
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="reference" class="">Codev :</label>
-                                    <input
-                                            type="text"
-                                            id="reference"
-                                            name="reference"
-                                            class="form-control"
-                                            readonly="readonly"
-                                            >
+                                    <?php if ($_smarty_tpl->tpl_vars['action']->value == 'form_consulter' || $_smarty_tpl->tpl_vars['action']->value == 'form_modifier') {?>
+                                        <label for="codec" class="">Code Client :</label>
+                                        <input
+                                                type="text"
+                                                id="codec"
+                                                name="codec"
+                                                class="form-control"
+                                                <?php echo $_smarty_tpl->tpl_vars['codecReadonly']->value;?>
+
+                                                value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getCodec();?>
+">
+                                    <?php }?>
+
 
                                 </div>
                                 <div class="form-group">
-                                    <label for="designation" class="">Nom :</label>
+                                    <label for="nom" class="">Nom et Prénom :</label>
                                     <input
                                             type="text"
-                                            id="designation"
-                                            name="designation"
+                                            id="nom"
+                                            name="nom"
                                             class="form-control"
-                                            value="<?php echo $_smarty_tpl->tpl_vars['unProfil']->value->getNom();?>
+                                            <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
+
+                                            value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getNom();?>
 ">
 
                                 </div>
                                 <div class="form-group">
-                                    <label for="poids_piece" class="">Prénom :</label>
+                                    <label for="adresse" class="">Adresse : </label>
                                     <input
                                             type="text"
-                                            id="poids_piece"
-                                            name="poids_piece"
+                                            id="adresse"
+                                            name="adresse"
                                             class="form-control"
-                                            value="<?php echo $_smarty_tpl->tpl_vars['unProfil']->value->getPrenom();?>
+                                            <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
+
+                                            value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getAdresse();?>
 ">
 
                                 </div>
                                 <div class="form-group">
-                                    <label for="prix_unitaire_ht" class="">Adresse :</label>
+                                    <label for="cp" class="">Code Postal : </label>
                                     <input
                                             type="text"
-                                            id="prix_unitaire_ht"
-                                            name="prix_unitaire_ht"
+                                            id="cp"
+                                            name="cp"
                                             class="form-control"
-                                            value="<?php echo $_smarty_tpl->tpl_vars['unProfil']->value->getAdresse();?>
+                                            <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
+
+                                            value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getCp();?>
 ">
 
                                 </div>
                                 <div class="form-group">
-                                    <label for="quantite" class="">Ville : </label>
+                                    <label for="ville" class="">Ville : </label>
                                     <input
                                             type="text"
-                                            id="quantite"
-                                            name="quantite"
+                                            id="ville"
+                                            name="ville"
                                             class="form-control"
-                                            value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getVille();?>
+                                            <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
+
+                                            value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getVille();?>
 ">
 
                                 </div>
                                 <div class="form-group">
-                                    <label for="descriptif" class="">Code postal : </label>
+                                    <label for="telephone" class="">Téléphone : </label>
                                     <input
                                             type="text"
-                                            id="descriptif"
-                                            name="descriptif"
+                                            id="telephone"
+                                            name="telephone"
                                             class="form-control"
-                                            value="<?php echo $_smarty_tpl->tpl_vars['unProfil']->value->getCP();?>
+                                            <?php echo $_smarty_tpl->tpl_vars['readonly']->value;?>
+
+                                            value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getTelephone();?>
 ">
 
                                 </div>
-                                <div class="form-group">
-                                    <label for="quantite" class="">Stock : </label>
-                                    <input
-                                            type="text"
-                                            id="stock"
-                                            name="stock"
-                                            class="form-control"
-                                            value="<?php echo $_smarty_tpl->tpl_vars['unProfil']->value->getStock();?>
-">
 
-                                </div>
                             </div>
-
                             <div class="card-body">
                                 <div class="col-md-6">
                                     <input type="button"
                                            class="btn btn-submit"
                                            value="Retour"
-                                           onclick="location.href='index.php?gestion=produit'">
+                                           onclick="location.href='index.php?gestion=client'">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="hidden" name="gestion" value="produit">
-                                    <input type="hidden" name="action" value="form_valider_mofication">
-                                    <input type="hidden" name="reference" value="<?php echo $_smarty_tpl->tpl_vars['unProduit']->value->getReference();?>
+                                    <?php if ($_smarty_tpl->tpl_vars['action']->value == 'form_ajouter' || $_smarty_tpl->tpl_vars['action']->value == 'form_modifier') {?>
+                                        <input type="submit" class="btn btn-submit" value="Valider">
+
+                                    <?php } else { ?>
+                                        <input type="hidden" name="gestion" value="client">
+                                        <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getCodec();?>
 ">
-                                    <input type="submit" class="btn btn-submit" value="Valider">
+                                        <?php if ($_smarty_tpl->tpl_vars['action']->value == 'form_supprimer') {?>
+                                            <input type="hidden" name="action" value="form_valider_suppression">
+                                            <input type="submit" class="btn btn-submit" value="Supprimer">
+                                        <?php } else { ?>
+                                            <input type="hidden" name="action" value="form_modifier">
+                                            <input type="submit" class="btn btn-submit" value="Modifier">
+                                        <?php }?>
+                                    <?php }?>
+
                                 </div>
                                 <br>
                             </div>
@@ -223,6 +252,19 @@ function content_6a0d69a4690c26_99182659 (Smarty_Internal_Template $_smarty_tpl)
                     </div>
                 </div>
 
+                <div class="col-md-6">
+                    <div class="card">
+
+                        <div class="card-header"><strong>Statistiques</strong></div>
+                        <div class="card-body">
+                            <div class="form-group"><strong>CA réalisé : <?php echo $_smarty_tpl->tpl_vars['unClient']->value->getStat01();?>
+€ </strong></div>
+                            <div class="form-group"><strong>Pourcentage du CA réalisé : <?php echo $_smarty_tpl->tpl_vars['unClient']->value->getStat02();?>
+%</strong></div>
+                            <div class="form-group"><strong>Ses meilleurs achats  : </strong></div>
+                        </div>
+                    </div>
+                </div>
             </div><!-- .animated -->
         </div><!-- .content -->
 

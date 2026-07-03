@@ -22,23 +22,21 @@ class CommandeVue
 
         $this->tpl->assign('login', $_COOKIE['login']);
 
-        $this->tpl->assign('tabBord', 'ICI MON TABLEAU DE BORD CF. Olivier LASSERRE');
-
     }
 
-    public function genererAffichageModificationFiche($profil)
+    public function genererAffichageModificationFiche($commande)
     {
         $this->chargementValeurs();
 
         $this->tpl->assign('titrePage', 'Fiche profil : Modification');
 
-        $this->tpl->assign('unProfil', $profil);
+        $this->tpl->assign('uneCommande', $commande);
 
-        $this->tpl->assign('errorMessage', Profil::getErrorMessage());
+        $this->tpl->assign('errorMessage', Commande::getErrorMessage());
 
-        $this->tpl->display('mod_profil/vue/commandeModificationFicheVue.tpl');
+        $this->tpl->display('mod_commande/vue/commandeFicheVue.tpl');
 
-        echo Profil::getErrorMessage();
+        echo Commande::getErrorMessage();
     }
 
     public function genererAffichageListe($commandes){
@@ -48,9 +46,9 @@ class CommandeVue
 
         $this->tpl->assign('listeCommmandes', $commandes);
 
-        $this->tpl->assign('errorMessage', "");
+        $this->tpl->assign('errorMessage', Commande::getErrorMessage());
 
-        $this->tpl->assign('messageSuccess', "");
+        $this->tpl->assign('messageSuccess', Commande::getSuccessMessage());
 
         $this->tpl->display('mod_commande/vue/commandeListeVue.tpl');
     }

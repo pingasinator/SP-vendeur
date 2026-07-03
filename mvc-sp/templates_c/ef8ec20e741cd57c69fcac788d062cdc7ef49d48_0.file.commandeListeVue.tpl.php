@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-06-29 09:39:36
+/* Smarty version 4.5.5, created on 2026-06-30 14:43:14
   from '/opt/lampp/htdocs/SP-vendeur/mvc-sp/mod_commande/vue/commandeListeVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a422138b8d566_22662943',
+  'unifunc' => 'content_6a43b9e2b49d96_76983084',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ef8ec20e741cd57c69fcac788d062cdc7ef49d48' => 
     array (
       0 => '/opt/lampp/htdocs/SP-vendeur/mvc-sp/mod_commande/vue/commandeListeVue.tpl',
-      1 => 1782718750,
+      1 => 1782739460,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6a422138b8d566_22662943 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a43b9e2b49d96_76983084 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -215,11 +215,7 @@ $_smarty_tpl->tpl_vars['commande']->do_else = false;
                                                 <input type="hidden" name="action" value="form_consulter">
                                                 <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['commande']->value->getCodec();?>
 ">
-                                                <input
-                                                        type="image"
-                                                        id="pImage"
-                                                        name="btn_consulter"
-                                                        src="public/images/icones/p16.png">
+                                                <input type="image"  id="pImage"  name="btn_consulter" src="public/images/icones/p16.png">
 
                                             </form>
                                         </td>
@@ -229,11 +225,7 @@ $_smarty_tpl->tpl_vars['commande']->do_else = false;
                                                 <input type="hidden" name="action" value="form_modifier">
                                                 <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['commande']->value->getCodec();?>
 ">
-                                                <input
-                                                        type="image"
-                                                        id="mImage"
-                                                        name="btn_modifier"
-                                                        src="public/images/icones/m16.png">
+                                                <input type="image" id="mImage" name="btn_modifier" src="public/images/icones/m16.png">
 
                                             </form>
 
