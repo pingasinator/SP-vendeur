@@ -11,8 +11,8 @@ if(isset($_POST['action'])){
             add_client();
             break;
 
-        case 'Update_stock':
-            Update_stock();
+        case 'update_stock':
+            update_stock();
             break;
     }
 }else{
@@ -20,19 +20,39 @@ if(isset($_POST['action'])){
 }
 
 if(isset($_GET['action'])){
-    switch($_GET['action']){
-        case 'get_client':
-            get_client();
-            break;
+    if(isset($_GET['wDemande']) && $_GET['wDemande'] == "azerty2QWERTY") {
+        switch ($_GET['action']) {
+            case 'get_client':
+                get_client();
+                break;
 
-        case 'get_commandes':
-            get_commandes();
-            break;
+            case 'get_commandes':
+                get_commandes();
+                break;
+        }
+    }
+    else{
+        echo "ACCESS INTERDIT";
     }
 }
 
-function Update_stock(){
+function update_stock(){
+    global $cnx;
 
+    try{
+        $data = json_decode($_POST['data']);
+        foreach($data as $value){
+            $sql = "UPDATE produit SET stock = stock + ? WHERE reference = ?";
+
+            $idRequete = $cnx->prepare($sql);
+            $idRequete->execute([$value->{"COL_Quantité_Demandée"},$value->COL_Code_produit_Fournisseur]);
+        }
+        echo '1';
+    }catch (PDOException $e){
+        // gestion de l'erreur captée
+        echo "Echec lors de la connexion : " . $e->getMessage();
+        exit;
+    }
 }
 
 function get_commandes(){
@@ -103,17 +123,21 @@ function get_client(){
 
     global $cnx;
     try{
+        // Définition des constantes pour connexion à MySQL via PDO
 
-        $sql = "SELECT * FROM client WHERE codec = ?";
+        $sql ="SELECT * FROM client";
 
-        $idRequete = $cnx->prepare($sql);
-        $idRequete->execute([$_POST["codec"]]);
+        $idRequete = $cnx->query($sql);
 
-        if($idRequete->rowCount() > 0){
-            echo json_encode($idRequete->fetch(PDO::FETCH_ASSOC));
+        if(!$idRequete){
+            echo "Erreur : R&eacute;cup&eacute;ration des données impossible. &bnsp;";
         }
 
+        while ($donnees = $idRequete->fetch()){
+            // SEP = séparateur de ligne et le ; sera le séparateur de données
 
+            echo $donnees['code_c'] . " ; " . $donnees['nom'] . " ; " . $donnees['cp'] . " ; " . $donnees['ville'] . " sep ";
+        }
     }catch (PDOException $e){
         echo $e->getMessage();
     }
