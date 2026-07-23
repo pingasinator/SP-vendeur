@@ -83,7 +83,7 @@ class CommandeModele extends Modele
 
     public function checkPassword(){
         $sql = "SELECT motdepasse FROM vendeur WHERE login = ?";
-        $idRequete = $this->executeRequete($sql, [$_COOKIE['login']]);
+        $idRequete = $this->executeRequete($sql, [$_SESSION['login']]);
         $res = $idRequete->fetch(PDO::FETCH_ASSOC);
 
         return $res['motdepasse'] === $this->hashPassword($_POST['password']);

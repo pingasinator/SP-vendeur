@@ -39,7 +39,7 @@ class AuthentificationControleur{
 
         }else{
             if($hasedpasswd ===  $profil['motdepasse']){
-                setcookie('login', $profil['login'], time() + 3600);
+                $_SESSION['login'] = $profil['login'];
                 header('Location: index.php');
                 die();
             }

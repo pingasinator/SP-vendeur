@@ -20,7 +20,7 @@ class ProfilVue
     private function chargementValeurs()
     {
 
-        $this->tpl->assign('login', $_COOKIE['login']);
+        $this->tpl->assign('login', $_SESSION['login']);
 
         $this->tpl->assign('tabBord', 'ICI MON TABLEAU DE BORD CF. Olivier LASSERRE');
 

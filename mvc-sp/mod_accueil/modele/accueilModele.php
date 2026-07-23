@@ -13,7 +13,7 @@ class AccueilModele extends Modele
 
         $sql = "SELECT MONTH(date_livraison) as mois, SUM(total_ht) as total FROM commande INNER JOIN vendeur ON vendeur.codev = commande.codev WHERE vendeur.login = ? GROUP BY MONTH(date_livraison) ";
 
-        $idRequete = $this->ExecuteRequete($sql, [$_COOKIE['login']]);
+        $idRequete = $this->ExecuteRequete($sql, [$_SESSION['login']]);
 
         $chiffreAffaire = [];
 

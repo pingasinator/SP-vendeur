@@ -3,6 +3,7 @@
 require_once 'include/configuration.php';
 
 Autoloader::chargerClasses();
+session_start();
 
 // Traitement : choix du module
 if (!isset($_REQUEST['gestion'])) {
@@ -12,7 +13,7 @@ if (!isset($_REQUEST['gestion'])) {
 }
 
 // Vérification de l'utilisateur
-if(!isset($_COOKIE['login'])){
+if(!isset($_SESSION['login'])){
     $_REQUEST['gestion'] = 'authentification';
     if(!isset($_POST['action'])){
         $_POST['action'] = 'authentifier';
@@ -23,7 +24,7 @@ if(!isset($_COOKIE['login'])){
 
 // Déconnexion de l'utilisateur
 if(isset($_GET['deconnexion'])){
-    setcookie('login', '', time() - 3600);
+    session_destroy();
     header('Location: index.php');
     die();
 }

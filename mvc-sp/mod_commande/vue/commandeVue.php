@@ -20,7 +20,7 @@ class CommandeVue
     private function chargementValeurs()
     {
 
-        $this->tpl->assign('login', $_COOKIE['login']);
+        $this->tpl->assign('login', $_SESSION['login']);
 
     }
 

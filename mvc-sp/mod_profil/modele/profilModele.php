@@ -17,7 +17,7 @@ class ProfilModele extends Modele
 
         $sql = "SELECT vendeur.*, cast(sum(commande.total_ht) as DECIMAL(10,2)) as ventes FROM vendeur left join commande on commande.codev = vendeur.codev WHERE login = ?";
 
-        $idRequete = $this->executeRequete($sql, [$_COOKIE['login']]);
+        $idRequete = $this->executeRequete($sql, [$_SESSION['login']]);
 
         $data = $idRequete->fetch(PDO::FETCH_ASSOC);
 
@@ -41,7 +41,7 @@ class ProfilModele extends Modele
 
     public function checkPassword(){
         $sql = "SELECT motdepasse FROM vendeur WHERE login = ?";
-        $idRequete = $this->executeRequete($sql, [$_COOKIE['login']]);
+        $idRequete = $this->executeRequete($sql, [$_SESSION['login']]);
         $res = $idRequete->fetch(PDO::FETCH_ASSOC);
 
         return $res['motdepasse'] === $this->hashPassword($_POST['password']);

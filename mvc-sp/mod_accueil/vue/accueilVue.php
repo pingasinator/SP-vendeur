@@ -22,9 +22,9 @@ class AccueilVue
 
     public function genererAffichageListe(){
 
-        $this->tpl->assign('login', $_COOKIE['login']);
+        $this->tpl->assign('login', $_SESSION['login']);
 
-        $this->tpl->assign('tabBord', 'ICI MON TABLEAU DE BORD CF. ' . $_COOKIE['login']);
+        $this->tpl->assign('tabBord', 'ICI MON TABLEAU DE BORD CF. ' . $_SESSION['login']);
 
         $this->tpl->display('mod_accueil/vue/accueilVue.tpl');
 
