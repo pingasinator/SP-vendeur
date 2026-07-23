@@ -52,4 +52,18 @@ class CommandeVue
 
         $this->tpl->display('mod_commande/vue/commandeListeVue.tpl');
     }
+
+    public function genererAffichageCommande($produits){
+        $this->chargementValeurs();
+
+        $this->tpl->assign('titrePage', 'commande');
+
+        $this->tpl->assign('listeProduits', $produits);
+
+        $this->tpl->assign('errorMessage', Commande::getErrorMessage());
+
+        $this->tpl->assign('messageSuccess', Commande::getSuccessMessage());
+
+        $this->tpl->display('mod_commande/vue/commandeFicheCreationVue.tpl');
+    }
 }

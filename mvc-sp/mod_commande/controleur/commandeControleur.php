@@ -26,8 +26,14 @@ class CommandeControleur
 
     public function form_modifier()
     {
-        $commande = $this->oModele->getUnProfil();
+        $commande = $this->oModele->getUneCommande();
 
         $this->oVue->genererAffichageModificationFiche($commande);
+    }
+
+    public function form_ajouter(){
+
+        $produits = $this->oModele->getProduits();
+        $this->oVue->genererAffichageCommande($produits);
     }
 }

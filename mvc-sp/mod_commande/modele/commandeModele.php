@@ -13,11 +13,11 @@ class CommandeModele extends Modele
     /**
      * @return ProfilTable
      */
-    public function getUneCommande($commande){
+    public function getUneCommande(){
 
         $sql = "SELECT vendeur.*, cast(sum(commande.total_ht) as DECIMAL(10,2)) as ventes FROM vendeur left join commande on commande.codev = vendeur.codev WHERE login = ?";
 
-        $idRequete = $this->executeRequete($sql, [$commande]);
+        $idRequete = $this->executeRequete($sql, [$this->parametre['']]);
 
         $data = $idRequete->fetch(PDO::FETCH_ASSOC);
 
@@ -29,6 +29,25 @@ class CommandeModele extends Modele
         // return $profilObjet;
         // Manière plus synthétique
         return new ProfilTable($data);
+    }
+
+    public function getProduits(){
+
+        $sql = "SELECT * FROM produit";
+
+        $idRequete = $this->executeRequete($sql);
+
+        if($idRequete->rowCount() > 0){
+            while($produit = $idRequete->fetch(PDO::FETCH_ASSOC)){
+
+                $produits[] = new ProduitTable($produit);
+            }
+
+            return $produits;
+        }
+
+
+        return null;
     }
 
     public function getListeCommande(){

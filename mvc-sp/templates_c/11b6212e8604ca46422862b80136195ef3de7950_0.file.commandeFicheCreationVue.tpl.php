@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-07-22 07:42:13
-  from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_commande\vue\commandeListeVue.tpl' */
+/* Smarty version 4.5.5, created on 2026-07-23 12:00:51
+  from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_commande\vue\commandeFicheCreationVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a607455ab4fc8_18529088',
+  'unifunc' => 'content_6a6202730ccde6_92806177',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '83f9481e570560e46d85181622bf38503931b218' => 
+    '11b6212e8604ca46422862b80136195ef3de7950' => 
     array (
-      0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_commande\\vue\\commandeListeVue.tpl',
-      1 => 1784706130,
+      0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_commande\\vue\\commandeFicheCreationVue.tpl',
+      1 => 1784808048,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6a607455ab4fc8_18529088 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a6202730ccde6_92806177 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -37,7 +37,8 @@ function content_6a607455ab4fc8_18529088 (Smarty_Internal_Template $_smarty_tpl)
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Séraphin PARYS - <?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
 </title>
-    <meta name="description" content="<!-- PLACER LE TITRE-->">
+    <meta name="description" content="<?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
+">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="apple-icon.png">
@@ -50,7 +51,6 @@ function content_6a607455ab4fc8_18529088 (Smarty_Internal_Template $_smarty_tpl)
     <link rel="stylesheet" href="public/assets/css/flag-icon.min.css">
     <link rel="stylesheet" href="public/assets/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="public/assets/css/lib/datatable/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" href="public/assets/css/commande.css">
     <!-- <link rel="stylesheet" href="template/assets/css/bootstrap-select.less"> -->
     <link rel="stylesheet" href="public/assets/scss/style.css">
     <link href="public/assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
@@ -109,135 +109,77 @@ function content_6a607455ab4fc8_18529088 (Smarty_Internal_Template $_smarty_tpl)
         </div>
     </div>
 
-    <div class="hidden" id="client-background">
-        <div class="card" id="card-client">
-            <div class="card-header" id="codec"><strong>Client : E</strong></div>
-            <div class="card-body">
-                <div class="form-group">
-                    <label for="nomPrenom">Nom et Prénom :</label>
-                    <input id="nomPrenom" class="form-control" name="nomPrenom" readonly value="">
-                </div>
-                <div class="form-group">
-                    <label for="adresse">Adresse :</label>
-                    <input id="adresse" class="form-control" name="adresse" readonly value="">
-                </div>
-                <div class="form-group">
-                    <label for="cp">Code Postal :</label>
-                    <input id="cp" class="form-control" name="cp" readonly value="">
-                </div>
-                <div class="form-group">
-                    <label for="ville">Ville :</label>
-                    <input id="ville" class="form-control" name="ville" readonly value="">
-                </div>
-                <div class="form-group">
-                    <label for="telephone">Téléphone :</label>
-                    <input id="telephone" class="form-control" name="telephone" readonly value="">
-                </div>
-
-                <label></label>
-                <button onclick="removeCardClient()">Retour</button>
-            </div>
-        </div>
-    </div>
-
     <div class="content mt-3">
-        <?php if ($_smarty_tpl->tpl_vars['errorMessage']->value != '') {?>
-            <div class="alert alert-danger"><?php echo $_smarty_tpl->tpl_vars['errorMessage']->value;?>
-</div>
-        <?php }?>
-        <?php if ($_smarty_tpl->tpl_vars['messageSuccess']->value != '') {?>
-            <div class="alert alert-success"><?php echo $_smarty_tpl->tpl_vars['messageSuccess']->value;?>
-</div>
-        <?php }?>
-
         <div class="animated fadeIn">
-
             <div class="row">
-
                 <div class="col-md-12">
-
                     <div class="card">
-                        <div class="card-header">
-                            <strong class="card-title"><?php echo $_smarty_tpl->tpl_vars['titrePage']->value;?>
-
-
-                                <!-- PLACER LE FORMULAIRE D'AJOUT-->
-                                <form action="index.php" method="post" class="pos-ajout">
-                                    <input type="hidden" name="gestion" value="commande">
-                                    <input type="hidden" name="action" value="form_ajouter">
-                                    <label>Poser une commande
-                                        <input
-                                                type="image"
-                                                id="aImage"
-                                                name="btn_ajouter"
-                                                src="public/images/icones/a16.png">
-                                    </label>
-                                </form>
-
-                            </strong>
-                        </div>
                         <div class="card-body">
+                            <div class="card">
+                                <div class="card-header">Voir le panier</div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-6">
+                                            <label class="dataTables_filter" for="total">Total HT (en €) : <input id="total" type="text"> </label>
+
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <label for="quantite" >Quantité d'articel(s) dans le panier : <input id="quantite" class="form-control form-control-sm" type="text"></label>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <table id="bootstrap-data-table" class="table table-striped table-bordered">
-                                <!-- PLACER LA LISTE DES COMMANDES -->
+                                <!-- PLACER LA LISTE DES PRODUITS -->
                                 <thead>
                                 <tr>
-                                    <th>Numéro</th>
-                                    <th>Vendeur</th>
-                                    <th>Client</th>
-                                    <th>Montant HT</th>
-                                    <th class="pos-actions">Consulter</th>
-                                    <th class="pos-actions">Modifier</th>
+                                    <th>Référence</th>
+                                    <th>désignation</th>
+                                    <th>Stock</th>
+                                    <th>Tarif HT</th>
+                                    <th>Prix de vente</th>
+                                    <th class="pos-actions">Quantité</th>
+                                    <th class="pos-actions">Ajouter</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['listeCommmandes']->value, 'commande');
-$_smarty_tpl->tpl_vars['commande']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['commande']->value) {
-$_smarty_tpl->tpl_vars['commande']->do_else = false;
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['listeProduits']->value, 'produit');
+$_smarty_tpl->tpl_vars['produit']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['produit']->value) {
+$_smarty_tpl->tpl_vars['produit']->do_else = false;
 ?>
                                     <tr>
-                                        <td><?php echo $_smarty_tpl->tpl_vars['commande']->value->getNumero();?>
+                                        <td><?php echo $_smarty_tpl->tpl_vars['produit']->value->getReference();?>
 </td>
-                                        <td><?php echo $_smarty_tpl->tpl_vars['commande']->value->getVendeur();?>
+                                        <td><?php echo $_smarty_tpl->tpl_vars['produit']->value->getDesignation();?>
 </td>
-                                        <td>
-                                            <button onclick="displayClient(<?php echo $_smarty_tpl->tpl_vars['commande']->value->getCodec();?>
-)" class="button-client"><?php echo $_smarty_tpl->tpl_vars['commande']->value->getCodec();?>
- - <?php echo $_smarty_tpl->tpl_vars['commande']->value->getClient();?>
-</button>
-                                        </td>
-                                        <td><?php echo $_smarty_tpl->tpl_vars['commande']->value->getTotal_HT();?>
+                                        <td><?php echo $_smarty_tpl->tpl_vars['produit']->value->getStock();?>
 </td>
+                                        <td><?php echo $_smarty_tpl->tpl_vars['produit']->value->getPrix_Unitaire_HT();?>
+</td>
+                                        <td><?php echo $_smarty_tpl->tpl_vars['produit']->value->getPrix_KG();?>
+</td>
+                                        <td><input type="text"></td>
                                         <td class="pos-actions">
                                             <form action="index.php" method="post">
                                                 <input type="hidden" name="gestion" value="commande">
                                                 <input type="hidden" name="action" value="form_consulter">
-                                                <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['commande']->value->getCodec();?>
+                                                <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['produit']->value->getReference();?>
 ">
-                                                <input type="image"  id="pImage"  name="btn_consulter" src="public/images/icones/p16.png">
+                                                <input type="image"  id="pImage"  name="btn_consulter" src="public/images/icones/a16.png">
 
                                             </form>
-                                        </td>
-                                        <td class="pos-actions">
-                                            <form action="index.php" method="post">
-                                                <input type="hidden" name="gestion" value="commande">
-                                                <input type="hidden" name="action" value="form_modifier">
-                                                <input type="hidden" name="codec" value="<?php echo $_smarty_tpl->tpl_vars['commande']->value->getCodec();?>
-">
-                                                <input type="image" id="mImage" name="btn_modifier" src="public/images/icones/m16.png">
-
-                                            </form>
-
                                         </td>
                                     </tr>
                                     <?php
 }
-if ($_smarty_tpl->tpl_vars['commande']->do_else) {
+if ($_smarty_tpl->tpl_vars['produit']->do_else) {
 ?>
                                     <tr>
                                         <td colspan="7">
-                                            Aucune commande trouvé
+                                            Aucune produit trouvé
                                         </td>
                                     </tr>
                                 <?php
@@ -250,7 +192,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         </div>
                     </div>
                 </div>
-
 
             </div><!-- .animated -->
         </div><!-- .content -->
@@ -319,7 +260,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         });
     <?php echo '</script'; ?>
 >
-
 </body>
 </html>
 <?php }

@@ -31,6 +31,10 @@ class Commande
                 case 'form_modifier':
                     $this->oControleur->form_modifier();
                     break;
+
+                case 'form_ajouter':
+                    $this->oControleur->form_ajouter();
+                    break;
             }
         }else{
             $this->oControleur->Lister();

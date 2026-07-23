@@ -37,9 +37,13 @@
 
                     <h3 class="menu-title">COMMANDES</h3><!-- /.menu-title -->
 
-                    <li class="dropdown">
-                        <a href="index.php?gestion=commande"> <i class="menu-icon fa fa-tasks"></i>Historique</a>
-                         
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Historique</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="index.php?gestion=commande">Toutes les commandes</a></li>
+                            <li><i class="fa fa-table"></i><a href="index.php?gestion=commande">Commandes non validées</a></li>
+                            <li> <i class="fa fa-table"></i><a href="index.php?gestion=commande">Commandes annulées</a></li>
+                        </ul>
                         
                     </li>
                     <li>

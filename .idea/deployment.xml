@@ -2,17 +2,10 @@
 <project version="4">
   <component name="PublishConfigData" serverName="localhost" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
-      <paths name="localhost">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
       <paths name="localhost (project level)">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$" web="/sp-vendeur/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

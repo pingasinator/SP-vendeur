@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-06-26 13:14:48
+/* Smarty version 4.5.5, created on 2026-07-23 09:28:23
   from 'C:\laragon\www\SP-vendeur\mvc-sp\public\left.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a3e7b48b39ee7_03959044',
+  'unifunc' => 'content_6a61deb79fa990_08445384',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd8ab14ffb22e4a6a757d1e8d89e01918db242bc3' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\public\\left.tpl',
-      1 => 1782479683,
+      1 => 1784798902,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6a3e7b48b39ee7_03959044 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a61deb79fa990_08445384 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Left Panel -->
 
     <aside id="left-panel" class="left-panel">
@@ -60,9 +60,13 @@ function content_6a3e7b48b39ee7_03959044 (Smarty_Internal_Template $_smarty_tpl)
 
                     <h3 class="menu-title">COMMANDES</h3><!-- /.menu-title -->
 
-                    <li class="dropdown">
-                        <a href="index.php?gestion=commande"> <i class="menu-icon fa fa-tasks"></i>Historique</a>
-                         
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Historique</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="index.php?gestion=commande">Toutes les commandes</a></li>
+                            <li><i class="fa fa-table"></i><a href="index.php?gestion=commande">Commandes non validées</a></li>
+                            <li> <i class="fa fa-table"></i><a href="index.php?gestion=commande">Commandes annulées</a></li>
+                        </ul>
                         
                     </li>
                     <li>
