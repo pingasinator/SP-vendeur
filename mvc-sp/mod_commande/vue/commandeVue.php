@@ -22,21 +22,47 @@ class CommandeVue
 
         $this->tpl->assign('login', $_SESSION['login']);
 
+        $this->tpl->assign('errorMessage', Commande::getErrorMessage());
+
+        $this->tpl->assign('messageSuccess', Commande::getSuccessMessage());
+
     }
 
-    public function genererAffichageModificationFiche($commande)
+    public function genererAffichageFiche($content)
     {
         $this->chargementValeurs();
 
-        $this->tpl->assign('titrePage', 'Fiche profil : Modification');
+        $totaleCommande = 0;
+        $totaleHT = 0;
+        foreach ($content['lignes'] as $ligne){
+            $totaleCommande += $ligne->getPrixTotal();
+            $totaleHT += $ligne->getPrixUnitaireHT() * $ligne->getQuantite();
+        }
 
-        $this->tpl->assign('uneCommande', $commande);
+        $this->tpl->assign('titrePage', 'commande');
 
-        $this->tpl->assign('errorMessage', Commande::getErrorMessage());
+        $this->tpl->assign('Mode', $content["Mode"]);
 
-        $this->tpl->display('mod_commande/vue/commandeFicheVue.tpl');
 
-        echo Commande::getErrorMessage();
+
+        $this->tpl->assign('Panier', $content['lignes']);
+
+        if($content['Mode'] === "Enregistrer"){
+            $this->tpl->assign('Clients', $content['clients']);
+            $this->tpl->assign('vendeur', $content["vendeur"]);
+            $this->tpl->assign('date', date("d/m/Y"));
+        }else{
+            $this->tpl->assign('commande', $content["commande"]);
+
+        }
+
+        $this->tpl->assign('totalCommande', $totaleCommande);
+
+        $this->tpl->assign('totalTVA', $totaleCommande * 0.055);
+
+        $this->tpl->assign('margeBrute', $totaleCommande - $totaleHT);
+
+        $this->tpl->display('mod_commande/vue/commandeFicheEnregistrementVue.tpl');
     }
 
     public function genererAffichageListe($commandes){
@@ -45,10 +71,6 @@ class CommandeVue
         $this->tpl->assign('titrePage', 'Liste commandes');
 
         $this->tpl->assign('listeCommmandes', $commandes);
-
-        $this->tpl->assign('errorMessage', Commande::getErrorMessage());
-
-        $this->tpl->assign('messageSuccess', Commande::getSuccessMessage());
 
         $this->tpl->display('mod_commande/vue/commandeListeVue.tpl');
     }
@@ -60,10 +82,43 @@ class CommandeVue
 
         $this->tpl->assign('listeProduits', $produits);
 
-        $this->tpl->assign('errorMessage', Commande::getErrorMessage());
+        $this->tpl->assign('nbArticles',count($_SESSION['panier']));
 
-        $this->tpl->assign('messageSuccess', Commande::getSuccessMessage());
+        $totalHT = 0;
+        foreach ($_SESSION['panier'] as $ligne) {
+            $totalHT += $ligne->getPrixUnitaireHT() * $ligne->getQuantite();
+        }
 
-        $this->tpl->display('mod_commande/vue/commandeFicheCreationVue.tpl');
+        $this->tpl->assign('totalHT',$totalHT);
+
+        $this->tpl->display('mod_commande/vue/commandeListeProduitsVue.tpl');
     }
+
+    public function genererAffichagePanier($content){
+        $this->chargementValeurs();
+
+        $totaleCommande = 0;
+        $totaleHT = 0;
+        foreach ($content['panier'] as $ligne){
+            $totaleCommande += $ligne->getPrixTotal();
+            $totaleHT += $ligne->getPrixUnitaireHT() * $ligne->getQuantite();
+        }
+
+        $this->tpl->assign('Mode', $content["Mode"]);
+
+        $this->tpl->assign('titrePage', 'commande');
+
+        $this->tpl->assign('Panier', $content['panier']);
+
+        $this->tpl->assign('totalCommande', $totaleCommande);
+
+        $this->tpl->assign('totalTVA', $totaleCommande * 0.055);
+
+        $this->tpl->assign('margeBrute', $totaleCommande - $totaleHT);
+
+        $this->tpl->display('mod_commande/vue/commandeFicheConsultationPanierVue.tpl');
+
+
+    }
+
 }

@@ -47,7 +47,10 @@
                         
                     </li>
                     <li>
-                        <a href="#"> <i class="menu-icon ti-email"></i>Passer une commande </a>
+                        <a href="index.php?gestion=commande&action=form_ajouter"> <i class="menu-icon ti-email"></i>Passer une commande </a>
+                    </li>
+                    <li>
+                        <a href="index.php?gestion=commande&action=form_vider_panier"> <i class="menu-icon ti-eraser"></i>Vider le panier </a>
                     </li>
                    
                 </ul>

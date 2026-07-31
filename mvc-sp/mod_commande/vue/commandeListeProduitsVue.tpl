@@ -87,13 +87,12 @@
                                 <div class="card-header">Voir le panier</div>
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-sm-12 col-md-6">
-                                            <label class="dataTables_filter" for="total">Total HT (en €) : <input id="total" type="text"> </label>
-
+                                        <div class="col-sm-12 col-md-7">
+                                            <label for="total">Total HT (en €) : <input id="total" type="text" class="" value="{$totalHT}" readonly></label>
                                         </div>
-                                        <div class="col-sm-12 col-md-6">
-                                            <label for="quantite" >Quantité d'articel(s) dans le panier : <input id="quantite" class="form-control form-control-sm" type="text"></label>
 
+                                        <div class="col-sm-12 col-md-5">
+                                            <label for="quantite">Quantité d'articel(s) dans le panier : <input id="quantite" type="text" value="{$nbArticles}" readonly></label>
                                         </div>
                                     </div>
                                 </div>
@@ -101,33 +100,34 @@
                             <table id="bootstrap-data-table" class="table table-striped table-bordered">
                                 <!-- PLACER LA LISTE DES PRODUITS -->
                                 <thead>
-                                <tr>
-                                    <th>Référence</th>
-                                    <th>désignation</th>
-                                    <th>Stock</th>
-                                    <th>Tarif HT</th>
-                                    <th>Prix de vente</th>
-                                    <th class="pos-actions">Quantité</th>
-                                    <th class="pos-actions">Ajouter</th>
-                                </tr>
+                                    <tr>
+                                        <th>Référence</th>
+                                        <th>désignation</th>
+                                        <th>Stock</th>
+                                        <th>Tarif HT</th>
+                                        <th>Prix de vente</th>
+                                        <th class="pos-actions">Quantité</th>
+                                        <th class="pos-actions">Ajouter</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                 {foreach from=$listeProduits item=produit}
                                     <tr>
-                                        <td>{$produit->getReference()}</td>
-                                        <td>{$produit->getDesignation()}</td>
+                                        <form id="form_ajouter_{$produit->getReference()}" action="index.php" method="post">
+                                            <input type="hidden" name="gestion" value="commande">
+                                            <input type="hidden" name="action" value="form_ajouter_panier">
+                                            <input type="hidden" name="reference" value="{$produit->getReference()}">
+                                        </form>
+                                        <td><input type="hidden" form="form_ajouter_{$produit->getReference()}" name="reference" value="{$produit->getReference()}">{$produit->getReference()}</td>
+                                        <td><input type="hidden" form="form_ajouter_{$produit->getReference()}" name="designation" value="{$produit->getDesignation()}" >{$produit->getDesignation()}</td>
                                         <td>{$produit->getStock()}</td>
-                                        <td>{$produit->getPrix_Unitaire_HT()}</td>
-                                        <td>{$produit->getPrix_KG()}</td>
-                                        <td><input type="text"></td>
+                                        <td><input type="hidden" form="form_ajouter_{$produit->getReference()}" name="prixUnitaireHT" value="{$produit->getPrix_Unitaire_HT()}" >{$produit->getPrix_Unitaire_HT()}</td>
+                                        <td><input type="hidden" form="form_ajouter_{$produit->getReference()}" name="prixVente" value="{$produit->getPrix_Unitaire_HT() * 1.36}" >{$produit->getPrix_Unitaire_HT() * 1.36}</td>
+                                        <td>
+                                            <input type="text" class="form-control" form="form_ajouter_{$produit->getReference()}"  name="quantite" >
+                                        </td>
                                         <td class="pos-actions">
-                                            <form action="index.php" method="post">
-                                                <input type="hidden" name="gestion" value="commande">
-                                                <input type="hidden" name="action" value="form_consulter">
-                                                <input type="hidden" name="codec" value="{$produit->getReference()}">
-                                                <input type="image"  id="pImage"  name="btn_consulter" src="public/images/icones/a16.png">
-
-                                            </form>
+                                            <input type="image" form="form_ajouter_{$produit->getReference()}" id="pImage"  name="btn_consulter" src="public/images/icones/a16.png">
                                         </td>
                                     </tr>
                                     {foreachelse}
@@ -137,9 +137,7 @@
                                         </td>
                                     </tr>
                                 {/foreach}
-
                                 </tbody>
-
                             </table>
                         </div>
                     </div>
@@ -150,6 +148,7 @@
 
 
     </div><!-- /#right-panel -->
+
 
     <!-- Right Panel -->
     <script src="public/assets/js/vendor/jquery-2.1.4.min.js"></script>

@@ -1,15 +1,15 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-07-24 13:56:22
+/* Smarty version 4.5.5, created on 2026-07-28 08:06:55
   from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_commande\vue\commandeListeProduitsVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a636f067cd9f0_85511121',
+  'unifunc' => 'content_6a68631f2c2e22_30162368',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '11b6212e8604ca46422862b80136195ef3de7950' => 
+    'd13a1032440335130e3bcb0cfdaeccb890b68a60' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_commande\\vue\\commandeListeProduitsVue.tpl',
       1 => 1784901380,
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6a636f067cd9f0_85511121 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a68631f2c2e22_30162368 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->

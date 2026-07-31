@@ -20,13 +20,19 @@ if(!isset($_SESSION['login'])){
     }
 }
 
-
+if(!isset($_SESSION['panier'])){
+    $_SESSION['panier'] = array();
+}
 
 // Déconnexion de l'utilisateur
 if(isset($_GET['deconnexion'])){
     session_destroy();
     header('Location: index.php');
     die();
+}
+
+if(!isset($_SESSION['panier'])){
+    $_SESSION['panier'] = array();
 }
 
 //Appel du routeur concerné par la gestion entrante

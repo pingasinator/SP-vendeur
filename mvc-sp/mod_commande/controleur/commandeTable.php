@@ -5,12 +5,15 @@ class CommandeTable
 
     private $numero = '';
     private $codev = '';
-
     private $vendeur = '';
     private $codec = '';
-
     private $client = '';
     private $total_HT = '';
+    private $total_TVA = '';
+    private $date_livraison = '';
+    private $date_commande = '';
+
+    private bool $etat = false;
 
     public function hydrater(array $data)
     {
@@ -21,7 +24,6 @@ class CommandeTable
             }
         }
     }
-
 
     public function __construct($data = null){
 
@@ -36,9 +38,6 @@ class CommandeTable
      * LES GETTERS
      *************/
 
-    /**
-     * @return string
-     */
     public function getNumero(): string
     {
         return $this->numero;
@@ -59,9 +58,6 @@ class CommandeTable
         return $this->total_HT;
     }
 
-    /**
-     * @return string
-     */
     public function getVendeur(): string
     {
         return $this->vendeur;
@@ -69,6 +65,22 @@ class CommandeTable
 
     public function getClient(): string{
         return $this->client;
+    }
+
+    public function getTotal_TVA(): string{
+        return $this->total_TVA;
+    }
+
+    public function getDate_livraison(){
+        return $this->date_livraison;
+    }
+
+    public function getDate_commande(){
+        return $this->date_commande;
+    }
+
+    public function getEtat(): bool{
+        return $this->etat;
     }
 
     /***************
@@ -98,5 +110,21 @@ class CommandeTable
 
     public function setClient(string $client){
         $this->client = $client;
+    }
+
+    public function setTotal_TVA(string $total_TVA){
+        $this->total_TVA = $total_TVA;
+    }
+
+    public function setDate_livraison($date_livraison){
+        $this->date_livraison = $date_livraison;
+    }
+
+    public function setDate_commande($date_commande){
+        $this->date_commande = $date_commande;
+    }
+
+    public function setEtat(bool $etat){
+        $this->etat = $etat;
     }
 }
