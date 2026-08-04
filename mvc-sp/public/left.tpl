@@ -41,8 +41,8 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Historique</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-table"></i><a href="index.php?gestion=commande">Toutes les commandes</a></li>
-                            <li><i class="fa fa-table"></i><a href="index.php?gestion=commande">Commandes non validées</a></li>
-                            <li> <i class="fa fa-table"></i><a href="index.php?gestion=commande">Commandes annulées</a></li>
+                            <li><i class="fa fa-table"></i><a href="index.php?gestion=commande&action=form_lister_commandes_non_valide">Commandes non validées</a></li>
+                            <li> <i class="fa fa-table"></i><a href="index.php?gestion=commande&action=form_lister_commandes_annulées">Commandes annulées</a></li>
                         </ul>
                         
                     </li>

@@ -29,6 +29,8 @@ class Commande
         if(isset($this->parametre['action'])) {
             switch ($this->parametre['action']) {
                 case 'form_lister':
+                case 'form_lister_commandes_annulées':
+                case 'form_lister_commandes_non_valide':
                     $this->oControleur->Lister();
                     break;
 

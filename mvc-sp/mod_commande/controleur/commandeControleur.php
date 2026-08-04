@@ -19,7 +19,26 @@ class CommandeControleur
 
     public function Lister(){
 
-        $commandes = $this->oModele->getListeCommande();
+        $commandes = array();
+
+        if(isset($this->parametre["action"])){
+            switch($this->parametre["action"]){
+                case 'form_lister_commandes_annulées':
+                    $commandes = $this->oModele->getListeCommandesAnnulees();
+                    break;
+
+                case 'form_lister_commandes_non_valide':
+                    $commandes = $this->oModele->getListeCommandesNonValide();
+                    break;
+
+                default:
+                    $commandes = $this->oModele->getListeCommande();
+                    break;
+            }
+        }else{
+            $commandes = $this->oModele->getListeCommande();
+        }
+
 
         $this->oVue->genererAffichageListe($commandes);
     }

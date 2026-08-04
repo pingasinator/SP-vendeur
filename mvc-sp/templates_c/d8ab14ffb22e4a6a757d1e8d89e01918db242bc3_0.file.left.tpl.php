@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-07-29 08:22:10
+/* Smarty version 4.5.5, created on 2026-08-04 14:53:03
   from 'C:\laragon\www\SP-vendeur\mvc-sp\public\left.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a69b832e39440_80018700',
+  'unifunc' => 'content_6a71fccf9ebd14_59265544',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd8ab14ffb22e4a6a757d1e8d89e01918db242bc3' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\public\\left.tpl',
-      1 => 1785313326,
+      1 => 1785855178,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6a69b832e39440_80018700 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a71fccf9ebd14_59265544 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Left Panel -->
 
     <aside id="left-panel" class="left-panel">
@@ -64,8 +64,8 @@ function content_6a69b832e39440_80018700 (Smarty_Internal_Template $_smarty_tpl)
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Historique</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-table"></i><a href="index.php?gestion=commande">Toutes les commandes</a></li>
-                            <li><i class="fa fa-table"></i><a href="index.php?gestion=commande">Commandes non validées</a></li>
-                            <li> <i class="fa fa-table"></i><a href="index.php?gestion=commande">Commandes annulées</a></li>
+                            <li><i class="fa fa-table"></i><a href="index.php?gestion=commande&action=form_lister_commandes_non_valide">Commandes non validées</a></li>
+                            <li> <i class="fa fa-table"></i><a href="index.php?gestion=commande&action=form_lister_commandes_annulées">Commandes annulées</a></li>
                         </ul>
                         
                     </li>

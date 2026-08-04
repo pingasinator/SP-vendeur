@@ -57,6 +57,47 @@ class CommandeModele extends Modele
         return new ProduitTable($data);
     }
 
+    public function getListeCommandesAnnulees()
+    {
+        $sql = "SELECT *, concat(vendeur.nom,' ',vendeur.prenom) as vendeur, client.nom as client FROM commande left join vendeur on vendeur.codev = commande.codev left join client on client.codec = commande.codec WHERE commande.etat = 1";
+
+        $idRequete = $this->executeRequete($sql);
+
+        // Retourner le tableau d'objets
+        if($idRequete->rowCount() > 0){
+
+            while($commande = $idRequete->fetch(PDO::FETCH_ASSOC)){
+
+                $commandes[] = new CommandeTable($commande);
+            }
+
+            return $commandes;
+
+        }else{
+            return array();
+        }
+    }
+
+    public function getListeCommandesNonValide(){
+        $sql = "SELECT *, concat(vendeur.nom,' ',vendeur.prenom) as vendeur, client.nom as client FROM commande left join vendeur on vendeur.codev = commande.codev left join client on client.codec = commande.codec WHERE commande.valide = 0";
+
+        $idRequete = $this->executeRequete($sql);
+
+        // Retourner le tableau d'objets
+        if($idRequete->rowCount() > 0){
+
+            while($commande = $idRequete->fetch(PDO::FETCH_ASSOC)){
+
+                $commandes[] = new CommandeTable($commande);
+            }
+
+            return $commandes;
+
+        }else{
+            return array();
+        }
+    }
+
     public function getListeCommande(){
 
         $sql = "SELECT *, concat(vendeur.nom,' ',vendeur.prenom) as vendeur, client.nom as client FROM commande left join vendeur on vendeur.codev = commande.codev left join client on client.codec = commande.codec";
@@ -74,7 +115,7 @@ class CommandeModele extends Modele
             return $commandes;
 
         }else{
-            return null;
+            return array();
         }
     }
 
