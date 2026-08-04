@@ -103,6 +103,20 @@ class CommandeModele extends Modele
         $this->executeRequete($sql, [$quantite,$numero,$numeroLigne]);
     }
 
+    public function modifierCommande($numero,$dateLivraison){
+        $commande = $this->getUneCommande($numero);
+        $commande->setEtat(intval($commande->getTotal_HT() == 0));
+        if($commande->getEtat() == 1){
+            $commande->setValide(0);
+        }else if($commande->getDate_livraison() != ""){
+            $commande->setValide(1);
+        }
+
+        $date = new DateTimeImmutable($dateLivraison);
+        $sql = "UPDATE commande SET date_livraison = ?, etat = ?, valide = ? WHERE numero = ?";
+        $this->executeRequete($sql, [$date->format("Y-m-d H:i:s") === "" ? null : $date->format("Y-m-d H:i:s"),$commande->getEtat(),$commande->getValide(),$numero]);
+    }
+
     public function ajouterProduit(){
 
         if($_POST['quantite'] != "" && intval($_POST['quantite']) > 0){

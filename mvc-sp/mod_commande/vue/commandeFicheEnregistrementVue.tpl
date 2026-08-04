@@ -85,7 +85,6 @@
                 <div class="col-md-12">
                     <form id="form-panier" class="d-flex flex-row justify-content-between" action="index.php" method="post">
                         <input type="hidden" name="gestion" value="commande">
-                        <input type="hidden" name="action" value="form_valider_enregistrement_panier">
                         <div class="card">
                             <div class="card-header "><strong>Fiche Commande : Enregistrement</strong></div>
                             <div class="card-body d-flex flex-column">
@@ -95,6 +94,7 @@
                                     <label>Code Client : {$commande->getCodec()}</label>
                                     <label>Client : {$commande->getClient()}</label>
                                 {else}
+                                    <input type="hidden" name="action" value="form_valider_enregistrement_panier">
                                     <label>Date de la commande : <input name="date_Commande" type="text" value="{$date}" readonly></label>
                                     <label>Client :
                                         <select id="client" name="codec">
@@ -116,15 +116,17 @@
                                     <label>Date de commande : {$commande->getDate_commande()}</label>
                                     <label class="d-flex flex-row">Date de la livraison :
                                         {if $Mode === "Modifier"}
+                                            <input type="hidden" name="action" value="form_valider_modifier_commande">
+                                            <input type="hidden"  name="numero" value="{$commande->getNumero()}">
                                             <div class="input-group input-daterange">
-                                                <input type="text" class="form-control" value="">
+                                                <input type="text" name="date_Livraison" class="form-control" value="">
                                             </div>
                                         {else}
                                             {$commande->getDate_Livraison()}
                                         {/if}
                                     </label>
                                     <label>Total HT (en €) : {$commande->getTotal_HT()} €</label>
-                                    <label>Commande validée : </label>
+                                    <label>Commande validée :  {if $commande->getValide()}OUI{else}NON{/if} </label>
                                 {else}
                                     <label>Date de la livraison :
                                         <div class="input-group input-daterange">
@@ -214,11 +216,12 @@
                                 <div class="">
                                     {if $Mode === "Consulter"}
                                         <input type="button" class="btn btn-submit" value="Retour" onclick="location.href='index.php?gestion=commande'">
-                                        {if $commande->getDate_livraison() === "" || $commande->getDate_livraison() === null}
+                                        {if !$commande->getEtat() && !$commande->getValide()}
                                             <input type="button" class="btn btn-submit" value="Modifier" onclick="location.href='index.php?gestion=commande&action=form_modifier_commande&numero={$commande->getNumero()}'">
                                         {/if}
                                     {elseif $Mode === "Modifier"}
                                         <input type="button" class="btn btn-submit" value="Retour" onclick="location.href='index.php?gestion=commande&action=form_consulter_commande&numero={$commande->getNumero()}'">
+                                        <input type="submit" form="form-panier"  class="btn btn-submit" value="Finaliser">
                                     {else}
                                         <input type="button" class="btn btn-submit" value="Retour à la commande" onclick="location.href='index.php?gestion=commande&action=form_ajouter'">
                                         <input type="submit" form="form-panier" class="btn btn-submit" value="Valider">

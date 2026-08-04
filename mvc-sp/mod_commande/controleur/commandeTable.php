@@ -13,7 +13,9 @@ class CommandeTable
     private $date_livraison = '';
     private $date_commande = '';
 
-    private bool $etat = false;
+    private $valide = '';
+
+    private $etat = '';
 
     public function hydrater(array $data)
     {
@@ -79,8 +81,12 @@ class CommandeTable
         return $this->date_commande;
     }
 
-    public function getEtat(): bool{
+    public function getEtat(){
         return $this->etat;
+    }
+
+    public function getValide(){
+        return $this->valide;
     }
 
     /***************
@@ -117,14 +123,28 @@ class CommandeTable
     }
 
     public function setDate_livraison($date_livraison){
-        $this->date_livraison = $date_livraison;
+        if($date_livraison != null){
+            $date = new DateTimeImmutable($date_livraison);
+            $this->date_livraison = $date->format('d/m/Y');
+        }else{
+            $this->date_livraison = $date_livraison;
+        }
     }
 
     public function setDate_commande($date_commande){
-        $this->date_commande = $date_commande;
+        if($date_commande != null){
+            $date = new DateTimeImmutable($date_commande);
+            $this->date_commande = $date->format('d/m/Y');
+        }else{
+            $this->date_commande = $date_commande;
+        }
     }
 
-    public function setEtat(bool $etat){
+    public function setEtat($etat){
         $this->etat = $etat;
+    }
+
+    public function setValide($valide){
+        $this->valide = $valide;
     }
 }

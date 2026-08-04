@@ -47,6 +47,18 @@ class CommandeControleur
         $this->oVue->genererAffichageFiche($content);
     }
 
+    public function form_valider_modifier_commande(){
+        $this->oModele->modifierCommande($this->parametre['numero'],$this->parametre['date_Livraison']);
+
+        $content = array(
+            "Mode" => "Consulter",
+            "commande" => $this->oModele->getUneCommande($this->parametre['numero']),
+            "lignes" => $this->oModele->getLignesCommande($this->parametre['numero'])
+        );
+
+        $this->oVue->genererAffichageFiche($content);
+    }
+
     public function form_modifier_ligne_commande(){
 
         $this->oModele->modifierLigneCommande($this->parametre['numero'],$this->parametre['numeroLigne'],$this->parametre['quantite']);
@@ -59,6 +71,7 @@ class CommandeControleur
 
         $this->oVue->genererAffichageFiche($content);
     }
+
     public function form_consulter_commande(){
 
         $content = array(

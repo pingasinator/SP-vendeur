@@ -48,6 +48,10 @@ class Commande
                     $this->oControleur->form_modifier_ligne_commande();
                     break;
 
+                case 'form_valider_modifier_commande':
+                    $this->oControleur->form_valider_modifier_commande();
+                    break;
+
                 case 'form_consulter_panier':
                     $this->oControleur->form_consulter_panier();
                     break;

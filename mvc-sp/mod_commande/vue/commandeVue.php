@@ -53,7 +53,6 @@ class CommandeVue
             $this->tpl->assign('date', date("d/m/Y"));
         }else{
             $this->tpl->assign('commande', $content["commande"]);
-
         }
 
         $this->tpl->assign('totalCommande', $totaleCommande);

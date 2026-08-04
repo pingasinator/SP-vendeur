@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-07-30 14:54:08
+/* Smarty version 4.5.5, created on 2026-08-04 12:45:19
   from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_commande\vue\commandeListeVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a6b65906596f3_62809720',
+  'unifunc' => 'content_6a71dedf13dbb3_11297406',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '83f9481e570560e46d85181622bf38503931b218' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_commande\\vue\\commandeListeVue.tpl',
-      1 => 1785423247,
+      1 => 1785847516,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6a6b65906596f3_62809720 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a71dedf13dbb3_11297406 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -220,7 +220,7 @@ $_smarty_tpl->tpl_vars['commande']->do_else = false;
                                             </form>
                                         </td>
                                         <td class="pos-actions">
-                                            <?php if ($_smarty_tpl->tpl_vars['commande']->value->getDate_Livraison() === null) {?>
+                                            <?php if (!$_smarty_tpl->tpl_vars['commande']->value->getValide() && !$_smarty_tpl->tpl_vars['commande']->value->getEtat()) {?>
                                                 <form action="index.php" method="post">
                                                     <input type="hidden" name="gestion" value="commande">
                                                     <input type="hidden" name="action" value="form_modifier_commande">
@@ -228,6 +228,8 @@ $_smarty_tpl->tpl_vars['commande']->do_else = false;
 ">
                                                     <input type="image" id="mImage" name="btn_modifier" src="public/images/icones/m16.png">
                                                 </form>
+                                            <?php } elseif ($_smarty_tpl->tpl_vars['commande']->value->getEtat()) {?>
+                                                annulée
                                             <?php } else { ?>
                                                 validée
                                             <?php }?>

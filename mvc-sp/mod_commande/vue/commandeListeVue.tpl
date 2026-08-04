@@ -174,13 +174,15 @@
                                             </form>
                                         </td>
                                         <td class="pos-actions">
-                                            {if $commande->getDate_Livraison() === null}
+                                            {if !$commande->getValide() && !$commande->getEtat()}
                                                 <form action="index.php" method="post">
                                                     <input type="hidden" name="gestion" value="commande">
                                                     <input type="hidden" name="action" value="form_modifier_commande">
                                                     <input type="hidden" name="numero" value="{$commande->getNumero()}">
                                                     <input type="image" id="mImage" name="btn_modifier" src="public/images/icones/m16.png">
                                                 </form>
+                                            {elseif $commande->getEtat()}
+                                                annulée
                                             {else}
                                                 validée
                                             {/if}

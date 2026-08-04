@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-07-31 08:56:03
+/* Smarty version 4.5.5, created on 2026-08-04 12:49:04
   from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_commande\vue\commandeFicheEnregistrementVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a6c63239d0b90_96963063',
+  'unifunc' => 'content_6a71dfc0520a70_75132425',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a74792049a506228b5a9ec22d6bffd8f59f10ba2' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_commande\\vue\\commandeFicheEnregistrementVue.tpl',
-      1 => 1785488125,
+      1 => 1785847740,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6a6c63239d0b90_96963063 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a71dfc0520a70_75132425 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -117,7 +117,6 @@ function content_6a6c63239d0b90_96963063 (Smarty_Internal_Template $_smarty_tpl)
                 <div class="col-md-12">
                     <form id="form-panier" class="d-flex flex-row justify-content-between" action="index.php" method="post">
                         <input type="hidden" name="gestion" value="commande">
-                        <input type="hidden" name="action" value="form_valider_enregistrement_panier">
                         <div class="card">
                             <div class="card-header "><strong>Fiche Commande : Enregistrement</strong></div>
                             <div class="card-body d-flex flex-column">
@@ -132,6 +131,7 @@ function content_6a6c63239d0b90_96963063 (Smarty_Internal_Template $_smarty_tpl)
                                     <label>Client : <?php echo $_smarty_tpl->tpl_vars['commande']->value->getClient();?>
 </label>
                                 <?php } else { ?>
+                                    <input type="hidden" name="action" value="form_valider_enregistrement_panier">
                                     <label>Date de la commande : <input name="date_Commande" type="text" value="<?php echo $_smarty_tpl->tpl_vars['date']->value;?>
 " readonly></label>
                                     <label>Client :
@@ -168,8 +168,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 </label>
                                     <label class="d-flex flex-row">Date de la livraison :
                                         <?php if ($_smarty_tpl->tpl_vars['Mode']->value === "Modifier") {?>
+                                            <input type="hidden" name="action" value="form_valider_modifier_commande">
+                                            <input type="hidden"  name="numero" value="<?php echo $_smarty_tpl->tpl_vars['commande']->value->getNumero();?>
+">
                                             <div class="input-group input-daterange">
-                                                <input type="text" class="form-control" value="">
+                                                <input type="text" name="date_Livraison" class="form-control" value="">
                                             </div>
                                         <?php } else { ?>
                                             <?php echo $_smarty_tpl->tpl_vars['commande']->value->getDate_Livraison();?>
@@ -178,7 +181,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                     </label>
                                     <label>Total HT (en €) : <?php echo $_smarty_tpl->tpl_vars['commande']->value->getTotal_HT();?>
  €</label>
-                                    <label>Commande validée : </label>
+                                    <label>Commande validée :  <?php if ($_smarty_tpl->tpl_vars['commande']->value->getValide()) {?>OUI<?php } else { ?>NON<?php }?> </label>
                                 <?php } else { ?>
                                     <label>Date de la livraison :
                                         <div class="input-group input-daterange">
@@ -305,13 +308,14 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                 <div class="">
                                     <?php if ($_smarty_tpl->tpl_vars['Mode']->value === "Consulter") {?>
                                         <input type="button" class="btn btn-submit" value="Retour" onclick="location.href='index.php?gestion=commande'">
-                                        <?php if ($_smarty_tpl->tpl_vars['commande']->value->getDate_livraison() === '' || $_smarty_tpl->tpl_vars['commande']->value->getDate_livraison() === null) {?>
+                                        <?php if (!$_smarty_tpl->tpl_vars['commande']->value->getEtat() && !$_smarty_tpl->tpl_vars['commande']->value->getValide()) {?>
                                             <input type="button" class="btn btn-submit" value="Modifier" onclick="location.href='index.php?gestion=commande&action=form_modifier_commande&numero=<?php echo $_smarty_tpl->tpl_vars['commande']->value->getNumero();?>
 '">
                                         <?php }?>
                                     <?php } elseif ($_smarty_tpl->tpl_vars['Mode']->value === "Modifier") {?>
                                         <input type="button" class="btn btn-submit" value="Retour" onclick="location.href='index.php?gestion=commande&action=form_consulter_commande&numero=<?php echo $_smarty_tpl->tpl_vars['commande']->value->getNumero();?>
 '">
+                                        <input type="submit" form="form-panier"  class="btn btn-submit" value="Finaliser">
                                     <?php } else { ?>
                                         <input type="button" class="btn btn-submit" value="Retour à la commande" onclick="location.href='index.php?gestion=commande&action=form_ajouter'">
                                         <input type="submit" form="form-panier" class="btn btn-submit" value="Valider">
