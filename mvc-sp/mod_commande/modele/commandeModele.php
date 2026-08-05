@@ -79,7 +79,7 @@ class CommandeModele extends Modele
     }
 
     public function getListeCommandesNonValide(){
-        $sql = "SELECT *, concat(vendeur.nom,' ',vendeur.prenom) as vendeur, client.nom as client FROM commande left join vendeur on vendeur.codev = commande.codev left join client on client.codec = commande.codec WHERE commande.valide = 0";
+        $sql = "SELECT *, concat(vendeur.nom,' ',vendeur.prenom) as vendeur, client.nom as client FROM commande left join vendeur on vendeur.codev = commande.codev left join client on client.codec = commande.codec WHERE commande.valide = 0 AND commande.etat = 0";
 
         $idRequete = $this->executeRequete($sql);
 
