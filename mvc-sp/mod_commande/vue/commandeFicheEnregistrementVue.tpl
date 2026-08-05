@@ -136,9 +136,6 @@
                                     <label>Commande validée :  {if $commande->getValide()}OUI{else}NON{/if} </label>
                                 {else}
                                     <label>Date de la livraison :
-                                        <div class="input-group input-daterange">
-                                            <input type="text" name="date_Livraison" class="form-control" value="">
-                                        </div>
                                     </label>
                                     <label>Total HT (en €) : <input type="text" name="total_HT" value="{$totalCommande}" readonly></label>
                                     <label>TVA (en €) : <input type="text" name="total_TVA" value="{$totalTVA}" readonly></label>

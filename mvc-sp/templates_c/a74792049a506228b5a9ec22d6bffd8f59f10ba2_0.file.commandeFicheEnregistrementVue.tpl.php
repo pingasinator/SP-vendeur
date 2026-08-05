@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-08-05 08:11:24
+/* Smarty version 4.5.5, created on 2026-08-05 14:49:25
   from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_commande\vue\commandeFicheEnregistrementVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a72f02cc94806_18122084',
+  'unifunc' => 'content_6a734d757468e4_61824412',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a74792049a506228b5a9ec22d6bffd8f59f10ba2' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_commande\\vue\\commandeFicheEnregistrementVue.tpl',
-      1 => 1785917482,
+      1 => 1785941353,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6a72f02cc94806_18122084 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a734d757468e4_61824412 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -193,9 +193,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                     <label>Commande validée :  <?php if ($_smarty_tpl->tpl_vars['commande']->value->getValide()) {?>OUI<?php } else { ?>NON<?php }?> </label>
                                 <?php } else { ?>
                                     <label>Date de la livraison :
-                                        <div class="input-group input-daterange">
-                                            <input type="text" name="date_Livraison" class="form-control" value="">
-                                        </div>
                                     </label>
                                     <label>Total HT (en €) : <input type="text" name="total_HT" value="<?php echo $_smarty_tpl->tpl_vars['totalCommande']->value;?>
 " readonly></label>

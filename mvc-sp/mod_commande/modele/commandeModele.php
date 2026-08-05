@@ -150,7 +150,7 @@ class CommandeModele extends Modele
         if($commande->getEtat() == 1){
             $commande->setValide(0);
             Commande::setErrorMessage("Commande annulée");
-        }else if($commande->getDate_livraison() != ""){
+        }else if($commande->getDate_livraison() != "" || $dateLivraison != ""){
             if($this->verifierStock($numero)){
                 $commande->setValide(1);
                 Commande::setSuccessMessage("Commande validée");
