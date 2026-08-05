@@ -162,7 +162,7 @@ class CommandeModele extends Modele
 
         $date = new DateTimeImmutable($dateLivraison);
         $sql = "UPDATE commande SET date_livraison = ?, etat = ?, valide = ? WHERE numero = ?";
-        $this->executeRequete($sql, [$date->format("Y-m-d H:i:s") === "" ? null : $date->format("Y-m-d H:i:s"),$commande->getEtat(),$commande->getValide(),$numero]);
+        $this->executeRequete($sql, [$dateLivraison === "" ? null : $date->format("Y-m-d H:i:s"),$commande->getEtat(),$commande->getValide(),$numero]);
     }
 
     public function verifierStock($numero)
@@ -181,6 +181,10 @@ class CommandeModele extends Modele
         }
 
         return true;
+    }
+
+    public function updateStock($numero,$quantite){
+        $commande = $this->getUneCommande($numero);
     }
 
     public function ajouterProduit(){
