@@ -79,6 +79,13 @@
     </div>
 
     <div class="content mt-3">
+        {if $errorMessage neq ''}
+            <div class="alert alert-danger">{$errorMessage}</div>
+        {/if}
+        {if $messageSuccess neq ''}
+            <div class="alert alert-success">{$messageSuccess}</div>
+        {/if}
+
         <div class="animated fadeIn">
             <div class="row">
 

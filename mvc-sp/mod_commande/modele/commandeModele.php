@@ -149,13 +149,38 @@ class CommandeModele extends Modele
         $commande->setEtat(intval($commande->getTotal_HT() == 0));
         if($commande->getEtat() == 1){
             $commande->setValide(0);
+            Commande::setErrorMessage("Commande annulée");
         }else if($commande->getDate_livraison() != ""){
-            $commande->setValide(1);
+            if($this->verifierStock($numero)){
+                $commande->setValide(1);
+                Commande::setSuccessMessage("Commande validée");
+            }else{
+                Commande::setErrorMessage("il n'y a pas assez de stock");
+                $dateLivraison = "";
+            }
         }
 
         $date = new DateTimeImmutable($dateLivraison);
         $sql = "UPDATE commande SET date_livraison = ?, etat = ?, valide = ? WHERE numero = ?";
         $this->executeRequete($sql, [$date->format("Y-m-d H:i:s") === "" ? null : $date->format("Y-m-d H:i:s"),$commande->getEtat(),$commande->getValide(),$numero]);
+    }
+
+    public function verifierStock($numero)
+    {
+        $sql = "SELECT reference, quantite_demandee FROM ligne_commande WHERE numero = ?";
+        $idRequete = $this->executeRequete($sql,[$numero]);
+        if($idRequete->rowCount() > 0){
+            while($ligne = $idRequete->fetch(PDO::FETCH_ASSOC)){
+                $sql = "SELECT produit.stock FROM produit WHERE reference = ?";
+                $idProduit = $this->executeRequete($sql,[$ligne['reference']]);
+                $produit = $idProduit->fetch(PDO::FETCH_ASSOC);
+                if($produit['stock'] < $ligne['quantite_demandee']){
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
     public function ajouterProduit(){
