@@ -124,7 +124,12 @@ class CommandeTable
 
     public function setDate_livraison($date_livraison){
         if($date_livraison != null){
-            $date = new DateTimeImmutable($date_livraison);
+            if(str_contains($date_livraison, '/')){
+                $var = explode('/', $date_livraison);
+                $date = new DateTimeImmutable($var[1] ."/" . $var[0] . "/" . $var[2]);
+            }else{
+                $date = new DateTimeImmutable($date_livraison);
+            }
             $this->date_livraison = $date->format('d/m/Y');
         }else{
             $this->date_livraison = $date_livraison;
@@ -133,7 +138,12 @@ class CommandeTable
 
     public function setDate_commande($date_commande){
         if($date_commande != null){
-            $date = new DateTimeImmutable($date_commande);
+            if(str_contains($date_commande, '/')){
+                $var = explode('/', $date_commande);
+                $date = new DateTimeImmutable($var[1] ."/" . $var[0] . "/" . $var[2]);
+            }else{
+                $date = new DateTimeImmutable($date_commande);
+            }
             $this->date_commande = $date->format('d/m/Y');
         }else{
             $this->date_commande = $date_commande;
