@@ -15,31 +15,25 @@ class AccueilModele extends Modele
 
         $idRequete = $this->ExecuteRequete($sql, [$_SESSION['login']]);
 
-        $chiffreAffaire = [];
-
-        $mois = [
-            "Janvier",
-            "Fevrier",
-            "Mars",
-            "Avril",
-            "Mai",
-            "Juin",
-            "Juillet",
-            "Aout",
-            "Septembre",
-            "Octobre",
-            "Novembre",
-            "Decembre"
+        $chiffreAffaire = [
+            [ "mois" => "Janvier", "total" => 0],
+            [ "mois" => "Fevrier", "total" => 0],
+            [ "mois" => "Mars", "total" => 0],
+            [ "mois" => "Avril", "total" => 0],
+            [ "mois" => "Mai", "total" => 0],
+            [ "mois" => "Juin", "total" => 0],
+            [ "mois" => "Juillet", "total" => 0],
+            [ "mois" => "Aout", "total" => 0],
+            [ "mois" => "Septembre", "total" => 0],
+            [ "mois" => "Octobre", "total" => 0],
+            [ "mois" => "Novembre", "total" => 0],
+            [ "mois" => "Decembre", "total" => 0]
         ];
-
-        for($i = 0; $i < count($mois); $i++){
-            $chiffreAffaire[] = array("mois" => $mois[$i], "total" => 0);
-        }
 
         if($idRequete->rowCount() > 0) {
 
             while ($chiffre = $idRequete->fetch(PDO::FETCH_ASSOC)) {
-                $chiffreAffaire[$chiffre['mois']]['total'] = $chiffre['total'];
+                $chiffreAffaire[$chiffre['mois'] - 1]['total'] = $chiffre['total'];
             }
         }
 
