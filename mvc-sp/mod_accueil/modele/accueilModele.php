@@ -11,7 +11,7 @@ class AccueilModele extends Modele
 
     public function listerChiffreAffaireParProfil(){
 
-        $sql = "SELECT MONTH(date_livraison) as mois, SUM(total_ht) as total FROM commande INNER JOIN vendeur ON vendeur.codev = commande.codev WHERE vendeur.login = ? GROUP BY MONTH(date_livraison) ";
+        $sql = "SELECT MONTH(date_livraison) as mois, SUM(total_ht) as total FROM commande INNER JOIN vendeur ON vendeur.codev = commande.codev WHERE vendeur.login = ? AND date_livraison IS NOT NULL GROUP BY MONTH(date_livraison) ";
 
         $idRequete = $this->ExecuteRequete($sql, [$_SESSION['login']]);
 
