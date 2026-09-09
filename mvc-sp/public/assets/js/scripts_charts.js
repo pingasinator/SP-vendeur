@@ -6,7 +6,7 @@ $(document).ready(function () {
 
 function genererChiffreAffaire(){
     $.ajax({
-        url:"index.php?gestion=accueil&action=generer_stats",
+        url:"https://sp-vendeurs.yajil.dev-campus.fr/mvc-sp/index.php?gestion=accueil&action=generer_stats",
         type:"GET",
         dataType:"text",
         success:function(data){
