@@ -39,7 +39,7 @@ class AccueilModele extends Modele
         if($idRequete->rowCount() > 0) {
 
             while ($chiffre = $idRequete->fetch(PDO::FETCH_ASSOC)) {
-                $chiffreAffaire[$chiffre['mois']]['total'] = $chiffre['total'];
+                $chiffreAffaire[] = array($chiffre['mois'] => $chiffre['total']);
             }
         }
 
@@ -77,7 +77,7 @@ class AccueilModele extends Modele
         if($idRequete->rowCount() > 0) {
 
             while ($chiffre = $idRequete->fetch(PDO::FETCH_ASSOC)) {
-                $chiffreAffaire[$chiffre['mois']]['total'] = $chiffre['total'];
+                $chiffreAffaire[] = array($chiffre['mois'] => $chiffre['total']);
             }
         }
 
