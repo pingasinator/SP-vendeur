@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-06-29 09:17:13
+/* Smarty version 4.5.5, created on 2026-09-07 21:25:46
   from '/opt/lampp/htdocs/SP-vendeur/mvc-sp/public/left.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a421bf97768d4_33845802',
+  'unifunc' => 'content_6a9f0fbad90ea6_74211488',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4733354a7c847d4c9f22e52cbd1f28855e912279' => 
     array (
       0 => '/opt/lampp/htdocs/SP-vendeur/mvc-sp/public/left.tpl',
-      1 => 1782717278,
+      1 => 1788808421,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6a421bf97768d4_33845802 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6a9f0fbad90ea6_74211488 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Left Panel -->
 
     <aside id="left-panel" class="left-panel">
@@ -60,13 +60,20 @@ function content_6a421bf97768d4_33845802 (Smarty_Internal_Template $_smarty_tpl)
 
                     <h3 class="menu-title">COMMANDES</h3><!-- /.menu-title -->
 
-                    <li class="dropdown">
-                        <a href="index.php?gestion=commande"> <i class="menu-icon fa fa-tasks"></i>Historique</a>
-                         
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Historique</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="index.php?gestion=commande">Toutes les commandes</a></li>
+                            <li><i class="fa fa-table"></i><a href="index.php?gestion=commande&action=form_lister_commandes_non_valide">Commandes non validées</a></li>
+                            <li> <i class="fa fa-table"></i><a href="index.php?gestion=commande&action=form_lister_commandes_annulées">Commandes annulées</a></li>
+                        </ul>
                         
                     </li>
                     <li>
-                        <a href="#"> <i class="menu-icon ti-email"></i>Passer une commande </a>
+                        <a href="index.php?gestion=commande&action=form_ajouter"> <i class="menu-icon ti-email"></i>Passer une commande </a>
+                    </li>
+                    <li>
+                        <a href="index.php?gestion=commande&action=form_vider_panier"> <i class="menu-icon ti-eraser"></i>Vider le panier </a>
                     </li>
                    
                 </ul>

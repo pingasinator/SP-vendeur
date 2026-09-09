@@ -6,7 +6,7 @@ $(document).ready(function () {
 
 function genererChiffreAffaire(){
     $.ajax({
-        url:"index.php?gestion=accueil&action=generer_stats",
+        url:"https://sp-vendeurs.yajil.dev-campus.fr/mvc-sp/index.php?gestion=accueil&action=generer_stats",
         type:"GET",
         dataType:"text",
         success:function(data){
@@ -76,7 +76,7 @@ function genererChiffreAffaire(){
 
 function genererMeilleurxVentes(){
     $.ajax({
-        url:"index.php?gestion=accueil&action=generer_meilleursVentes",
+        url:"https://sp-vendeurs.yajil.dev-campus.fr/mvc-sp/index.php?gestion=accueil&action=generer_meilleursVentes",
         type:"GET",
         dataType:"text",
         success:function(data) {
@@ -119,7 +119,7 @@ function genererMeilleurxVentes(){
 
 function genererChiffreTotal(){
     $.ajax({
-        url:"index.php?gestion=accueil&action=generer_chiffreAffaireTotal",
+        url:"https://sp-vendeurs.yajil.dev-campus.fr/mvc-sp/index.php?gestion=accueil&action=generer_chiffreAffaireTotal",
         type:"GET",
         dataType:"text",
         success:function(data) {
