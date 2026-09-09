@@ -43,7 +43,3 @@ if(!isset($_SESSION['panier'])){
 $oRouteur = new $_REQUEST['gestion']($_REQUEST);
 
 $oRouteur->choixAction();
-
-phpinfo();
-
-
