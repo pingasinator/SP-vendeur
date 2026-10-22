@@ -29,5 +29,4 @@ class AccueilVue
         $this->tpl->display('mod_accueil/vue/accueilVue.tpl');
 
     }
-
 }

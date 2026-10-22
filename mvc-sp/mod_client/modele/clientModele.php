@@ -101,7 +101,7 @@ class ClientModele extends Modele
         $ligne = $idRequete->fetch(PDO::FETCH_ASSOC);
 
         if ($ligne['st01'] != null) {
-            $client->setStat01($ligne['st01']);
+            $client->setStat01(intval($ligne['st01']));
         }else{
             $client->setStat01(0);
         }
