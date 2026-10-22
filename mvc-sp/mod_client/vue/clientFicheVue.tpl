@@ -171,6 +171,21 @@
                                             value="{$unClient->getTelephone()}">
 
                                 </div>
+                                <div class="form-group">
+                                    <label for="actif" class="">Actif : </label>
+                                    <input
+                                            type="checkbox"
+                                            id="actif"
+                                            name="actif"
+                                            class="checkbox"
+                                            {if $readonly !== ""}
+                                                disabled
+                                            {/if}
+                                            {if $unClient->getActif()}
+                                                checked
+                                            {/if}
+                                    />
+                                </div>
 
                             </div>
                             <div class="card-body">

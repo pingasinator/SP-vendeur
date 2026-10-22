@@ -67,8 +67,8 @@ class ClientModele extends Modele
     public function modifierUnClient(){
 
         $newClient = new ClientTable($_POST);
-        $sql = "UPDATE client SET nom = ?, adresse = ?, cp = ?, ville = ?, telephone = ? WHERE codec = ?";
-        $this->executeRequete($sql, [$newClient->getNom(),$newClient->getAdresse(),$newClient->getCp(),$newClient->getVille(),$newClient->getTelephone(), $newClient->getCodec()]);
+        $sql = "UPDATE client SET nom = ?, adresse = ?, cp = ?, ville = ?, telephone = ?, actif = ? WHERE codec = ?";
+        $this->executeRequete($sql, [$newClient->getNom(),$newClient->getAdresse(),$newClient->getCp(),$newClient->getVille(),$newClient->getTelephone(),intval($newClient->getActif()), $newClient->getCodec()]);
         ClientTable::setMessageSuccess("Client modifié avec succes");
     }
 

@@ -1,6 +1,6 @@
 # parameters
 /mvc-sp/include/parametre.php
 # templates
-/templates_c/
+/mvc-sp/templates_c/
 # sql scripts
-/SQL/
+/mvc-sp/SQL/

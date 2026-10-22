@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.5, created on 2026-06-17 10:29:22
+/* Smarty version 4.5.5, created on 2026-10-22 10:26:49
   from 'C:\laragon\www\SP-vendeur\mvc-sp\mod_client\vue\clientFicheVue.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.5',
-  'unifunc' => 'content_6a3277024754c6_53376742',
+  'unifunc' => 'content_6ad9e4e9bb1746_52359866',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c9a523c45a80d1099973bee4bc8e6b59946f7f7a' => 
     array (
       0 => 'C:\\laragon\\www\\SP-vendeur\\mvc-sp\\mod_client\\vue\\clientFicheVue.tpl',
-      1 => 1781692124,
+      1 => 1792664647,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:public/header.tpl' => 1,
   ),
 ),false)) {
-function content_6a3277024754c6_53376742 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6ad9e4e9bb1746_52359866 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -217,6 +217,21 @@ function content_6a3277024754c6_53376742 (Smarty_Internal_Template $_smarty_tpl)
                                             value="<?php echo $_smarty_tpl->tpl_vars['unClient']->value->getTelephone();?>
 ">
 
+                                </div>
+                                <div class="form-group">
+                                    <label for="actif" class="">Actif : </label>
+                                    <input
+                                            type="checkbox"
+                                            id="actif"
+                                            name="actif"
+                                            class="checkbox"
+                                            <?php if ($_smarty_tpl->tpl_vars['readonly']->value !== '') {?>
+                                                disabled
+                                            <?php }?>
+                                            <?php if ($_smarty_tpl->tpl_vars['unClient']->value->getActif()) {?>
+                                                checked
+                                            <?php }?>
+                                    />
                                 </div>
 
                             </div>

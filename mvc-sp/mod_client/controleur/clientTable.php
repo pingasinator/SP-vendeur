@@ -10,6 +10,10 @@ class ClientTable
     private $ville = '';
     private $telephone = '';
 
+    private $email = '';
+
+    private $actif = false;
+
     private static $messageErreur = "";
     private static $messageSuccess= "";
 
@@ -89,6 +93,14 @@ class ClientTable
         return $this->stat02;
     }
 
+    public function getEmail(): string{
+        return $this->email;
+    }
+
+    public function getActif(): string{
+        return $this->actif;
+    }
+
     /***************
      * LES SETTERS
      *************/
@@ -154,4 +166,11 @@ class ClientTable
         $this->stat02 = $stat02;
     }
 
+    public function setEmail( $email): void{
+        $this->email = $email;
+    }
+
+    public function setActif(bool $actif): void{
+        $this->actif = $actif;
+    }
 }
