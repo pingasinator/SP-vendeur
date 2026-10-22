@@ -130,7 +130,7 @@ class ClientModele extends Modele
         $val2 = $idRequete->fetch(PDO::FETCH_ASSOC);
 
         if ($val1['st02'] != null && $val2['allcommands'] != null) {
-            $client->setStat02($val1['st02'] / $val2['allcommands'] * 100);
+            $client->setStat02(round($val1['st02'] / $val2['allcommands'] * 100,2));
         }
     }
 }
