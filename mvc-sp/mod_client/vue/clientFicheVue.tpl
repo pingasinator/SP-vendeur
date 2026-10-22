@@ -171,21 +171,48 @@
                                             value="{$unClient->getTelephone()}">
 
                                 </div>
-                                <div class="form-group">
-                                    <label for="actif" class="">Actif : </label>
-                                    <input
-                                            type="checkbox"
-                                            id="actif"
-                                            name="actif"
-                                            class="checkbox"
-                                            {if $readonly !== ""}
-                                                disabled
-                                            {/if}
-                                            {if $unClient->getActif()}
-                                                checked
-                                            {/if}
-                                    />
-                                </div>
+
+                                {if $action eq 'form_modifier' or $action eq 'form_consulter'}
+                                    <div class="form-group">
+                                        <label for="actif" class="">Actif : </label>
+                                        <input
+                                                type="checkbox"
+                                                id="actif"
+                                                name="actif"
+                                                class="checkbox"
+                                                {if $readonly !== ""}
+                                                    disabled
+                                                {/if}
+                                                {if $unClient->getActif()}
+                                                    checked
+                                                {/if}
+                                        />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email" class="">Email : </label>
+                                        <input
+                                                type="text"
+                                                id="email"
+                                                name="email"
+                                                class="form-control"
+                                                {$readonly}
+                                                value="{$unClient->getEmail()}">
+                                    </div>
+                                    {if $action eq 'form_modifier'}
+                                        <div class="form-group">
+                                            <input type="hidden" id="mot_de_passe" name="mot_de_passe" value="{$unClient->getMot_de_passe()}"/>
+                                            <label for="mot_de_passe_defaut" class="">Mot de passe par défaut : </label>
+                                            <input
+                                                    type="password"
+                                                    id="mot_de_passe_defaut"
+                                                    name="mot_de_passe_defaut"
+                                                    class="form-control"
+                                                    {$readonly}
+                                                    value="">
+                                        </div>
+                                    {/if}
+
+                                {/if}
 
                             </div>
                             <div class="card-body">

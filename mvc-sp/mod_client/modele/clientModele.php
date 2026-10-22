@@ -2,7 +2,7 @@
 class ClientModele extends Modele
 {
 
- private $parametre = []; //Tableau = $_REQUEST
+    private $parametre = []; //Tableau = $_REQUEST
 
     function __construct($parametre){
 
@@ -67,8 +67,12 @@ class ClientModele extends Modele
     public function modifierUnClient(){
 
         $newClient = new ClientTable($_POST);
-        $sql = "UPDATE client SET nom = ?, adresse = ?, cp = ?, ville = ?, telephone = ?, actif = ? WHERE codec = ?";
-        $this->executeRequete($sql, [$newClient->getNom(),$newClient->getAdresse(),$newClient->getCp(),$newClient->getVille(),$newClient->getTelephone(),intval($newClient->getActif()), $newClient->getCodec()]);
+        if(!empty($_POST['mot_de_passe_defaut']) && !empty($newClient->getActif())){
+            $newClient->setEmail($_POST["email"]);
+            $newClient->setMot_de_passe($this->hasher_mot_de_passe($_POST['mot_de_passe_defaut']));
+        }
+        $sql = "UPDATE client SET nom = ?, adresse = ?, cp = ?, ville = ?, telephone = ?, actif = ?, email = ?, mot_de_passe = ? WHERE codec = ?";
+        $this->executeRequete($sql, [$newClient->getNom(),$newClient->getAdresse(),$newClient->getCp(),$newClient->getVille(),$newClient->getTelephone(),intval($newClient->getActif()), $newClient->getEmail() , $newClient->getMot_de_passe(), $newClient->getCodec()]);
         ClientTable::setMessageSuccess("Client modifié avec succes");
     }
 
@@ -105,6 +109,15 @@ class ClientModele extends Modele
         }else{
             $client->setStat01(0);
         }
+    }
+
+    public function hasher_mot_de_passe($mot_de_passe){
+        $gauche = "ar30&y%";
+        $droite = "tk!@";
+
+        $passwd = $_POST['mot_de_passe_defaut'];
+
+        return  hash('ripemd128', "$gauche$passwd$droite");
     }
 
     public function stat02(ClientTable $client){

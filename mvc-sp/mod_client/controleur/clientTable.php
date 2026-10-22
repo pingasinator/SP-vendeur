@@ -14,6 +14,8 @@ class ClientTable
 
     private $actif = false;
 
+    private $mot_de_passe = '';
+
     private static $messageErreur = "";
     private static $messageSuccess= "";
 
@@ -93,12 +95,16 @@ class ClientTable
         return $this->stat02;
     }
 
-    public function getEmail(): string{
+    public function getEmail(){
         return $this->email;
     }
 
     public function getActif(): string{
         return $this->actif;
+    }
+
+    public function getMot_de_passe(): string{
+        return $this->mot_de_passe;
     }
 
     /***************
@@ -172,5 +178,9 @@ class ClientTable
 
     public function setActif(bool $actif): void{
         $this->actif = $actif;
+    }
+
+    public function setMot_de_passe($mot_de_passe): void{
+        $this->mot_de_passe = $mot_de_passe;
     }
 }
